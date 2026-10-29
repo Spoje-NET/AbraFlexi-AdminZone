@@ -70,8 +70,8 @@ class User extends \Ease\User
             return false;
         }
 
-        // the data calls may run under the service account: only listed AbraFlexi users may use it
-        if (self::hasServiceAccount() && !self::isOperatorAllowed($login)) {
+        // optional restriction of who may use the application (empty = any AbraFlexi user)
+        if (!self::isOperatorAllowed($login)) {
             $this->lastError = _('This AbraFlexi account is not allowed to use this application.');
 
             return false;
@@ -81,10 +81,13 @@ class User extends \Ease\User
         if (!$obsolete) {
             $this->setDataValue('authSessionId', $token);
             $companies = $this->availableCompanies();
+            $wanted = (string) \Ease\Shared::cfg('ABRAFLEXI_COMPANY');
 
-            if ($companies !== [] && !isset($companies[(string) \Ease\Shared::cfg('ABRAFLEXI_COMPANY')])) {
+            if (!isset($companies[$wanted])) {
                 $this->setDataValue('authSessionId', null);
-                $this->lastError = sprintf(_('Your AbraFlexi account has no access to the company %s.'), (string) \Ease\Shared::cfg('ABRAFLEXI_COMPANY'));
+                $this->lastError = $companies === []
+                    ? sprintf(_('The access of your AbraFlexi account to the company %s could not be verified.'), $wanted)
+                    : sprintf(_('Your AbraFlexi account has no access to the company %s.'), $wanted);
 
                 return false;
             }
@@ -200,9 +203,9 @@ class User extends \Ease\User
     }
 
     /**
-     * Optional allow list (ABRAFLEXI_ALLOWED_USERS, comma separated AbraFlexi logins).
+     * Optional restriction (ABRAFLEXI_ALLOWED_USERS, comma separated AbraFlexi logins) of who may use the application.
      *
-     * Empty list means every successfully authenticated AbraFlexi user may use the application.
+     * An empty or missing list means that any user who can sign in to AbraFlexi may use it.
      */
     public static function isOperatorAllowed(string $login): bool
     {

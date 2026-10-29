@@ -49,6 +49,6 @@ class UserTest extends TestCase
         $this->assertFalse(User::isOperatorAllowed('stranger'));
 
         putenv('ABRAFLEXI_ALLOWED_USERS');
-        $this->assertTrue(User::isOperatorAllowed('anybody'), 'empty list allows every authenticated user');
+        $this->assertTrue(User::isOperatorAllowed('anybody'), 'an empty list allows every user of AbraFlexi');
     }
 }
