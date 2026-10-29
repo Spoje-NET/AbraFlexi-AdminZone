@@ -1,0 +1,12 @@
+/vendor/
+/.env
+/composer.lock
+/debian/*.debhelper*
+/debian/*.substvars
+/debian/.debhelper/
+/debian/abraflexi-adminzone/
+/debian/files
+/debian/debhelper-build-stamp
+/debian/tmp/
+/nbproject/
+/*.deb

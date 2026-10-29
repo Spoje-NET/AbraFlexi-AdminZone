@@ -1,0 +1,57 @@
+{
+    "winstrom": {
+        "@globalVersion": "254924",
+        "changes": [
+            {
+                "@evidence": "faktura-vydana",
+                "@in-version": "254920",
+                "@operation": "create",
+                "id": "6690",
+                "external-ids": [
+                    "code:1120180033",
+                    "ext:ESHOP:oi3640"
+                ]
+            },
+            {
+                "@evidence": "faktura-vydana-polozka",
+                "@in-version": "254921",
+                "@operation": "create",
+                "id": "8191",
+                "external-ids": [
+                    "ext:ESHOP:oi3640-product-3515"
+                ]
+            },
+            {
+                "@evidence": "faktura-vydana",
+                "@in-version": "254922",
+                "@operation": "update",
+                "id": "6690",
+                "external-ids": [
+                    "code:1120180033",
+                    "ext:ESHOP:oi3640"
+                ]
+            },
+            {
+                "@evidence": "faktura-vydana-polozka",
+                "@in-version": "254923",
+                "@operation": "create",
+                "id": "8192",
+                "external-ids": [
+                    "ext:ESHOP:oi3640-delivery"
+                ]
+            },
+            {
+                "@evidence": "faktura-vydana",
+                "@in-version": "254924",
+                "@operation": "update",
+                "id": "6690",
+                "external-ids": [
+                    "code:1120180033",
+                    "ext:ESHOP:oi3640"
+                ]
+            }
+        ],
+        "next": "none"
+    }
+}
+

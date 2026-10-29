@@ -1,0 +1,2095 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2017-12-18 12:42+0100\n"
+"PO-Revision-Date: 2017-12-18 12:44+0100\n"
+"Last-Translator: Vítězslav Dvořák <info@vitexsoftware.cz>\n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: ../src\n"
+"X-Poedit-SearchPathExcluded-0: ../vendor\n"
+
+#: ../src/System/Customer.php:209
+msgid "missing login"
+msgstr "missing login"
+
+#: ../src/System/Customer.php:214
+msgid "missing password"
+msgstr "missing password"
+
+#: ../src/System/Customer.php:225
+#, php-format
+msgid "Multiplete ContactID"
+msgstr "Multiplete ContactID"
+
+#: ../src/System/Customer.php:228
+msgid "Using the first one"
+msgstr "Using the first one"
+
+#: ../src/System/Customer.php:250
+#, php-format
+msgid "Sign in %s all ok"
+msgstr "Sign in %s all ok"
+
+#: ../src/System/DataGrid.php:197
+#, fuzzy
+msgid "Přidat"
+msgstr "Add contact information"
+
+#: ../src/System/DataGrid.php:198 ../src/System/Engine.php:468
+msgid "Upravit"
+msgstr ""
+
+#: ../src/System/DataGrid.php:199 ../src/System/Engine.php:466
+#, fuzzy
+msgid "Smazat"
+msgstr "delete"
+
+#: ../src/System/DataGrid.php:360 ../src/System/DataGrid.php:400
+#: ../src/System/DataGrid.php:438
+msgid "Je třeba označit nějaké řádky"
+msgstr ""
+
+#: ../src/System/DataSource.php:131
+msgid "Smazáno"
+msgstr ""
+
+#: ../src/System/DataSource.php:138
+msgid "Záznam byl přidán"
+msgstr ""
+
+#: ../src/System/DataSource.php:141
+msgid "Záznam nebyl přidám"
+msgstr ""
+
+#: ../src/System/DataSource.php:149
+msgid "Záznam byl upraven"
+msgstr ""
+
+#: ../src/System/DataSource.php:152
+msgid "Záznam nebyl upravn"
+msgstr ""
+
+#: ../src/System/Engine.php:178
+msgid "Záznam byl uložen"
+msgstr ""
+
+#: ../src/System/Engine.php:185
+msgid "Záznam nebyl uložen"
+msgstr ""
+
+#: ../src/System/Engine.php:315
+msgid "Chybná hodnota"
+msgstr ""
+
+#: ../src/System/Engine.php:424
+#, php-format
+msgid " %s %s byl smazán "
+msgstr ""
+
+#: ../src/System/Engine.php:430
+#, php-format
+msgid " %s %s nebyl smazán "
+msgstr ""
+
+#: ../src/System/AbraFlexiStatus.php:39
+msgid "Zvolená firma neexistuje"
+msgstr ""
+
+#: ../src/System/AbraFlexiStatus.php:43
+msgid "Chyba komunikace"
+msgstr ""
+
+#: ../src/System/HookReciever.php:74
+#, php-format
+msgid "Change version %s already processed"
+msgstr "Change version %s already processed"
+
+#: ../src/System/HookReciever.php:105
+#, php-format
+msgid "Handler Class %s does not exist"
+msgstr "Handler Class %s does not exist"
+
+#: ../src/System/HookReciever.php:127
+msgid "Empty WebHook request"
+msgstr "Empty WebHook request"
+
+#: ../src/System/HookReciever.php:151
+msgid "Last Processed Change ID Saving Failed"
+msgstr "Last Processed Change ID Saving Failed"
+
+#: ../src/System/HookReciever.php:155
+#, php-format
+msgid "Last Processed Change ID #%s Saved"
+msgstr "Last Processed Change ID #%s Saved"
+
+#: ../src/System/HookReciever.php:174
+msgid "Last Processed Change ID Loading Failed"
+msgstr "Last Processed Change ID Loading Failed"
+
+#: ../src/System/Order.php:68
+msgid "Please wait while our salesman contact you."
+msgstr "Please wait while our salesman contact you."
+
+#: ../src/System/Order.php:71
+msgid "purchase order"
+msgstr "purchase order"
+
+#: ../src/System/Order.php:115
+msgid "Proforma"
+msgstr "Proforma"
+
+#: ../src/System/Order.php:157
+msgid "Invoice"
+msgstr "Invoice"
+
+#: ../src/System/Order.php:199
+#, php-format
+msgid "Unhandled type of item"
+msgstr "Unhandled type of item"
+
+#: ../src/System/OrderItem.php:132
+msgid "Please choose service"
+msgstr "Please choose service"
+
+#: ../src/System/OrderItem.php:147
+#, php-format
+msgid "Product with code %s does not exist"
+msgstr "Product with code %s does not exist"
+
+#: ../src/System/OrderItem.php:152
+#, php-format
+msgid "Missing product code"
+msgstr "Missing product code"
+
+#: ../src/System/OrderItem.php:235
+#, php-format
+msgid "%s added to cart"
+msgstr "%s added to cart"
+
+#: ../src/System/OrderPlugin.php:75
+msgid "Product not specified"
+msgstr "Product not specified"
+
+#: ../src/System/OrderPlugin.php:89
+msgid "Please sign in to order item"
+msgstr "Please sign in to order item"
+
+#: ../src/System/OrderPlugin.php:106
+#: ../src/System/orderplugins/VoIPcredit.php:283
+#, php-format
+msgid "Item %s was settled with action handled in OrderPlugin code on %s"
+msgstr "Item %s was settled with action handled in OrderPlugin code on %s"
+
+#: ../src/System/OrderPluginDomain.php:35
+msgid "Domain name"
+msgstr "Domain name"
+
+#: ../src/System/OrderPluginDomain.php:36
+msgid "Domain Name you requested to pay"
+msgstr "Domain Name you requested to pay"
+
+#: ../src/System/OrderPluginDomain.php:41
+#, php-format
+msgid "Domain registraton price: %s %s"
+msgstr "Domain registraton price: %s %s"
+
+#: ../src/System/OrderPluginDomain.php:71
+#, php-format
+msgid "Domain name %s is not valid"
+msgstr "Domain name %s is not valid"
+
+#: ../src/System/OrderPluginDomain.php:77
+#, php-format
+msgid "Domain name %s allready registerd"
+msgstr "Domain name %s allready registerd"
+
+#: ../src/System/OrderPluginDomain.php:82
+msgid "Please enter Domain name"
+msgstr "Please enter Domain name"
+
+#: ../src/System/OrderPluginDomain.php:110
+#, php-format
+msgid "Domain %s Registration"
+msgstr "Domain %s Registration"
+
+#: ../src/System/ParovacFaktur.php:167
+#, php-format
+msgid "Faktura za Eura %s"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:174
+#, php-format
+msgid "Unknown invoice type: %s %s"
+msgstr "Unknown invoice type: %s %s"
+
+#: ../src/System/ParovacFaktur.php:183
+#, php-format
+msgid "API AKCE: %s"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:197
+msgid "Nenalezena faktura: - přeplatek?"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:231
+msgid "Faktura za Eura"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:234
+#, php-format
+msgid "Unknown invoice type: %s"
+msgstr "Unknown invoice type: %s"
+
+#: ../src/System/ParovacFaktur.php:256
+#, php-format
+msgid "Castecna uhrada - DOBROPIS: prijato: %s ma byt zaplaceno %s"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:261
+#, php-format
+msgid "Přeplatek - DOBROPIS: prijato: %s ma byt zaplaceno %s"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:273
+#, php-format
+msgid "Platba %s  %s byla sparovana s dobropisem %s"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:300 ../src/System/ParovacFaktur.php:428
+#, php-format
+msgid "Platba %s  %s byla sparovana s zalohou %s"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:364
+#, php-format
+msgid "Částečná úhrada %s"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:367 ../src/System/ParovacFaktur.php:434
+#, php-format
+msgid "Vytvoř ZDD: %s"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:373
+#, php-format
+msgid "Přeplatek %s"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:393
+#, php-format
+msgid "Faktura #%s byla sparovana se zálohou #%s"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:399
+#, php-format
+msgid "Faktura #%s nebyla sparovana se zalohou #%s "
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:431
+#, php-format
+msgid "Uhrada projektové zálohy: %s"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:483
+#, php-format
+msgid "ZDD AKCE: %s"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:488
+#, php-format
+msgid "Platba %s  %s nebyla sparovana s zalohou %s"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:509
+#, php-format
+msgid "Castecna uhrada - FAKTURA: prijato: %s ma byt zaplaceno %s"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:514
+#, php-format
+msgid "Přeplatek - FAKTURA: prijato: %s ma byt zaplaceno %s"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:526
+#, php-format
+msgid "Platba %s  %s byla sparovana s fakturou %s"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:596
+#, php-format
+msgid "Faktura %s byla vytvořena z dokladu %s"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:681
+msgid "Neidentifikovaná platba"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:688
+msgid "Platba bez faktury"
+msgstr ""
+
+#: ../src/System/ParovacFaktur.php:807
+#, php-format
+msgid "Platba pro fakturu %s nebyla dohledána"
+msgstr ""
+
+#: ../src/System/PotvrzeniUhrady.php:37
+msgid "Dear customer,"
+msgstr ""
+
+#: ../src/System/PotvrzeniUhrady.php:38
+#, php-format
+msgid "we confirm receipt of payment %s %s on %s "
+msgstr ""
+
+#: ../src/System/PotvrzeniUhrady.php:54
+msgid "Confirmation of receipt of invoice payment"
+msgstr ""
+
+#: ../src/System/SmlouvyGenerujici.php:51
+#, php-format
+msgid "Resetnul %s v %s na %s"
+msgstr ""
+
+#: ../src/System/SmlouvyGenerujici.php:58
+#, php-format
+msgid "Datum posledniho generovani faktur (%s #%d) nastaven na (%s)"
+msgstr ""
+
+#: ../src/System/SmlouvyGenerujici.php:62
+#, php-format
+msgid ""
+"Nepovedlo se nastavení Data posledniho generovani faktur (%s #%d) na "
+"včerejšek"
+msgstr ""
+
+#: ../src/System/SmlouvyGenerujici.php:81
+msgid "id"
+msgstr "id"
+
+#: ../src/System/SmlouvyGenerujici.php:81
+msgid "kód"
+msgstr ""
+
+#: ../src/System/SmlouvyGenerujici.php:81
+msgid "název"
+msgstr ""
+
+#: ../src/System/SmlouvyGenerujici.php:81
+msgid "popis"
+msgstr ""
+
+#: ../src/System/SmlouvyGenerujici.php:82
+msgid "Reset"
+msgstr "Reset"
+
+#: ../src/System/Upominac.php:65
+msgid "Getting clients"
+msgstr "Getting clients"
+
+#: ../src/System/Upominac.php:69
+#, php-format
+msgid "%s Clients Found"
+msgstr "%s Clients Found"
+
+#: ../src/System/Upominac.php:70
+msgid "Getting debts"
+msgstr "Getting debts"
+
+#: ../src/System/Upominac.php:92
+#, php-format
+msgid "%s Debts Found"
+msgstr "%s Debts Found"
+
+#: ../src/System/Upominac.php:119 ../src/System/Upominac.php:122
+#, php-format
+msgid "Clear %s Remind labels"
+msgstr "Clear %s Remind labels"
+
+#: ../src/System/Upominac.php:140
+#, php-format
+msgid "%d clients to remind process"
+msgstr "%d clients to remind process"
+
+#: ../src/System/Upominac.php:146
+#, php-format
+msgid "(%d / %d) #%s LMS# %s %s "
+msgstr "(%d / %d) #%s LMS# %s %s "
+
+#: ../src/System/Upominac.php:158
+#, php-format
+msgid "User %s not present in LMS; cannot set dashboard "
+msgstr "User %s not present in LMS; cannot set dashboard "
+
+#: ../src/System/Upominac.php:200
+#, php-format
+msgid "Dashboard for: %d "
+msgstr "Dashboard for: %d "
+
+#: ../src/System/Upominac.php:209
+#, php-format
+msgid "Disconnect for: %d "
+msgstr "Disconnect for: %d "
+
+#: ../src/System/Upominac.php:239
+msgid "Invoice locked: skipping process"
+msgstr ""
+
+#: ../src/System/Upominac.php:292
+#, php-format
+msgid "Invoice %s remind %s date saved"
+msgstr ""
+
+#: ../src/System/Upominac.php:295
+#, php-format
+msgid "Invoice %s remind %s date save failed"
+msgstr ""
+
+#: ../src/System/Upominac.php:301
+msgid "Remind send disbled"
+msgstr "Remind send disbled"
+
+#: ../src/System/Upominac.php:304
+#, php-format
+msgid "Remind %d already sent"
+msgstr "Remind %d already sent"
+
+#: ../src/System/Upominac.php:308
+msgid "No debts to remind"
+msgstr "No debts to remind"
+
+#: ../src/System/Upominac.php:317
+#, php-format
+msgid "Invoice %s locked again"
+msgstr ""
+
+#: ../src/System/Upominac.php:320
+#, php-format
+msgid "Invoice %s locking failed"
+msgstr ""
+
+#: ../src/System/Upominac.php:398
+msgid "UPOMINKA NEBYLA ODESLANA!!!!"
+msgstr ""
+
+#: ../src/System/Upominac.php:402
+#, php-format
+msgid "Set Label %s "
+msgstr ""
+
+#: ../src/System/Upominac.php:413
+#, php-format
+msgid "Set dashboards for %d customers"
+msgstr "Set dashboards for %d customers"
+
+#: ../src/System/Upominac.php:428
+#, php-format
+msgid "Disconnect %d customers"
+msgstr "Disconnect %d customers"
+
+#: ../src/System/Upominac.php:443
+#, php-format
+msgid "Connect %d customers"
+msgstr "Connect %d customers"
+
+#: ../src/System/Upominka.php:70
+#, php-format
+msgid ""
+"%s \n"
+"\n"
+"-----------------------\n"
+" celkem za %s,-"
+msgstr ""
+
+#: ../src/System/Upominka.php:85
+#, php-format
+msgid "Klient %s nema email - HELPDESK RESIT %s !!!"
+msgstr ""
+
+#: ../src/System/User.php:110 ../src/System/User.php:115
+#: ../src/System/User.php:185
+#, fuzzy
+msgid "Delete"
+msgstr "Delete"
+
+#: ../src/System/User.php:111
+#, php-format
+msgid "Are you sure %s ?"
+msgstr ""
+
+#: ../src/System/User.php:187 ../src/System/ui/AdminPricelist.php:72
+#: ../src/adresar.php:42
+#, fuzzy
+msgid "Edit"
+msgstr "Edit"
+
+#: ../src/System/WebHookHandler.php:129
+msgid "No Create Action Defined"
+msgstr ""
+
+#: ../src/System/WebHookHandler.php:138
+msgid "No Update Action Defined"
+msgstr ""
+
+#: ../src/System/WebHookHandler.php:147
+msgid "No Delete Action Defined"
+msgstr ""
+
+#: ../src/System/ZalohyZeSmluvDoPohledavek.php:142
+#, php-format
+msgid "Pohledávka %d vytvořena"
+msgstr ""
+
+#: ../src/System/ZalohyZeSmluvDoPohledavek.php:150
+#, php-format
+msgid "Bylo vygenerováno %s ostatních pohledávek z %s zálohových faktur"
+msgstr ""
+
+#: ../src/System/ZalohyZeSmluvDoPohledavek.php:165
+#: ../src/System/ZalohyZeSmluvDoZavazku.php:165
+#, php-format
+msgid "Nepodařilo se smazat zálohovou fakturu %s"
+msgstr ""
+
+#: ../src/System/ZalohyZeSmluvDoPohledavek.php:169
+msgid "Zálohové faktury převedené na pohledávky byly smazány"
+msgstr ""
+
+#: ../src/System/ZalohyZeSmluvDoZavazku.php:142
+#, php-format
+msgid "Závazek %d vytvořen"
+msgstr ""
+
+#: ../src/System/ZalohyZeSmluvDoZavazku.php:150
+#, php-format
+msgid "Bylo vygenerováno %s ostatních závazků z %s zálohových faktur"
+msgstr ""
+
+#: ../src/System/ZalohyZeSmluvDoZavazku.php:169
+msgid "Zálohové faktury převedené na závazky byly smazány"
+msgstr ""
+
+#: ../src/System/importer/Importer.php:79
+#, php-format
+msgid "%s importer"
+msgstr "%s importer"
+
+#: ../src/System/importer/Importer.php:93
+#: ../src/System/importer/Invoice.php:207
+#, php-format
+msgid "%s records loaded"
+msgstr "%s records loaded"
+
+#: ../src/System/importer/Importer.php:118
+#, php-format
+msgid "Convert progress: %s/%s = %s%% "
+msgstr "Convert progress: %s/%s = %s%% "
+
+#: ../src/System/importer/Importer.php:184
+#, php-format
+msgid "Saving progress: %s/%s = %s%% %s "
+msgstr "Saving progress: %s/%s = %s%% %s "
+
+#: ../src/System/importer/Importer.php:190
+msgid "created"
+msgstr "created"
+
+#: ../src/System/importer/Importer.php:191
+msgid "updated"
+msgstr "updated"
+
+#: ../src/System/importer/Importer.php:192
+msgid "deleted"
+msgstr "deleted"
+
+#: ../src/System/importer/Importer.php:193
+msgid "skipped"
+msgstr "skipped"
+
+#: ../src/System/importer/Importer.php:194
+msgid "failed"
+msgstr "failed"
+
+#: ../src/System/importer/Invoice.php:219
+#, php-format
+msgid "%s invoice items loaded"
+msgstr "%s invoice items loaded"
+
+#: ../src/System/importer/LmsMySQLi.php:13
+msgid ""
+"Není definována cesta ke skladu. Nastav prosím v konfiguraci SKLAD_DIRECTORY"
+msgstr ""
+
+#: ../src/System/orderplugins/Common.php:37
+msgid "Common item"
+msgstr "Common item"
+
+#: ../src/System/orderplugins/Common.php:57
+msgid "Product Code"
+msgstr "Product Code"
+
+#: ../src/System/orderplugins/Common.php:57
+msgid "ANTENA_2ODB_OUTDOOR"
+msgstr "ANTENA_2ODB_OUTDOOR"
+
+#: ../src/System/orderplugins/Common.php:58
+msgid "Product code from our pricelist"
+msgstr "Product code from our pricelist"
+
+#: ../src/System/orderplugins/Common.php:61
+msgid "Items count"
+msgstr "Items count"
+
+#: ../src/System/orderplugins/Common.php:61
+msgid "Amount requested"
+msgstr "Amount requested"
+
+#: ../src/System/orderplugins/Common.php:64
+msgid "Note for stuff"
+msgstr "Note for stuff"
+
+#: ../src/System/orderplugins/Common.php:65
+msgid "ASAP Please"
+msgstr "ASAP Please"
+
+#: ../src/System/orderplugins/Common.php:65
+msgid "Your kind words about ordered item"
+msgstr "Your kind words about ordered item"
+
+#: ../src/System/orderplugins/Common.php:107
+#, php-format
+msgid "Producet with code %s does not exist"
+msgstr "Producet with code %s does not exist"
+
+#: ../src/System/orderplugins/DomainCom.php:38
+msgid "Domain .COM"
+msgstr "Domain .COM"
+
+#: ../src/System/orderplugins/DomainCredit.php:38
+msgid "Domain Credit"
+msgstr "Domain Credit"
+
+#: ../src/System/orderplugins/DomainCredit.php:55
+#: ../src/System/orderplugins/VoIPcredit.php:81
+msgid "Requied Credit Value"
+msgstr "Requied Credit Value"
+
+#: ../src/System/orderplugins/DomainCredit.php:56
+msgid "Amount of Credit you requested"
+msgstr "Amount of Credit you requested"
+
+#: ../src/System/orderplugins/DomainCredit.php:82
+#: ../src/System/orderplugins/VoIPcredit.php:128
+msgid "Please enter Requested Credit"
+msgstr "Please enter Requested Credit"
+
+#: ../src/System/orderplugins/DomainNet.php:38
+msgid "Domain .NET"
+msgstr "Domain .NET"
+
+#: ../src/System/orderplugins/DomainNl.php:38
+msgid "Domain .NL"
+msgstr "Domain .NL"
+
+#: ../src/System/orderplugins/DomainOrg.php:38
+msgid "Domain .ORG"
+msgstr "Domain .ORG"
+
+#: ../src/System/orderplugins/VoIPaccount.php:41
+msgid "VoIP Account"
+msgstr "VoIP Account"
+
+#: ../src/System/orderplugins/VoIPcredit.php:59
+msgid "VoIP Credit"
+msgstr "VoIP Credit"
+
+#: ../src/System/orderplugins/VoIPcredit.php:81
+#, fuzzy
+msgid "with VAT"
+msgstr "Price with VAT"
+
+#: ../src/System/orderplugins/VoIPcredit.php:82
+msgid "Your price"
+msgstr ""
+
+#: ../src/System/orderplugins/VoIPcredit.php:82
+#, fuzzy
+msgid "without VAT"
+msgstr "Price without VAT"
+
+#: ../src/System/orderplugins/VoIPcredit.php:97
+#, php-format
+msgid "%d characters minimum"
+msgstr "%d characters minimum"
+
+#: ../src/System/orderplugins/VoIPcredit.php:98
+msgid "For Number"
+msgstr "For Number"
+
+#: ../src/System/orderplugins/VoIPcredit.php:99
+msgid "Telephone number you requested to pay"
+msgstr "Telephone number you requested to pay"
+
+#: ../src/System/orderplugins/VoIPcredit.php:131
+#, php-format
+msgid "Please enter at least %s Credit"
+msgstr "Please enter at least %s Credit"
+
+#: ../src/System/orderplugins/VoIPcredit.php:150
+msgid "VoIP Number not set"
+msgstr "VoIP Number not set"
+
+#: ../src/System/orderplugins/VoIPcredit.php:160
+#, php-format
+msgid "VoIP Number %s is not registered"
+msgstr "VoIP Number %s is not registered"
+
+#: ../src/System/orderplugins/VoIPcredit.php:187
+#, php-format
+msgid "VoIP Number %s does not belong to you"
+msgstr "VoIP Number %s does not belong to you"
+
+#: ../src/System/orderplugins/VoIPcredit.php:192
+#, php-format
+msgid "VoIP Number %s is not active"
+msgstr "VoIP Number %s is not active"
+
+#: ../src/System/orderplugins/VoIPcredit.php:194
+#: ../src/System/orderplugins/VoIPcredit.php:201
+#, php-format
+msgid "Cannot add credit to VoIP Number %s"
+msgstr "Cannot add credit to VoIP Number %s"
+
+#: ../src/System/orderplugins/VoIPcredit.php:199
+#, php-format
+msgid "VoIP Number %s is not prepayed"
+msgstr "VoIP Number %s is not prepayed"
+
+#: ../src/System/orderplugins/VoIPcredit.php:229
+msgid ""
+"Chyba hledání klientů tohoto jména. Prosím kontaktujte Helpdesk SPOJE.NET"
+msgstr ""
+
+#: ../src/System/orderplugins/VoIPcredit.php:231
+#, php-format
+msgid "IPEX: nelze dohledat klienta %s"
+msgstr ""
+
+#: ../src/System/ui/AddressContactsLinks.php:37
+msgid "New Contact"
+msgstr "New Contact"
+
+#: ../src/System/ui/AddressForm.php:27
+msgid "Code"
+msgstr "Code"
+
+#: ../src/System/ui/AddressForm.php:29 ../src/System/ui/CartForm.php:36
+#: ../src/newcustomer.php:161
+msgid "Name"
+msgstr "Name"
+
+#: ../src/System/ui/AddressForm.php:32
+msgid "Email address is empty"
+msgstr "Email address is empty"
+
+#: ../src/System/ui/AddressForm.php:36 ../src/System/ui/KontaktForm.php:31
+#: ../src/System/ui/UserForm.php:31 ../src/admpasswrcvr.php:70
+#: ../src/custmpassrecv.php:75
+msgid "Email"
+msgstr "Email"
+
+#: ../src/System/ui/AddressForm.php:42 ../src/System/ui/ColumnsForm.php:102
+#: ../src/System/ui/KontaktForm.php:48 ../src/System/ui/UserForm.php:38
+#, fuzzy
+msgid "Uložit"
+msgstr "Save"
+
+#: ../src/System/ui/AdminPricelist.php:43 ../src/System/ui/MainMenu.php:81
+#: ../src/System/ui/MainMenu.php:94 ../src/System/ui/Pricelist.php:43
+#: ../src/index.php:37 ../src/index.php:67 ../src/index.php:76
+#: ../src/pricelist.php:13
+msgid "Pricelist"
+msgstr "Pricelist"
+
+#: ../src/System/ui/AdminPricelist.php:45 ../src/System/ui/Pricelist.php:45
+#, php-format
+msgid "%s items found"
+msgstr "%s items found"
+
+#: ../src/System/ui/BootstrapMenu.php:31 ../src/template.php:15
+msgid "Spoje.Net"
+msgstr "Spoje.Net"
+
+#: ../src/System/ui/BootstrapMenu.php:43 ../src/System/ui/BootstrapMenu.php:63
+msgid "Settings"
+msgstr "Settings"
+
+#: ../src/System/ui/BootstrapMenu.php:52 ../src/System/ui/BootstrapMenu.php:73
+#: ../src/changecustpw.php:89 ../src/changepassword.php:89
+msgid "Password change"
+msgstr "Password change"
+
+#: ../src/System/ui/BootstrapMenu.php:53
+msgid "About"
+msgstr "About"
+
+#: ../src/System/ui/BootstrapMenu.php:55 ../src/System/ui/BootstrapMenu.php:75
+msgid "Sign Out"
+msgstr "Sign Out"
+
+#: ../src/System/ui/BootstrapMenu.php:68 ../src/System/ui/BootstrapMenu.php:87
+#: ../src/System/ui/CartForm.php:30
+msgid "Cart"
+msgstr "Cart"
+
+#: ../src/System/ui/BootstrapMenu.php:95 ../src/System/ui/BootstrapMenu.php:102
+#: ../src/System/ui/AbraFlexiLoginForm.php:24
+#: ../src/System/ui/LMSIDLoginForm.php:22 ../src/adminlogin.php:47
+#: ../src/admpasswrcvr.php:78 ../src/custmpassrecv.php:85
+#: ../src/customerlogin.php:35 ../src/abraflexilogin.php:16 ../src/index.php:79
+msgid "Sign In"
+msgstr "Sign In"
+
+#: ../src/System/ui/BootstrapMenu.php:98
+#: ../src/System/ui/AbraFlexiLoginForm.php:20
+#: ../src/System/ui/AbraFlexiLoginForm.php:22
+#: ../src/System/ui/KontaktForm.php:37
+msgid "Login"
+msgstr "Login"
+
+#: ../src/System/ui/BootstrapMenu.php:99 ../src/System/ui/KontaktForm.php:39
+#: ../src/adminlogin.php:67 ../src/admpasswrcvr.php:43
+#: ../src/changecustpw.php:66 ../src/changepassword.php:66
+#: ../src/custmpassrecv.php:43 ../src/customerlogin.php:56
+msgid "Password"
+msgstr "Password"
+
+#: ../src/System/ui/BootstrapMenu.php:101
+msgid "Remeber me"
+msgstr "Remeber me"
+
+#: ../src/System/ui/BootstrapMenu.php:103 ../src/createaccount.php:130
+#: ../src/createaccount.php:132
+msgid "Registrace"
+msgstr ""
+
+#: ../src/System/ui/BootstrapMenu.php:121
+msgid "Click to hide messages"
+msgstr "Click to hide messages"
+
+#: ../src/System/ui/CartForm.php:31
+msgid "Cart contents"
+msgstr "Cart contents"
+
+#: ../src/System/ui/CartForm.php:35 ../src/System/ui/ProductEditor.php:51
+msgid "Image"
+msgstr "Image"
+
+#: ../src/System/ui/CartForm.php:37 ../src/System/ui/Pricelist.php:54
+msgid "Price with VAT"
+msgstr "Price with VAT"
+
+#: ../src/System/ui/CartForm.php:38 ../src/System/ui/Pricelist.php:52
+msgid "Price without VAT"
+msgstr "Price without VAT"
+
+#: ../src/System/ui/CartForm.php:39
+msgid "Count"
+msgstr "Count"
+
+#: ../src/System/ui/CartForm.php:40 ../src/System/ui/Pillbox.php:56
+msgid "Remove"
+msgstr "Remove"
+
+#: ../src/System/ui/CartForm.php:59
+msgid "Cash desk"
+msgstr "Cash desk"
+
+#: ../src/System/ui/CartForm.php:59
+msgid "Order now"
+msgstr "Order now"
+
+#: ../src/System/ui/CartForm.php:65 ../src/cart.php:14
+msgid "Cart is empty"
+msgstr "Cart is empty"
+
+#: ../src/System/ui/CashForm.php:24 ../src/System/ui/SettleForm.php:24
+msgid "Zákazník"
+msgstr ""
+
+#: ../src/System/ui/CashForm.php:25 ../src/System/ui/SettleForm.php:25
+msgid "Jaroslav Vomáčka"
+msgstr "John Doe"
+
+#: ../src/System/ui/CashForm.php:26 ../src/System/ui/SettleForm.php:26
+msgid "Po zadání dvou písmen budou nabídnuty možnosti"
+msgstr ""
+
+#: ../src/System/ui/CashForm.php:32 ../src/System/ui/SettleForm.php:35
+msgid "Kasa"
+msgstr ""
+
+#: ../src/System/ui/CashForm.php:37 ../src/System/ui/SettleForm.php:40
+msgid "Celkem"
+msgstr ""
+
+#: ../src/System/ui/CashForm.php:42 ../src/System/ui/SettleForm.php:45
+msgid "Popis"
+msgstr ""
+
+#: ../src/System/ui/ColumnsForm.php:112
+msgid "Uložit a zpět na přehled"
+msgstr ""
+
+#: ../src/System/ui/ColumnsForm.php:121
+msgid "Uložit a další"
+msgstr ""
+
+#: ../src/System/ui/DownloadInvoiceButton.php:21
+#, php-format
+msgid "Download Your %s"
+msgstr "Download Your %s"
+
+#: ../src/System/ui/AbraFlexiLoginForm.php:21
+msgid "your email address in most of cases"
+msgstr "your email address in most of cases"
+
+#: ../src/System/ui/AbraFlexiLoginForm.php:23
+msgid "Password you recivied by email"
+msgstr "Password you recivied by email"
+
+#: ../src/System/ui/AbraFlexiLoginForm.php:29
+msgid "Please enter your Login and Password"
+msgstr "Please enter your Login and Password"
+
+#: ../src/System/ui/InvoicesOfAddresButton.php:26
+msgid "Customer Invoices"
+msgstr "Customer Invoices"
+
+#: ../src/System/ui/KontaktForm.php:27 ../src/System/ui/UserForm.php:27
+#: ../src/createaccount.php:139
+#, fuzzy
+msgid "Jméno"
+msgstr "Name"
+
+#: ../src/System/ui/KontaktForm.php:29 ../src/System/ui/UserForm.php:29
+#: ../src/createaccount.php:140
+msgid "Příjmení"
+msgstr ""
+
+#: ../src/System/ui/KontaktForm.php:33
+msgid "Phone"
+msgstr "Phone"
+
+#: ../src/System/ui/KontaktForm.php:35
+msgid "Cell"
+msgstr "Cell"
+
+#: ../src/System/ui/LMSIDLoginForm.php:20
+msgid "LMS ID"
+msgstr "LMS ID"
+
+#: ../src/System/ui/LMSIDLoginForm.php:21
+msgid "Spoje.Net Customer ID"
+msgstr "Spoje.Net Customer ID"
+
+#: ../src/System/ui/LMSIDLoginForm.php:27
+msgid "Please enter your Customer ID (lmsID)"
+msgstr "Please enter your Customer ID (lmsID)"
+
+#: ../src/System/ui/LinkToAbraFlexiButton.php:25
+msgid "Open in AbraFlexi"
+msgstr "Open in AbraFlexi"
+
+#: ../src/System/ui/MainMenu.php:60
+msgid "Scripts"
+msgstr "Scripts"
+
+#: ../src/System/ui/MainMenu.php:62
+msgid "Invoice matching (Take so long)"
+msgstr "Invoice matching (Take so long)"
+
+#: ../src/System/ui/MainMenu.php:67
+msgid "Oders"
+msgstr "Oders"
+
+#: ../src/System/ui/MainMenu.php:70
+msgid "Orders TODO"
+msgstr "Orders TODO"
+
+#: ../src/System/ui/MainMenu.php:79
+msgid "Proposal"
+msgstr "Proposal"
+
+#: ../src/System/ui/MainMenu.php:85
+msgid "Users"
+msgstr "Users"
+
+#: ../src/System/ui/MainMenu.php:87
+msgid "New user"
+msgstr "New user"
+
+#: ../src/System/ui/MainMenu.php:88
+msgid "User overview"
+msgstr "User overview"
+
+#: ../src/System/ui/MainMenu.php:96 ../src/customerorders.php:34
+msgid "Orders"
+msgstr "Orders"
+
+#: ../src/System/ui/MainMenu.php:98
+msgid "New order"
+msgstr "New order"
+
+#: ../src/System/ui/MainMenu.php:100
+msgid "My orders"
+msgstr "My orders"
+
+#: ../src/System/ui/NavBarSearchBox.php:39
+msgid "Hledání"
+msgstr ""
+
+#: ../src/System/ui/NavBarSearchBox.php:45
+msgid "Close"
+msgstr "Close"
+
+#: ../src/System/ui/NavBarSearchBox.php:49
+msgid "Search"
+msgstr "Search"
+
+#: ../src/System/ui/OrderFormHtml.php:36
+msgid "Service Requested"
+msgstr "Service Requested"
+
+#: ../src/System/ui/OrderFormHtml.php:38
+msgid "Enter details"
+msgstr "Enter details"
+
+#: ../src/System/ui/OrderFormHtml.php:44
+msgid "Order Now"
+msgstr "Order Now"
+
+#: ../src/System/ui/OrderFormHtml.php:56
+msgid "Please choose your service"
+msgstr "Please choose your service"
+
+#: ../src/System/ui/OrderListingItem.php:37
+msgid "Settled"
+msgstr "Settled"
+
+#: ../src/System/ui/OrderListingItem.php:44
+msgid "Done"
+msgstr "Done"
+
+#: ../src/System/ui/OrderListingItem.php:47
+msgid "Open"
+msgstr "Open"
+
+#: ../src/System/ui/OrderListingItem.php:61
+#: ../src/System/ui/OrderListingItem.php:62
+msgid "Show"
+msgstr "Show"
+
+#: ../src/System/ui/OrderListingItem.php:65
+#: ../src/System/ui/OrderListingItem.php:66
+msgid "Download"
+msgstr "Download"
+
+#: ../src/System/ui/OrderListingItem.php:69
+#: ../src/System/ui/OrderListingItem.php:70
+msgid "Send"
+msgstr "Send"
+
+#: ../src/System/ui/OrderListingItem.php:75
+#: ../src/System/ui/OrderListingItem.php:76
+msgid "ISDOC"
+msgstr "ISDOC"
+
+#: ../src/System/ui/OrderListingItem.php:82
+#: ../src/System/ui/OrderListingItem.php:84 ../src/abraflexiinit.php:15
+#: ../src/index.php:51
+msgid "AbraFlexi"
+msgstr "AbraFlexi"
+
+#: ../src/System/ui/OrderListingItem.php:87
+#: ../src/System/ui/OrderListingItem.php:89
+msgid "Company"
+msgstr "Company"
+
+#: ../src/System/ui/OrderListingItem.php:112
+#, php-format
+msgid " %s days to due"
+msgstr " %s days to due"
+
+#: ../src/System/ui/OrderListingItem.php:115
+#, php-format
+msgid " %s days after due"
+msgstr " %s days after due"
+
+#: ../src/System/ui/PageBottom.php:28
+msgid "Intranet"
+msgstr "Intranet"
+
+#: ../src/System/ui/PageBottom.php:34
+msgid "Aplikace"
+msgstr ""
+
+#: ../src/System/ui/PageBottom.php:40
+#, fuzzy
+msgid "Služby"
+msgstr "Services"
+
+#: ../src/System/ui/PageBottom.php:45
+msgid "Server housing"
+msgstr "Server housing"
+
+#: ../src/System/ui/PageBottom.php:47
+msgid "Virtuální servery"
+msgstr ""
+
+#: ../src/System/ui/PageBottom.php:50
+msgid "Dokumentace"
+msgstr ""
+
+#: ../src/System/ui/PageBottom.php:56
+msgid "Spřízněné"
+msgstr ""
+
+#: ../src/System/ui/PageBottom.php:59
+msgid "Murka.cz"
+msgstr ""
+
+#: ../src/System/ui/PageBottom.php:61
+msgid "CZFree.Net"
+msgstr "CZFree.Net"
+
+#: ../src/System/ui/PageBottom.php:64
+msgid "Více"
+msgstr ""
+
+#: ../src/System/ui/PageBottom.php:67
+msgid "O nás"
+msgstr ""
+
+#: ../src/System/ui/PageBottom.php:68
+msgid "Cenník prací"
+msgstr ""
+
+#: ../src/System/ui/PageBottom.php:70
+#, fuzzy
+msgid "Kontakty"
+msgstr "Contacts"
+
+#: ../src/System/ui/PageBottom.php:78
+msgid "Version"
+msgstr "Version"
+
+#: ../src/System/ui/PageBottom.php:78
+msgid "&copy; 2015-2017 Spoje.Net s.r.o."
+msgstr "&copy; 2015-2017 Spoje.Net s.r.o."
+
+#: ../src/System/ui/Pillbox.php:67 ../src/admpasswrcvr.php:78
+#: ../src/custmpassrecv.php:84
+msgid "and"
+msgstr "and"
+
+#: ../src/System/ui/Pillbox.php:68
+#, fuzzy
+msgid "more ..."
+msgstr "More Options:"
+
+#: ../src/System/ui/Pillbox.php:71
+msgid "add item"
+msgstr "add item"
+
+#: ../src/System/ui/Pillbox.php:74
+msgid "Kimaie dropdown"
+msgstr "Kimaie dropdown"
+
+#: ../src/System/ui/Pricelist.php:50
+msgid "Item name"
+msgstr "Item name"
+
+#: ../src/System/ui/Pricelist.php:55
+msgid "Actions"
+msgstr "Actions"
+
+#: ../src/System/ui/Pricelist.php:84
+#, fuzzy
+msgid "Add to cart"
+msgstr "%s added to cart"
+
+#: ../src/System/ui/ProductEditor.php:45
+msgid "Thumbnail"
+msgstr "Thumbnail"
+
+#: ../src/System/ui/ProductEditor.php:45
+msgid "Small 150x150px"
+msgstr "Small 150x150px"
+
+#: ../src/System/ui/ProductEditor.php:52
+msgid "Large image"
+msgstr "Large image"
+
+#: ../src/System/ui/ProductEditor.php:59
+msgid "Save"
+msgstr "Save"
+
+#: ../src/System/ui/ProductEditor.php:97
+#, php-format
+msgid "%s File %s was attached"
+msgstr "%s File %s was attached"
+
+#: ../src/System/ui/RecordsWithLabel.php:28
+#, php-format
+msgid "%s records with label %s"
+msgstr "%s records with label %s"
+
+#: ../src/System/ui/RightsForm.php:21 ../src/user.php:29
+msgid "Uživatel"
+msgstr ""
+
+#: ../src/System/ui/SettleForm.php:30 ../src/invoice.php:15
+msgid "Faktura"
+msgstr ""
+
+#: ../src/System/ui/SettleForm.php:31
+msgid "Nejprve vyber Zákazníka"
+msgstr ""
+
+#: ../src/System/ui/TWBSwitch.php:28
+msgid "Yes"
+msgstr "Yes"
+
+#: ../src/System/ui/TWBSwitch.php:31
+msgid "No"
+msgstr ""
+
+#: ../src/System/ui/UserForm.php:33
+msgid "Přihlašovací jméno"
+msgstr ""
+
+#: ../src/System/ui/WebPage.php:86
+msgid "Please sign in as admin first"
+msgstr "Please sign in as admin first"
+
+#: ../src/System/ui/WebPage.php:102
+msgid "Please sign in as user first"
+msgstr "Please sign in as user first"
+
+#: ../src/System/ui/ZewlScoreLabel.php:33
+msgid "Zewl score"
+msgstr "Zewl score"
+
+#: ../src/about.php:15
+msgid "Přehled výsledků"
+msgstr ""
+
+#: ../src/about.php:19
+msgid "O Programu"
+msgstr ""
+
+#: ../src/about.php:20
+msgid "Vitex Software"
+msgstr "Vitex Software"
+
+#: ../src/adminlogin.php:14 ../src/customerlogin.php:14
+msgid "Please enable cookies in your browser"
+msgstr "Please enable cookies in your browser"
+
+#: ../src/adminlogin.php:37
+msgid "Signed as"
+msgstr "Signed as"
+
+#: ../src/adminlogin.php:43
+msgid "Please enter your login creditials"
+msgstr "Please enter your login creditials"
+
+#: ../src/adminlogin.php:57 ../src/customerlogin.php:45
+msgid "Welcome to Spoje.Net information system"
+msgstr "Welcome to Spoje.Net information system"
+
+#: ../src/adminlogin.php:61 ../src/customerlogin.php:49
+msgid "Sign in"
+msgstr "Sign in"
+
+#: ../src/adminlogin.php:65 ../src/admpasswrcvr.php:42
+#: ../src/custmpassrecv.php:42 ../src/customerlogin.php:53
+msgid "Username"
+msgstr "Username"
+
+#: ../src/adminlogin.php:76 ../src/admpasswrcvr.php:55
+#: ../src/custmpassrecv.php:59 ../src/customerlogin.php:65
+msgid "Lost password recovery"
+msgstr "Lost password recovery"
+
+#: ../src/adminlogin.php:81 ../src/customerlogin.php:70
+#: ../src/newcustomer.php:138
+msgid "Sign On"
+msgstr "Sign On"
+
+#: ../src/adminpricelist.php:14
+msgid "Pricelist Admin"
+msgstr "Pricelist Admin"
+
+#: ../src/admpasswrcvr.php:38 ../src/custmpassrecv.php:37
+msgid "System.spoje.net"
+msgstr "System.spoje.net"
+
+#: ../src/admpasswrcvr.php:38 ../src/custmpassrecv.php:37
+#, php-format
+msgid "New password for %s"
+msgstr "New password for %s"
+
+#: ../src/admpasswrcvr.php:40 ../src/custmpassrecv.php:40
+msgid "Sign On informations was changed:\n"
+msgstr "Sign On informations was changed:\n"
+
+#: ../src/admpasswrcvr.php:47
+#, php-format
+msgid "Your new password was sent to %s"
+msgstr "Your new password was sent to %s"
+
+#: ../src/admpasswrcvr.php:52 ../src/custmpassrecv.php:56
+msgid "Please enter your email."
+msgstr "Please enter your email."
+
+#: ../src/admpasswrcvr.php:65 ../src/custmpassrecv.php:69
+msgid ""
+"Forgot your password? Enter your e-mail address you entered during the "
+"registration and we will send you a new one."
+msgstr ""
+"Forgot your password? Enter your e-mail address you entered during the "
+"registration and we will send you a new one."
+
+#: ../src/admpasswrcvr.php:71 ../src/custmpassrecv.php:76
+msgid "Send New Password"
+msgstr "Send New Password"
+
+#: ../src/admpasswrcvr.php:77 ../src/custmpassrecv.php:83
+msgid "Please check your mailbox for new password"
+msgstr "Please check your mailbox for new password"
+
+#: ../src/adresar.php:45
+msgid "Login as Customer"
+msgstr "Login as Customer"
+
+#: ../src/adresar.php:50 ../src/kontakt.php:77
+msgid "Address"
+msgstr "Address"
+
+#: ../src/adresar.php:65 ../src/kontakt.php:54
+msgid "Delete ?"
+msgstr "Delete ?"
+
+#: ../src/adresar.php:68 ../src/kontakt.php:57 ../src/transaction.php:39
+#: ../src/user.php:39
+msgid "Ne"
+msgstr ""
+
+#: ../src/adresar.php:70 ../src/kontakt.php:59 ../src/transaction.php:40
+#: ../src/user.php:40
+msgid "Ano"
+msgstr ""
+
+#: ../src/api/getCustomerScore.php:20
+msgid "AbraFlexi Address ID"
+msgstr "AbraFlexi Address ID"
+
+#: ../src/api/getCustomerScore.php:21
+msgid "Get Score"
+msgstr "Get Score"
+
+#: ../src/bin/InitializeHistory.php:20
+#, php-format
+msgid "History table %s is not empty"
+msgstr "History table %s is not empty"
+
+#: ../src/bin/InitializeHistory.php:29
+#, php-format
+msgid "%d records found in evidence %s"
+msgstr "%d records found in evidence %s"
+
+#: ../src/bin/InitializeHistory.php:36
+#, php-format
+msgid "Saving record %s into history table"
+msgstr "Saving record %s into history table"
+
+#: ../src/bin/OpravFaktury.php:41
+msgid "Faktura bez polozek"
+msgstr ""
+
+#: ../src/bin/ParujFaktury.php:11 ../src/bin/ParujFakturyNew2Old.php:29
+#: ../src/popup/ParujFakturyNew2Old.php:23
+msgid "Stahuji Výpisy online"
+msgstr ""
+
+#: ../src/bin/ParujFaktury.php:15 ../src/bin/ParujFakturyNew2Old.php:32
+#: ../src/popup/ParujFakturyNew2Old.php:26
+msgid "Zahajuji programové párování"
+msgstr ""
+
+#: ../src/bin/ParujFaktury.php:17 ../src/bin/ParujFakturyNew2Old.php:37
+#: ../src/popup/ParujFakturyNew2Old.php:31
+msgid "Párování hotovo"
+msgstr ""
+
+#: ../src/bin/ProcessUnprocessedChanges.php:22
+#, php-format
+msgid "Last processed change %d Last Availble Change: %d"
+msgstr "Last processed change %d Last Availble Change: %d"
+
+#: ../src/bin/ProcessUnprocessedChanges.php:31
+#, php-format
+msgid "%d unprocessed changes found"
+msgstr "%d unprocessed changes found"
+
+#: ../src/bin/ProcessUnprocessedChanges.php:34
+#, php-format
+msgid "Done for now. Last processed change %d Last Availble Change: %d"
+msgstr "Done for now. Last processed change %d Last Availble Change: %d"
+
+#: ../src/bin/ProcessUnprocessedChanges.php:38
+msgid "No changes to process"
+msgstr "No changes to process"
+
+#: ../src/bin/flexibe-company-transfer.php:32
+msgid "saving backup"
+msgstr "saving backup"
+
+#: ../src/bin/flexibe-company-transfer.php:34
+msgid "backup saved"
+msgstr "backup saved"
+
+#: ../src/bin/flexibe-company-transfer.php:35
+msgid "Remove company before restore"
+msgstr "Remove company before restore"
+
+#: ../src/bin/flexibe-company-transfer.php:38
+msgid "company removed before restore"
+msgstr "company removed before restore"
+
+#: ../src/bin/flexibe-company-transfer.php:40
+msgid "restore begin"
+msgstr "restore begin"
+
+#: ../src/bin/flexibe-company-transfer.php:42
+msgid "backup restored"
+msgstr "backup restored"
+
+#: ../src/bin/flexibe-company-transfer.php:44
+#, php-format
+msgid "company %s was not restored"
+msgstr "company %s was not restored"
+
+#: ../src/bin/flexibe-company-transfer.php:48
+msgid "company cleanup failed"
+msgstr "company cleanup failed"
+
+#: ../src/bin/flexibe-company-transfer.php:52
+msgid "error saving backup"
+msgstr "error saving backup"
+
+#: ../src/bin/odesliFaktury.php:20
+msgid "Doklady faktur odeslány"
+msgstr ""
+
+#: ../src/cart.php:20
+#, php-format
+msgid "Cart Item %s was removed"
+msgstr "Cart Item %s was removed"
+
+#: ../src/cart.php:26 ../src/orderform.php:13 ../src/ordernow.php:16
+msgid "Spoje.Net Order Form"
+msgstr "Spoje.Net Order Form"
+
+#: ../src/cash.php:27
+#, php-format
+msgid "Faktura %s byla uhrazena"
+msgstr ""
+
+#: ../src/cash.php:38
+#, php-format
+msgid "Vrať přeplatek %s"
+msgstr ""
+
+#: ../src/cash.php:51
+msgid "Pokladna"
+msgstr ""
+
+#: ../src/cash.php:65 ../src/cash.php:97
+msgid "Úhrada faktury"
+msgstr ""
+
+#: ../src/cash.php:75
+msgid "Příjem"
+msgstr ""
+
+#: ../src/cash.php:85 ../src/cash.php:104
+msgid "Výdej"
+msgstr ""
+
+#: ../src/cash.php:92
+msgid "Operace Pokladny"
+msgstr ""
+
+#: ../src/cash.php:101
+msgid "Vklad"
+msgstr ""
+
+#: ../src/cash.php:107
+msgid "Přehled"
+msgstr "Přehled"
+
+#: ../src/cash.php:108 ../src/transactions.php:19
+msgid "Transakce"
+msgstr ""
+
+#: ../src/cenik.php:17 ../src/prdimg.php:14 ../src/productimage.php:14
+msgid "Missing product ID"
+msgstr "Missing product ID"
+
+#: ../src/changecustpw.php:52 ../src/changepassword.php:52
+msgid "User password change"
+msgstr "User password change"
+
+#: ../src/changecustpw.php:60 ../src/changepassword.php:60
+#: ../src/custmpassrecv.php:33
+msgid "Password was changed"
+msgstr "Password was changed"
+
+#: ../src/changecustpw.php:63 ../src/changepassword.php:63
+msgid "Changed monitoring password"
+msgstr "Changed monitoring password"
+
+#: ../src/changecustpw.php:64
+#, php-format
+msgid "Dear user %s, your monitoring password was changed to"
+msgstr "Dear user %s, your monitoring password was changed to"
+
+#: ../src/changecustpw.php:73 ../src/changepassword.php:73
+msgid "Current password"
+msgstr "Current password"
+
+#: ../src/changecustpw.php:77 ../src/changepassword.php:77
+msgid "New Password"
+msgstr "New Password"
+
+#: ../src/changecustpw.php:81 ../src/changepassword.php:81
+msgid "Password confirm"
+msgstr "Password confirm"
+
+#: ../src/changecustpw.php:85 ../src/changepassword.php:85
+msgid "Change password"
+msgstr "Change password"
+
+#: ../src/changepassword.php:64
+#, php-format
+msgid "Dear user %s, your password was changed to"
+msgstr "Dear user %s, your password was changed to"
+
+#: ../src/contract-reset.php:24
+#, php-format
+msgid "Smlouva byla resetnuta"
+msgstr ""
+
+#: ../src/contract-reset.php:29
+msgid "Smlouvy"
+msgstr ""
+
+#: ../src/contract-reset.php:33
+msgid "Dodavatelské"
+msgstr ""
+
+#: ../src/contract-reset.php:35
+msgid "Odběratelské"
+msgstr ""
+
+#: ../src/contract-reset.php:37
+msgid "Smlouvy k autogeneraci"
+msgstr ""
+
+#: ../src/contracttodo.php:15
+msgid "Orders to do"
+msgstr "Orders to do"
+
+#: ../src/contracttodo.php:22 ../src/customerorders.php:24
+#: ../src/myorders.php:15 ../src/myorders.php:22
+msgid "My Orders"
+msgstr "My Orders"
+
+#: ../src/createaccount.php:41
+msgid "mailová adresa je příliš krátká"
+msgstr ""
+
+#: ../src/createaccount.php:45
+msgid "chyba v mailové adrese"
+msgstr ""
+
+#: ../src/createaccount.php:52
+#, php-format
+msgid "Mailová adresa %s je již zaregistrována"
+msgstr ""
+
+#: ../src/createaccount.php:60
+msgid "heslo je příliš krátké"
+msgstr ""
+
+#: ../src/createaccount.php:63
+msgid "kontrola hesla nesouhlasí"
+msgstr ""
+
+#: ../src/createaccount.php:73
+#, php-format
+msgid ""
+"Zadané uživatelské jméno %s je již v databázi použito. Zvolte prosím jiné."
+msgstr ""
+
+#: ../src/createaccount.php:96
+msgid "Administrátirský účet byl vytvořen"
+msgstr ""
+
+#: ../src/createaccount.php:99
+msgid "Uživatelský účet byl vytvořen"
+msgstr ""
+
+#: ../src/createaccount.php:104
+msgid "Potvrzení registrace"
+msgstr ""
+
+#: ../src/createaccount.php:111
+#, php-format
+msgid "Nová registrace do Systému: %s"
+msgstr ""
+
+#: ../src/createaccount.php:113
+msgid "Právě byl zaregistrován nový uživatel:\n"
+msgstr ""
+
+#: ../src/createaccount.php:122
+msgid "Zápis do databáze se nezdařil!"
+msgstr ""
+
+#: ../src/createaccount.php:142
+msgid "přihlašovací jméno"
+msgstr ""
+
+#: ../src/createaccount.php:143
+msgid "heslo"
+msgstr ""
+
+#: ../src/createaccount.php:144
+msgid "potvrzení hesla"
+msgstr ""
+
+#: ../src/createaccount.php:145
+msgid "emailová adresa"
+msgstr ""
+
+#: ../src/createaccount.php:147
+msgid "Registrovat"
+msgstr ""
+
+#: ../src/createaccount.php:147
+msgid "dokončit registraci"
+msgstr ""
+
+#: ../src/custmpassrecv.php:52
+#, php-format
+msgid "unknown email address %s"
+msgstr "unknown email address %s"
+
+#: ../src/customerlogin.php:17
+msgid "Sign in first please"
+msgstr "Sign in first please"
+
+#: ../src/customerlogin.php:55
+msgid "usually your email address"
+msgstr "usually your email address"
+
+#: ../src/customerorders.php:29
+msgid "Invoices"
+msgstr "Invoices"
+
+#: ../src/abraflexiinit.php:28
+msgid "ChangesApi Povoleno"
+msgstr ""
+
+#: ../src/abraflexiinit.php:30
+msgid "ChangesAPI povoleno"
+msgstr ""
+
+#: ../src/abraflexiinit.php:33
+msgid "ChangesAPI zakázáno"
+msgstr ""
+
+#: ../src/abraflexilogin.php:19
+msgid "I already have an customer number"
+msgstr "I already have an customer number"
+
+#: ../src/getisdoc.php:33 ../src/getpdf.php:39 ../src/maildocument.php:31
+msgid "Wrong call"
+msgstr "Wrong call"
+
+#: ../src/index.php:14 ../src/invoicematch.php:18
+msgid "System.Spoje.Net"
+msgstr "System.Spoje.Net"
+
+#: ../src/index.php:25
+msgid "Redmine"
+msgstr "Redmine"
+
+#: ../src/index.php:34
+msgid "Map"
+msgstr "Map"
+
+#: ../src/index.php:40
+msgid "ISPConfig"
+msgstr "ISPConfig"
+
+#: ../src/index.php:44
+msgid "WebMail"
+msgstr "WebMail"
+
+#: ../src/index.php:48
+msgid "Wiki"
+msgstr "Wiki"
+
+#: ../src/index.php:56
+msgid "Icinga"
+msgstr "Icinga"
+
+#: ../src/index.php:60
+msgid "LibreNMS"
+msgstr "LibreNMS"
+
+#: ../src/index.php:70
+msgid "Order Form"
+msgstr "Order Form"
+
+#: ../src/index.php:82
+msgid "Sign up"
+msgstr "Sign up"
+
+#: ../src/kontakt.php:45 ../src/kontakt.php:74
+msgid "Contact"
+msgstr "Contact"
+
+#: ../src/labels.php:21 ../src/labels.php:31
+msgid "Label"
+msgstr "Label"
+
+#: ../src/loginas.php:35
+#, php-format
+msgid "No contacts"
+msgstr "No contacts"
+
+#: ../src/logout.php:19
+msgid "Sign Off"
+msgstr "Sign Off"
+
+#: ../src/logout.php:23
+msgid "Thank you for your favor and we look forward to another visit"
+msgstr "Thank you for your favor and we look forward to another visit"
+
+#: ../src/maildocument.php:22
+#, php-format
+msgid "%s %s"
+msgstr "%s %s"
+
+#: ../src/maildocument.php:24
+msgid "Dear Customer, your document is in attachment"
+msgstr "Dear Customer, your document is in attachment"
+
+#: ../src/maildocument.php:25
+msgid "Invoice was sent"
+msgstr "Invoice was sent"
+
+#: ../src/maildocument.php:27
+msgid "Mailer does not work"
+msgstr "Mailer does not work"
+
+#: ../src/newcustomer.php:36
+msgid "Human control field is empty"
+msgstr "Human control field is empty"
+
+#: ../src/newcustomer.php:40
+msgid "six"
+msgstr "six"
+
+#: ../src/newcustomer.php:43
+msgid "Mail address is too short"
+msgstr "Mail address is too short"
+
+#: ../src/newcustomer.php:48
+msgid "invalid email address"
+msgstr "invalid email address"
+
+#: ../src/newcustomer.php:55
+#, php-format
+msgid "Mail address %s is allready registered"
+msgstr "Mail address %s is allready registered"
+
+#: ../src/newcustomer.php:61
+msgid "Are you smart human ?"
+msgstr "Are you smart human ?"
+
+#: ../src/newcustomer.php:80
+msgid "Company registered"
+msgstr "Company registered"
+
+#: ../src/newcustomer.php:94
+msgid "User account created"
+msgstr "User account created"
+
+#: ../src/newcustomer.php:97
+msgid "Sign On info"
+msgstr "Sign On info"
+
+#: ../src/newcustomer.php:99
+msgid "System.Spoje.net Account"
+msgstr "System.Spoje.net Account"
+
+#: ../src/newcustomer.php:105
+#, php-format
+msgid "New System.Spoje.net account: %s"
+msgstr "New System.Spoje.net account: %s"
+
+#: ../src/newcustomer.php:108
+msgid "New Customer"
+msgstr "New Customer"
+
+#: ../src/newcustomer.php:120
+msgid "Error saving Contact"
+msgstr "Error saving Contact"
+
+#: ../src/newcustomer.php:127
+msgid "Error saving Company"
+msgstr "Error saving Company"
+
+#: ../src/newcustomer.php:141
+msgid "Welcome"
+msgstr "Welcome"
+
+#: ../src/newcustomer.php:145
+msgid "After registering, you will be prompted to order service."
+msgstr "After registering, you will be prompted to order service."
+
+#: ../src/newcustomer.php:146
+msgid "All notifications target to your email"
+msgstr "All notifications target to your email"
+
+#: ../src/newcustomer.php:162 ../src/newcustomer.php:166
+msgid "Requied"
+msgstr "Requied"
+
+#: ../src/newcustomer.php:166
+msgid "Email Address"
+msgstr "Email Address"
+
+#: ../src/newcustomer.php:168
+msgid "Telephone number"
+msgstr "Telephone number"
+
+#: ../src/newcustomer.php:171
+msgid "Company ID number"
+msgstr "Company ID number"
+
+#: ../src/newcustomer.php:171 ../src/newcustomer.php:173
+msgid "Only for company"
+msgstr "Only for company"
+
+#: ../src/newcustomer.php:173
+msgid "Company VAT number"
+msgstr "Company VAT number"
+
+#: ../src/newcustomer.php:175
+msgid "The Cube"
+msgstr "The Cube"
+
+#: ../src/newcustomer.php:176
+msgid "How many walls does the cube have?"
+msgstr "How many walls does the cube have?"
+
+#: ../src/newcustomer.php:176
+msgid "Only for humans"
+msgstr "Only for humans"
+
+#: ../src/newcustomer.php:179
+msgid "Singn On"
+msgstr "Singn On"
+
+#: ../src/newcustomer.php:180
+msgid "Finish"
+msgstr "Finish"
+
+#: ../src/order.php:19 ../src/order.php:24 ../src/orderform.php:24
+msgid "Order"
+msgstr "Order"
+
+#: ../src/order.php:27
+#, php-format
+msgid "Download Your Proforma #%s Here"
+msgstr "Download Your Proforma #%s Here"
+
+#: ../src/ordernow.php:8
+msgid "Please sign in to finish your order"
+msgstr "Please sign in to finish your order"
+
+#: ../src/ordernow.php:24
+msgid "Order was accepted"
+msgstr "Order was accepted"
+
+#: ../src/ordernow.php:26
+msgid "Order Accepted"
+msgstr "Order Accepted"
+
+#: ../src/ordernow.php:41
+#, php-format
+msgid "%s for your order"
+msgstr "%s for your order"
+
+#: ../src/ordernow.php:43
+#, php-format
+msgid "Proforma was sent to %s"
+msgstr "Proforma was sent to %s"
+
+#: ../src/ordernow.php:47
+#, php-format
+msgid "Get Your %s Here %s"
+msgstr "Get Your %s Here %s"
+
+#: ../src/ordernow.php:61
+msgid "The order is empty"
+msgstr "The order is empty"
+
+#: ../src/pohledavky.php:15
+msgid "Pohledávky"
+msgstr ""
+
+#: ../src/pohledavky.php:33
+msgid "Vygenerované ostatní pohledávky"
+msgstr ""
+
+#: ../src/popup/monitor.php:6
+msgid "Command"
+msgstr "Command"
+
+#: ../src/redmineprojects.php:12
+msgid "Spoje.Net Redmine Project Chooser"
+msgstr "Spoje.Net Redmine Project Chooser"
+
+#: ../src/redmineprojects.php:23
+msgid "No projects found"
+msgstr ""
+
+#: ../src/redmineprojects.php:36
+msgid "Get import IDs"
+msgstr ""
+
+#: ../src/redmineprojects.php:38
+msgid "Choose Redmine Projects"
+msgstr ""
+
+#: ../src/rights.php:15 ../src/settings.php:20
+msgid "Oprávnění"
+msgstr ""
+
+#: ../src/search.php:18
+msgid "Search results"
+msgstr "Search results"
+
+#: ../src/search.php:31
+#, php-format
+msgid "%d occurencies of %s found"
+msgstr "%d occurencies of %s found"
+
+#: ../src/search.php:66
+#, php-format
+msgid "Search for %s results in %s"
+msgstr "Search for %s results in %s"
+
+#: ../src/settings.php:15
+#, fuzzy
+msgid "Nastavení"
+msgstr "Settings"
+
+#: ../src/settings.php:18
+#, fuzzy
+msgid "Změna hesla"
+msgstr "Changing the password"
+
+#: ../src/settings.php:23
+msgid "Init AbraFlexi"
+msgstr "AbraFlexi Address ID"
+
+#: ../src/settings.php:26
+msgid "Redmine Projects"
+msgstr "Redmine Projects"
+
+#: ../src/transaction.php:29
+msgid "Transactiona"
+msgstr ""
+
+#: ../src/transaction.php:38 ../src/user.php:38
+msgid "Opravdu smazat ?"
+msgstr ""
+
+#: ../src/transactions.php:17
+msgid "Přehled transakcí"
+msgstr ""
+
+#: ../src/users.php:17
+msgid "Přehled uživatelů"
+msgstr ""
+
+#: ../src/users.php:19
+msgid "Uživatelé"
+msgstr ""
+
+#: ../src/zavazky.php:15
+msgid "Závazky"
+msgstr ""
+
+#: ../src/zavazky.php:33
+msgid "Vygenerované ostatní závazky"
+msgstr ""
+
+#~ msgid "Please enter LMS ID"
+#~ msgstr "Please enter LMS ID"
+
+#~ msgid "Customer not found"
+#~ msgstr "Customer not found"
+
+#~ msgid "login"
+#~ msgstr "login"
+
+#~ msgid "password is too short"
+#~ msgstr "password is too short"
+
+#~ msgid "Password control does not match"
+#~ msgstr "Password control does not match"
+
+#~ msgid "Username %s is used. Please choose another one"
+#~ msgstr "Username %s is used. Please choose another one"
+
+#~ msgid "Admin prvileges assigned"
+#~ msgstr "Admin prvileges assigned"
+
+#~ msgid "Error writing to database"
+#~ msgstr "Error writing to database"
+
+#, fuzzy
+#~ msgid "AbraFlexi"
+#~ msgstr "AbraFlexi"
+
+#~ msgid "Order specific"
+#~ msgstr "Order specific"

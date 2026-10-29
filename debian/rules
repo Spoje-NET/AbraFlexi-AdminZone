@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+
+PKG_ROOT := debian/abraflexi-adminzone/usr/share/abraflexi-adminzone
+
+%:
+	dh $@
+
+override_dh_auto_test:
+
+override_dh_install:
+	dh_install
+	# Rewrite development paths to Debian install locations
+	sed -i \
+	    -e "s|__DIR__ . '/../../vendor/autoload.php'|'/usr/share/abraflexi-adminzone/autoload.php'|" \
+	    -e "s|__DIR__ . '/../../i18n'|'/usr/share/locale'|" \
+	    -e "s|__DIR__ . '/../../.env'|'/etc/abraflexi-admin-zone/.env'|" \
+	    $(PKG_ROOT)/includes/Init.php
+	find $(PKG_ROOT) -name '*.php' -print0 | xargs -0 sed -i \
+	    -e "s|require_once __DIR__ *\. *'/../vendor/autoload.php';|require_once '/usr/share/abraflexi-adminzone/autoload.php';|g" \
+	    -e "s|require_once '../vendor/autoload.php';|require_once '/usr/share/abraflexi-adminzone/autoload.php';|g"

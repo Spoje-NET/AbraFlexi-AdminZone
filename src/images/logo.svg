@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg885"
+   width="1024"
+   height="1024"
+   viewBox="0 0 1024 1024"
+   sodipodi:docname="logo.svg"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)">
+  <title
+     id="title921">Spoje.Net Square logo</title>
+  <metadata
+     id="metadata891">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Spoje.Net Square logo</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Vitex</dc:title>
+          </cc:Agent>
+        </dc:creator>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs889" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1177"
+     id="namedview887"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="0.41183037"
+     inkscape:cx="841.96746"
+     inkscape:cy="270.20931"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g893" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g893">
+    <g
+       id="g928"
+       transform="matrix(12.83632,0,0,12.83632,32.777403,32.777403)">
+      <rect
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:6.42613;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect919"
+         width="68.198486"
+         height="68.336945"
+         x="3.2340889"
+         y="3.1648598"
+         ry="8.1874542" />
+      <g
+         id="g915"
+         transform="translate(0.14973856,-1.4098319)">
+        <path
+           id="rect905"
+           style="fill:#e7b142;fill-opacity:1;stroke:none;stroke-width:1.452"
+           d="M 44.929688,16.90625 39.765625,22.070312 56.271484,38.576172 39.599609,55.25 l 5.330079,5.330078 21.83789,-21.835937 z" />
+        <path
+           id="path908"
+           style="fill:#e7b142;fill-opacity:1;stroke:none;stroke-width:1.452"
+           d="M 28.929688,16.90625 23.765625,22.070312 40.271484,38.576172 23.599609,55.25 l 5.330079,5.330078 21.83789,-21.835937 z" />
+        <path
+           id="path910"
+           style="fill:#e7b142;fill-opacity:1;stroke:none;stroke-width:1.452"
+           d="M 12.929688,16.90625 7.765625,22.070312 24.271484,38.576172 7.599609,55.25 l 5.330079,5.330078 21.83789,-21.835937 z" />
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,5 @@
+abraflexi-adminzone (0.1.0) unstable; urgency=low
+
+  * Initial release: administrator part split from system.spoje.net
+
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Thu, 29 Oct 2026 03:12:48 +0100

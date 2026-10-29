@@ -1,0 +1,50 @@
+{
+  "name": "vitexsoftware/abraflexi-adminzone",
+  "description": "Administrátorská zóna pro AbraFlexi: správa zákazníků, fakturace, importy, webhooky a integrace",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Vítězslav Dvořák",
+      "email": "vitex@arachne.cz"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=8.4",
+    "spojenet/abraflexi": "*",
+    "phois/whois": "dev-master",
+    "gufy/pdftohtml-php": "~2",
+    "mhujer/fio-api-php": "^2.4",
+    "mpdf/mpdf": "*",
+    "vitexsoftware/ease-bootstrap5": "*",
+    "vitexsoftware/ease-bootstrap5-widgets": "*",
+    "vitexsoftware/abraflexi-bricks": "^1.4",
+    "vitexsoftware/ease-bootstrap5-widgets-abraflexi": "^1.5",
+    "spojenet/subreg": "dev-main",
+    "spojenet/ipexb2b": "dev-main",
+    "vitexsoftware/datatables-abraflexi": "^1.0",
+    "vitexsoftware/ease-core-bricks": "^1.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "AdminZone\\": "src/AdminZone/",
+      "AdminZone\\ui\\": "src/AdminZone/ui/",
+      "AdminZone\\ui\\dashboard\\": "src/AdminZone/ui/dashboard/",
+      "AdminZone\\whplugins\\": "src/AdminZone/whplugins/",
+      "AdminZone\\anplugins\\": "src/AdminZone/anplugins/",
+      "AdminZone\\Importer\\": "src/AdminZone/importer/",
+      "AdminZone\\Zabbix\\": "src/AdminZone/Zabbix/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Test\\AdminZone\\": "tests/src/AdminZone/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "phpstan/phpstan": "*"
+  }
+}

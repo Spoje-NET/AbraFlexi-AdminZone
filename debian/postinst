@@ -1,0 +1,20 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    configure)
+        install -d -m 0750 -o root -g www-data /etc/abraflexi-admin-zone
+        if [ ! -f /etc/abraflexi-admin-zone/.env ]; then
+            install -m 0640 -o root -g www-data /usr/share/abraflexi-adminzone/conf/adminzone.env /etc/abraflexi-admin-zone/.env
+            echo "abraflexi-adminzone: edit /etc/abraflexi-admin-zone/.env" >&2
+        fi
+        install -d -o www-data -g www-data /var/cache/abraflexi-adminzone /var/lib/abraflexi-adminzone
+        if [ -x /usr/sbin/a2enconf ]; then
+            a2enconf abraflexi-adminzone || true
+        fi
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0

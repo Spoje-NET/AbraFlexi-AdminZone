@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+case "$1" in
+    remove|deconfigure)
+        if [ -x /usr/sbin/a2disconf ]; then a2disconf abraflexi-adminzone || true; fi
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0
