@@ -1,38 +1,25 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+declare(strict_types=1);
 
 namespace AdminZone\ui;
 
 /**
- * Description of LinkToAbraFlexiButton
+ * Link to the record in the AbraFlexi web interface.
  *
- * @author vitex
+ * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-class LinkToAbraFlexiButton extends \Ease\TWB\LinkButton
+class LinkToAbraFlexiButton extends \Ease\Html\ATag
 {
     /**
-     *
-     * @param \AbraFlexi\RO $abraflexi
+     * @param \AbraFlexi\RO $abraflexi record
      */
-    public function __construct($abraflexi, $properties = [])
+    public function __construct($abraflexi, array $properties = [])
     {
         parent::__construct(
             $abraflexi->getAbraFlexiURL(),
-            [new \Ease\Html\ImgTag(
-                'images/abraflexi.png',
-                _('Open in AbraFlexi'),
-                $properties
-            ), ' ', \AbraFlexi\EvidenceList::$name[$abraflexi->getEvidence()] . ' <strong>' . str_replace(
-                'code:',
-                '',
-                $abraflexi
-            ) . '</strong>'],
-            'warning'
+            '<i class="fa fa-arrow-up-right-from-square"></i> ' . _('Open in AbraFlexi') . ' <strong>' . str_replace('code:', '', (string) $abraflexi) . '</strong>',
+            array_merge(['class' => 'btn btn-line btn-sm'], $properties),
         );
     }
 }

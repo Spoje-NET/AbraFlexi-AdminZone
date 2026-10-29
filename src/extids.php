@@ -13,7 +13,7 @@ namespace AdminZone;
 
 require_once 'includes/Init.php';
 
-$oPage->onlyForUser();
+$oPage->onlyForLogged();
 
 $service = ExtIdService::create((string) $oPage->getRequestValue('service'));
 
@@ -23,30 +23,32 @@ if ($service === null) {
     exit;
 }
 
-$oPage->addItem(new ui\PageTop($service->title()));
+$oPage->addToHeader(new ui\PageTop($service->title()));
 
-$tabs = new \Ease\Html\UlTag(null, ['class' => 'nav nav-tabs']);
+$tabs = new \Ease\Html\UlTag(null, ['class' => 'nav nav-tabs mt-4']);
 
 foreach (ExtIdService::$services as $key => $class) {
     $tabs->addItem(new \Ease\Html\LiTag(
-        new \Ease\Html\ATag('extids.php?service='.$key, (new $class())->title()),
-        $key === $service->key() ? ['class' => 'active'] : [],
+        new \Ease\Html\ATag(
+            'extids.php?service=' . $key,
+            (new $class())->title(),
+            ['class' => 'nav-link' . ($key === $service->key() ? ' active' : '')],
+        ),
+        ['class' => 'nav-item'],
     ));
 }
 
 $oPage->container->addItem($tabs);
-$oPage->container->addItem(new \Ease\Html\DivTag(null, ['id' => 'extid-status', 'class' => 'alert', 'style' => 'display:none; margin-top: 1em']));
+$oPage->container->addItem(new \Ease\Html\DivTag(null, ['id' => 'extid-status', 'class' => 'alert mt-3', 'style' => 'display:none']));
 
 [$newUrl, $newCaption] = $service->newAccountLink();
-$oPage->container->addItem(new \Ease\TWB\Panel(
-    $service->title(),
-    'info',
-    new ui\ExtIdGrid($service, [
-        'id' => (string) $oPage->getRequestValue('customerId'),
-        'code' => \AbraFlexi\Functions::uncode((string) $oPage->getRequestValue('extid')),
-    ]),
-    new \Ease\TWB\LinkButton($newUrl, $newCaption, 'default'),
-));
+$oPage->container->addItem(new \Ease\Html\DivTag([
+    new \Ease\Html\ATag($newUrl, '<i class="fa fa-plus"></i> ' . $newCaption, ['class' => 'btn btn-line btn-sm']),
+], ['class' => 'my-3']));
+$oPage->container->addItem(new ui\ExtIdGrid($service, [
+    'id' => (string) $oPage->getRequestValue('customerId'),
+    'code' => \AbraFlexi\Functions::uncode((string) $oPage->getRequestValue('extid')),
+]));
 
 $oPage->addItem(new ui\PageBottom());
 

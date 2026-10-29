@@ -1,22 +1,21 @@
 Source: abraflexi-adminzone
-Build-Depends: debhelper-compat (= 13), jq
+Build-Depends: debhelper-compat (= 13), jq, appstream
 Standards-Version: 4.6.2
 Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
-Homepage: https://github.com/VitexSoftware/AbraFlexi-AdminZone
+Homepage: https://github.com/Spoje-NET/AbraFlexi-AdminZone
 Rules-Requires-Root: no
 
 Package: abraflexi-adminzone
 Depends: ${misc:Depends},
  php-spojenet-abraflexi (>= 3.7),
  php-vitexsoftware-abraflexi-bricks,
- php-vitexsoftware-ease-bootstrap5,
+ php-vitexsoftware-ease-twbootstrap5,
  php-vitexsoftware-ease-bootstrap5-widgets,
  php-vitexsoftware-ease-bootstrap5-widgets-abraflexi,
  php-vitexsoftware-ease-html-widgets,
  php-vitexsoftware-abraflexi-datatables (>= 1.3.0),
  php-spojenet-ipex-b2b,
  php-spojenet-subreg,
- php-mail-mime,
  php-curl,
  php-cli,
  locales-all,
@@ -26,7 +25,6 @@ Architecture: all
 Section: web
 Priority: optional
 Description: Administration zone for AbraFlexi
- Web-based administration portal for AbraFlexi: customers, invoicing,
- payment matching, reminders, webhook processing, dashboards and
- integrations (IPEX, Subreg, Redmine, ISPConfig, Zabbix).
- Counterpart of abraflexi-clientzone for operators.
+ Web-based administration portal for AbraFlexi operators: sign in with an
+ AbraFlexi account and pair customers with their IPEX, Subreg and SledovaniTV
+ accounts. Counterpart of abraflexi-clientzone.

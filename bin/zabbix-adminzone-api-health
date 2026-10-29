@@ -1,3 +1,0 @@
-#!/bin/sh
-cd /usr/share/abraflexi-adminzone/
-php -f /usr/share/abraflexi-adminzone/bin/health.php

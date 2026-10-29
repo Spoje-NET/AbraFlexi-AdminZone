@@ -1,3 +1,19 @@
+abraflexi-adminzone (0.2.0) unstable; urgency=medium
+
+  * Focus on pairing of IPEX, Subreg and SledovaniTV accounts with
+    AbraFlexi customers
+  * Sign in with AbraFlexi token (form-encoded login, one-time password
+    support)
+  * New look shared with AbraFlexi ClientZone (Bootstrap 5, light/dark
+    mode), logo and AppStream stock icon
+  * Removed orders, invoices, reminders, matcher, webhooks, digests,
+    LMS, mail sending, local database and all CLI scripts (moved to
+    dedicated projects)
+  * Security: login required on all pages, no credentials of external
+    services in pages, errors without server details
+
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Thu, 29 Oct 2026 12:18:42 +0100
+
 abraflexi-adminzone (0.1.0) unstable; urgency=low
 
   * Initial release: administrator part split from system.spoje.net

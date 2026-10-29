@@ -11,7 +11,7 @@ namespace AdminZone;
 
 require_once 'includes/Init.php';
 
-$oPage->onlyForUser();
+$oPage->onlyForLogged();
 
 $address_id = $oPage->getRequestValue('adrid');
 if (!strstr($address_id, 'code:')) {
@@ -70,14 +70,13 @@ if ($found === false) {
 
 
 
-$oPage->addItem(new ui\PageTop(_('Address to Subreg importer') . ': ' . $address->getDataValue('nazev')));
+$oPage->addToHeader(new ui\PageTop(_('Address to Subreg importer') . ': ' . $address->getDataValue('nazev')));
 
 //$oPage->container->addItem('<pre>'.print_r($result, 1).'</pre>');
 
 
-$oPage->container->addItem('<pre>' . print_r($userListRaw, 1) . '</pre>');
 
-$oPage->container->addItem(new \Ease\TWB\LinkButton(
+$oPage->container->addItem(new \Ease\TWB5\LinkButton(
     'adresar.php?id=' . $address_id,
     _('Customer Address page'),
     'warning'

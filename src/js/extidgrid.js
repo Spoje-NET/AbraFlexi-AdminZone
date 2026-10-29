@@ -29,7 +29,7 @@ $(function () {
             }
             var shown = data || row._proposed || '';
             var option = shown ? '<option value="' + extIdEscape(shown) + '" selected>' + extIdEscape(row._label || shown) + '</option>' : '';
-            var confirm = row._proposed && !data ? ' <button type="button" class="btn btn-warning btn-xs extid-confirm" data-id="' + extIdEscape(row.id) + '" data-code="' + extIdEscape(row._proposed) + '">' + extIdEscape(extIdTitles.confirm) + '</button>' : '';
+            var confirm = row._proposed && !data ? ' <button type="button" class="btn btn-line btn-sm extid-confirm" data-id="' + extIdEscape(row.id) + '" data-code="' + extIdEscape(row._proposed) + '">' + extIdEscape(extIdTitles.confirm) + '</button>' : '';
             return '<select class="extid-select" style="width:100%" data-id="' + extIdEscape(row.id) + '"><option></option>' + option + '</select>' + confirm;
         }
     });
@@ -40,7 +40,7 @@ $(function () {
         pageLength: 25,
         language: {url: 'assets/i18n/Czech.lang'},
         createdRow: function (tr, row) {
-            $(tr).addClass(row._code ? 'success' : (row._proposed ? 'warning' : 'danger'));
+            $(tr).addClass(row._code ? 'table-success' : (row._proposed ? 'table-warning' : 'table-danger'));
         },
         drawCallback: function () {
             initSelects();
@@ -72,7 +72,7 @@ $(function () {
                         rowData._code = code;
                         rowData._label = text;
                         delete rowData._proposed;
-                        tr.removeClass('danger warning').addClass('success');
+                        tr.removeClass('table-danger table-warning').addClass('table-success');
                         tr.find('.extid-confirm').remove();
                     }
                 })
@@ -91,6 +91,7 @@ $(function () {
             var select = $(this);
             select.select2({
                 width: '100%',
+                theme: 'bootstrap-5',
                 placeholder: extIdTitles.placeholder,
                 minimumInputLength: 2,
                 ajax: {

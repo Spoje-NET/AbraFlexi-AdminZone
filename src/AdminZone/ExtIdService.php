@@ -80,7 +80,11 @@ abstract class ExtIdService
         $assigned ??= [];
         $rows = [];
 
+        $visible = array_flip(array_merge(array_keys($this->columns()), ['id', '_url']));
+
         foreach ($this->accounts() as $account) {
+            // pass only displayed fields to the page (services also return logins and passwords)
+            $account = array_intersect_key($account, $visible);
             $id = (string) $account['id'];
             $account['id'] = $id;
 

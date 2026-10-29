@@ -1,6 +1,6 @@
 {
   "name": "vitexsoftware/abraflexi-adminzone",
-  "description": "Administrátorská zóna pro AbraFlexi: správa zákazníků, fakturace, importy, webhooky a integrace",
+  "description": "Administrátorská zóna pro AbraFlexi: správa zákazníků, fakturace, importy a integrace",
   "type": "project",
   "license": "MIT",
   "authors": [
@@ -13,29 +13,24 @@
   "prefer-stable": true,
   "require": {
     "php": ">=8.4",
-    "spojenet/abraflexi": "*",
-    "phois/whois": "dev-master",
-    "gufy/pdftohtml-php": "~2",
-    "mhujer/fio-api-php": "^2.4",
-    "mpdf/mpdf": "*",
-    "vitexsoftware/ease-bootstrap5": "*",
-    "vitexsoftware/ease-bootstrap5-widgets": "*",
-    "vitexsoftware/abraflexi-bricks": "^1.4",
-    "vitexsoftware/ease-bootstrap5-widgets-abraflexi": "^1.5",
+    "ext-json": "*",
+    "ext-curl": "*",
+    "spojenet/flexibee": "^3.7",
+    "vitexsoftware/ease-core": "^1.50",
+    "vitexsoftware/abraflexi-bricks": ">=1.5.0",
+    "vitexsoftware/ease-bootstrap5-widgets-abraflexi": "^1.4",
+    "vitexsoftware/ease-html-widgets": "dev-main",
+    "vitexsoftware/datatables-abraflexi": "^1.2",
     "spojenet/subreg": "dev-main",
     "spojenet/ipexb2b": "dev-main",
-    "vitexsoftware/datatables-abraflexi": "^1.0",
-    "vitexsoftware/ease-core-bricks": "^1.2"
+    "mpdf/mpdf": "*",
+    "mhujer/fio-api-php": "^2.4",
+    "vitexsoftware/ease-twbootstrap5": ">=1.2.0"
   },
   "autoload": {
     "psr-4": {
       "AdminZone\\": "src/AdminZone/",
-      "AdminZone\\ui\\": "src/AdminZone/ui/",
-      "AdminZone\\ui\\dashboard\\": "src/AdminZone/ui/dashboard/",
-      "AdminZone\\whplugins\\": "src/AdminZone/whplugins/",
-      "AdminZone\\anplugins\\": "src/AdminZone/anplugins/",
-      "AdminZone\\Importer\\": "src/AdminZone/importer/",
-      "AdminZone\\Zabbix\\": "src/AdminZone/Zabbix/"
+      "AdminZone\\ui\\": "src/AdminZone/ui/"
     }
   },
   "autoload-dev": {

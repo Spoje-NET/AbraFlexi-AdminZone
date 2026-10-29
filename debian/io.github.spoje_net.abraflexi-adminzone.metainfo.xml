@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="web-application">
+  <id>io.github.spoje_net.abraflexi-adminzone</id>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+
+  <name>AdminZone</name>
+  <summary>Pair customers of AbraFlexi with their IPEX, Subreg and SledovaniTV accounts</summary>
+
+  <description>
+    <p>
+      AbraFlexi AdminZone is a web-based administration tool for AbraFlexi operators.
+      Sign in with your AbraFlexi account and assign accounts of external services
+      to customers stored in AbraFlexi by external ID (EXT:id).
+    </p>
+    <p>Key features:</p>
+    <ul>
+      <li>Sign in with an AbraFlexi authentication token, including one-time passwords</li>
+      <li>Data grids of IPEX, Subreg and SledovaniTV accounts with suggestions of the customer to pair</li>
+      <li>Pairing is stored in AbraFlexi and reported back to the external service</li>
+      <li>Customer list and address card with an overview of connected services</li>
+    </ul>
+  </description>
+
+  <launchable type="url">https://localhost/abraflexi-adminzone/</launchable>
+
+  <icon type="stock">abraflexi-adminzone</icon>
+
+  <categories>
+    <category>Finance</category>
+    <category>Office</category>
+  </categories>
+
+  <url type="homepage">https://github.com/Spoje-NET/AbraFlexi-AdminZone</url>
+  <url type="bugtracker">https://github.com/Spoje-NET/AbraFlexi-AdminZone/issues</url>
+  <url type="vcs-browser">https://github.com/Spoje-NET/AbraFlexi-AdminZone</url>
+
+  <developer id="io.github.spoje_net">
+    <name>Spoje.Net</name>
+  </developer>
+
+  <releases>
+    <release version="0.2.0" date="2026-10-29">
+      <description>
+        <p>The application now focuses on pairing external service accounts with AbraFlexi customers.</p>
+        <ul>
+          <li>New look shared with AbraFlexi ClientZone, new logo</li>
+          <li>Removed features moved to dedicated projects (orders, reminders, matcher, webhooks, digests)</li>
+          <li>Security hardening of all pages</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.1.0" date="2026-10-29">
+      <description>
+        <p>First public release.</p>
+        <ul>
+          <li>Sign in with an AbraFlexi token</li>
+          <li>Assignment of IPEX, Subreg and SledovaniTV accounts to AbraFlexi customers</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+
+  <content_rating type="oars-1.1"/>
+</component>

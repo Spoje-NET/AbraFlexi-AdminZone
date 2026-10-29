@@ -49,18 +49,4 @@ class AbraFlexiEngine extends \Ease\Sand
         $this->apiurl = \Ease\Shared::cfg('ABRAFLEXI_URL');
     }
 
-    /**
-     * URL To AdminZone
-     * @param \AbraFlexi\RO $document
-     * @return string URL
-     */
-    public static function systemUrl($document)
-    {
-        if (php_sapi_name() == 'cli') {
-            $url = defined('SYSTEM_URL') ? constant('SYSTEM_URL') : 'https://adminzone.example.com/';
-        } else {
-            $url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . dirname(\Ease\WebPage::getUri());
-        }
-        return $url . 'document.php?id=' . $document->getRecordCode() . '&embed=true&evidence=' . $document->getEvidence();
-    }
 }

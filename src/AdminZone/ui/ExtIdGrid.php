@@ -17,21 +17,45 @@ namespace AdminZone\ui;
 class ExtIdGrid extends \Ease\Html\TableTag
 {
     /**
+     * @var array<int,array<string,mixed>>
+     */
+    private array $rows = [];
+    private ?string $error = null;
+
+    /**
      * @param array{id?:string,code?:string} $prefill proposed pairing to confirm
      */
     public function __construct(private \AdminZone\ExtIdService $service, private array $prefill = [])
     {
         parent::__construct(null, ['class' => 'table table-striped table-bordered', 'id' => 'extidgrid', 'style' => 'width:100%']);
+
+        try {
+            $this->rows = $service->items();
+        } catch (\Throwable $exc) {
+            $this->error = $exc->getMessage();
+            error_log(sprintf('AdminZone %s accounts could not be loaded: %s', $service->key(), $exc->getMessage()));
+        }
     }
 
     public function finalize(): void
     {
-        \Ease\TWB\Part::jQueryze();
-        $this->includeJavaScript('js/jquery.dataTables.min.js');
-        $this->includeJavaScript('js/dataTables.bootstrap.min.js');
-        $this->includeCss('css/dataTables.bootstrap.min.css');
-        $this->includeJavaScript('js/select2.full.js');
-        $this->includeCss('css/select2.css');
+        if ($this->error !== null) {
+            $debug = filter_var(\Ease\Shared::cfg('APP_DEBUG', false), \FILTER_VALIDATE_BOOLEAN);
+            $this->addItem(new \Ease\Html\DivTag(
+                sprintf(_('Accounts of %s could not be loaded. Check the connection settings in the configuration file.'), $this->service->title()) . ($debug ? ' ' . $this->error : ''),
+                ['class' => 'alert alert-danger'],
+            ));
+
+            return;
+        }
+
+        // jQuery is loaded by the page; DataTables and Select2 come from CDN (Bootstrap 5 skins)
+        $this->includeCss('https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css');
+        $this->includeJavaScript('https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js');
+        $this->includeJavaScript('https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js');
+        $this->includeCss('https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css');
+        $this->includeCss('https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css');
+        $this->includeJavaScript('https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js');
 
         $columns = [];
 
@@ -43,7 +67,7 @@ class ExtIdGrid extends \Ease\Html\TableTag
         $this->addJavaScript('
 var extIdService = '.json_encode($this->service->key(), $flags).';
 var extIdColumns = '.json_encode($columns, $flags).';
-var extIdRows = '.json_encode($this->service->items(), $flags).';
+var extIdRows = '.json_encode($this->rows, $flags).';
 var extIdPrefill = '.json_encode($this->prefill, $flags).';
 var extIdTitles = '.json_encode(['address' => _('AbraFlexi Address'), 'placeholder' => _('Type code or name of the customer'), 'only' => _('Only unassigned'), 'confirm' => _('Confirm')], $flags).';
 '.file_get_contents(__DIR__.'/../../js/extidgrid.js'));

@@ -18,7 +18,7 @@ $oPage->addItem(new ui\PageTop(_('Sign Off')));
 
 $oPage->container->addItem('<br/><br/><br/><br/>');
 $oPage->container->addItem(new \Ease\Html\DivTag(new \Ease\Html\ATag(
-                        'adminlogin.php',
+                        'login.php',
                         _('Thank you for your favor and we look forward to another visit'),
                         ['class' => 'jumbotron']
         )));

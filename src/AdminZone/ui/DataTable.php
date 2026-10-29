@@ -89,15 +89,14 @@ class DataTable extends \Ease\Html\TableTag
 
         $gridTagID = $this->setTagId($engine->getObjectName());
 
-        \Ease\TWB\Part::jQueryze();
 
 //        $this->includeJavaScript('assets/datatables.js');
 //        $this->includeCss('assets/datatables.css');
 
-        $this->includeJavaScript('js/jquery.dataTables.min.js');
-        $this->includeJavaScript('js/dataTables.bootstrap.min.js');
+        $this->includeJavaScript('https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js');
+        $this->includeJavaScript('https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js');
 //        $this->includeJavaScript('assets/Select-1.2.6/js/dataTables.select.min.js');
-        $this->includeCss('css/dataTables.bootstrap.min.css');
+        $this->includeCss('https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css');
 //        $this->includeCss('assets/Select-1.2.6/css/select.bootstrap.min.css');
 //
 //        $this->includeJavaScript('assets/ColReorder-1.5.0/js/dataTables.colReorder.min.js');
@@ -303,7 +302,7 @@ $.fn.dataTable.ext.buttons.filter' . $gridTagID . ' = {
             ' . self::getColumnsScript($columns) . '
         ],
         select: true
-        ' . ( $this->buttons ? ',        buttons: [ ' . \Ease\TWB\Part::partPropertiesToString($this->buttons) . ']' : '') . '
+        ' . ( $this->buttons ? ',        buttons: [ ' . \Ease\TWB5\Part::partPropertiesToString($this->buttons) . ']' : '') . '
     } );
 
     ' . $this->postTableCode() . '
@@ -337,7 +336,7 @@ $.fn.dataTable.ext.buttons.filter' . $gridTagID . ' = {
             $name = $properties['name'];
             unset($properties['name']);
             $properties['data'] = $name;
-            $parts[] = '{' . \Ease\TWB\Part::partPropertiesToString($properties) . '}';
+            $parts[] = '{' . \Ease\TWB5\Part::partPropertiesToString($properties) . '}';
         }
         return implode(", \n", $parts);
     }

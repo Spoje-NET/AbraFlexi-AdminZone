@@ -1,36 +1,26 @@
 <?php
 
-/**
- * AdminZone - Vršek stránky.
- *
- * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  2015 Spoje.Net
- */
+declare(strict_types=1);
 
 namespace AdminZone\ui;
 
 /**
- * Page TOP.
+ * Page head: title and main menu.
  */
 class PageTop extends \Ease\Html\DivTag
 {
-    /**
-     * Titulek stránky.
-     *
-     * @var type
-     */
-    public $pageTitle = 'Page Heading';
+    public function __construct($pageTitle = null)
+    {
+        parent::__construct();
 
-    /**
-     * Vloží vršek stránky a hlavní menu.
-     */
+        if ($pageTitle !== null && $pageTitle !== '') {
+            \Ease\WebPage::singleton()->setPageTitle((string) $pageTitle);
+        }
+    }
+
     public function finalize(): void
     {
-        $this->addItem(new MainMenu());
-
-        if (get_class(\Ease\Shared::user()) == 'AdminZone\User') {
-            $this->addItem(new History());
-        }
         parent::finalize();
+        $this->addItem(new MainMenu());
     }
 }

@@ -13,7 +13,7 @@ require_once 'includes/Init.php';
 
 $oPage->onlyForLogged();
 
-$oPage->addItem(new ui\PageTop(_('Clients')));
+$oPage->addToHeader(new ui\PageTop(_('Clients')));
 
 $engine = new \AbraFlexi\Adresar();
 $tabler = new ui\ClientsDataTable($engine);

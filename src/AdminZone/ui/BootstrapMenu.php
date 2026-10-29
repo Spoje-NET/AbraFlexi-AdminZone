@@ -1,114 +1,112 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * AdminZone - Stránka Webu.
+ * AdminZone - BootstrapMenu.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  2015 Spoje.Net
+ * @copyright  2017-2026 VitexSoftware v.s.cz
  */
 
 namespace AdminZone\ui;
 
-class BootstrapMenu extends \Ease\TWB\Navbar
+use Ease\Html\DivTag;
+
+class BootstrapMenu extends \Ease\TWB5\Navbar
 {
     /**
-     * Navigace.
-     *
-     * @var \Ease\Html\UlTag
+     * Collapse / toggler target id (parent keeps $navBarName private).
      */
-    public $nav = null;
+    private const NAVBAR_ID = 'adminzone-navbar';
 
-    /**
-     * Hlavní menu aplikace.
-     *
-     * @param string $name
-     * @param mixed  $content
-     * @param array  $properties
-     */
-    public function __construct(
-        $name = null,
-        $content = null,
-        $properties = null
-    ) {
-        parent::__construct(
-            'Menu',
-            (string)new \Ease\Html\ImgTag(
-                'images/logo.png',
-                _('System'),
-                ['class' => 'img-rounded', 'height' => 24, 'width' => 24]
-            ),
-            ['class' => 'navbar-fixed-top']
-        );
-
+    public function __construct()
+    {
         $user = \Ease\Shared::user();
-        \Ease\TWB\Part::twBootstrapize();
-
-        switch (get_class($user)) {
-            case 'AdminZone\User': //Admin
-                break;
-            case 'AbraFlexi\Bricks\Customer': //Customer
-                if (isset($_SESSION['cart']) && count($_SESSION['cart'])) {
-                    $this->addMenuItem(
-                        new \Ease\TWB\LinkButton(
-                            'cart.php',
-                            '<img width=30 src=images/cart.svg> ' . _('Cart') . ' ' . count($_SESSION['cart'])
-                        ),
-                        'right'
-                    );
-                }
-
-                break;
-            case 'Ease\Anonym': //Anonymous
-            default:
-//                $this->addMenuItem('<a href="createaccount.php">'.\Ease\TWB\Part::GlyphIcon('leaf').' '._('Registrace').'</a>',
-//                    'right');
-
-                if (isset($_SESSION['cart']) && count($_SESSION['cart'])) {
-                    $this->addMenuItem(
-                        new \Ease\TWB\LinkButton(
-                            'cart.php',
-                            '<img width=30 src=images/cart.svg> ' . _('Cart') . ' ' . count($_SESSION['cart'])
-                        ),
-                        'right'
-                    );
-                }
-
-                $this->addMenuItem(
-                    '
-<li class="divider-vertical"></li>
-<li class="dropdown">
-<a class="dropdown-Kimaie" href="adminlogin.php" data-Kimaie="dropdown"><i class="icon-circle-arrow-left"></i> ' . _('Sign In') . '<strong class="caret"></strong></a>
-<div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px; left: -120px;">
-<form method="post" class="navbar-form navbar-left" action="adminlogin.php" accept-charset="UTF-8">
-<input style="margin-bottom: 15px;" type="text" placeholder="' . _('Login') . '" id="username" name="username">
-<input style="margin-bottom: 15px;" type="password" placeholder="' . _('Password') . '" id="password" name="password">
-<!-- input style="float: left; margin-right: 10px;" type="checkbox" name="remember-me" id="remember-me" value="1">
-<label class="string optional" for="remember-me"> ' . _('Remeber me') . '</label -->
-<input class="btn btn-primary btn-block" type="submit" id="sign-in" value="' . _('Sign In') . '">
-<!-- a href="newabraflexiuser.php" class="btn btn-info btn-block"><i class="fa fa-user"></i> ' . _('Registrace') . '</a -->
-</form>
-</div>',
-                    'right'
-                );
-
-                break;
-        }
+        $this->mainpage = 'index.php';
+        $appName = (string) (\Ease\Shared::appName() ?: _('AdminZone'));
+        $parts = preg_split('/\s+/u', $appName, 2) ?: [$appName];
+        $brand = '<b>'.htmlspecialchars($parts[0]).'</b>'
+            .(isset($parts[1]) ? ' '.htmlspecialchars($parts[1]) : '');
+        parent::__construct(
+            '<img src="images/logo.svg" alt="" width="36" height="36" class="brand-logo">'
+            .'<span class="brand-name">'.$brand.'</span>',
+            self::NAVBAR_ID,
+            ['class' => 'site-header navbar-expand-lg fixed-top'],
+        );
     }
 
     /**
-     * Show status messages
+     * Ease TWB5 Navbar::navBarCollapse() only embeds leftContent — right-side
+     * items (cart, account) would never render. Include both sides.
+     * Sign Out lives in the customer account dropdown (MainMenu), not here.
      */
+    public function navBarCollapse()
+    {
+        $collapse = new DivTag(
+            [$this->leftContent, $this->rightContent],
+            ['class' => 'collapse navbar-collapse', 'id' => self::NAVBAR_ID],
+        );
+
+        $controls = new DivTag(null, ['class' => 'header-controls']);
+        $controls->addItem(
+            '<button type="button" class="icon-btn theme-toggle" aria-label="'
+            .htmlspecialchars(_('Switch light / dark mode'))
+            .'" title="'.htmlspecialchars(_('Switch light / dark mode')).'">'
+            .'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+            .'stroke-width="1.6" stroke-linecap="round" aria-hidden="true">'
+            .'<circle cx="12" cy="12" r="4.2"/>'
+            .'<path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6'
+            .'M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg></button>',
+        );
+        // Shipped by php-vitexsoftware-ease-bootstrap5-widgets (Debian dependency).
+        if (class_exists(\Ease\TWB5\Widgets\LangSelect::class)) {
+            $controls->addItem(new \Ease\TWB5\Widgets\LangSelect('locale'));
+        }
+
+        $collapse->addItem($controls);
+
+        return $collapse;
+    }
+
+    /**
+     * NavItemDropDown is already an &lt;li&gt; — do not wrap it again.
+     *
+     * @param mixed  $content
+     * @param bool   $enabled
+     * @param string $placement
+     */
+    public function addMenuItem($content, $enabled = true, $placement = 'left')
+    {
+        if ($content instanceof \Ease\TWB5\NavItemDropDown) {
+            return $placement === 'left'
+                ? $this->leftContent->addItem($content)
+                : $this->rightContent->addItem($content);
+        }
+
+        return parent::addMenuItem($content, $enabled, $placement);
+    }
+
+    /**
+     * Hamburger must toggle the collapsed menu.
+     */
+    public function navBarToggler()
+    {
+        $toggler = parent::navBarToggler();
+        $toggler->setTagProperties(['data-bs-toggle' => 'collapse']);
+
+        return $toggler;
+    }
+
     public function draw(): void
     {
-        $statusMessages = WebPage::singleton()->getStatusMessagesAsHtml();
-        if ($statusMessages) {
-            $this->addItem(new \Ease\Html\DivTag(
-                $statusMessages,
-                ['id' => 'StatusMessages', 'class' => 'well', 'title' => _('Click to hide messages'),
-                'data-state' => 'down']
-            ));
-            $this->addItem(new \Ease\Html\DivTag(null, ['id' => 'smdrag']));
-            \AdminZone\ui\WebPage::singleton()->cleanMessages();
+        $messagesBlock = \Ease\WebPage::singleton()->getStatusMessagesBlock([
+            'id'    => 'status-messages',
+            'title' => _('Click to hide messages'),
+        ]);
+        if (!$messagesBlock->isEmpty()) {
+            $this->addItem($messagesBlock);
+            \Ease\Shared::logger()->cleanMessages();
         }
         parent::draw();
     }

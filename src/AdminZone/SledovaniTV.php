@@ -47,7 +47,7 @@ class SledovaniTV extends \Ease\Molecule
      *
      * @var boolean
      */
-    public $debug = false;
+    public bool $debug = false;
 
     /**
      *

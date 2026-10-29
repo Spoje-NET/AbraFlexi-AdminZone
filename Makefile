@@ -9,10 +9,6 @@ pretest:
 phpunit:
 	./vendor/bin/phpunit --colors  --bootstrap tests/bootstrap.php --configuration phpunit.xml tests
 
-codeception:
-	#sudo systemctl start selenium-chrome
-	#vendor/bin/codecept run
-
 fresh:
 	echo fresh
 

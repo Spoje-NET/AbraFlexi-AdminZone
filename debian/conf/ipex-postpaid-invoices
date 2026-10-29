@@ -1,1 +1,0 @@
-1 12 1 * * www-data php -f /usr/share/abraflexi-adminzone/bin/VoIPPostpaidInvoices.php

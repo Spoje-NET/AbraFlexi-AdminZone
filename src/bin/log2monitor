@@ -1,6 +1,0 @@
-#!/bin/sh
-python2 runner.py ./colorlog
-
-
-
-

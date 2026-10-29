@@ -1,4 +1,0 @@
-#!/bin/sh
-sudo tail -f /var/log/syslog | grep '`' | ccze -A
-
-

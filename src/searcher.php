@@ -11,6 +11,8 @@ namespace AdminZone;
 
 require_once 'includes/Init.php';
 
+$oPage->onlyForLogged();
+
 $query = $oPage->getRequestValue('q');
 
 $found = [];

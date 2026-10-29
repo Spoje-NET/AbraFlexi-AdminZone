@@ -1,107 +1,50 @@
 <?php
 
+declare(strict_types=1);
+
 namespace AdminZone;
 
 /**
- * AdminZone - Hlavní strana.
+ * AdminZone - Hlavní strana: rozcestník k přiřazení externích účtů.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  2015-2024 Spoje.Net
+ * @copyright  2015-2026 Spoje.Net
  */
 
 require_once 'includes/Init.php';
 
-$oPage->addItem(new ui\PageTop(_('AdminZone')));
+$oPage->onlyForLogged();
 
-$mainMenu = $oPage->container->addItem(new ui\MainPageMenu());
+$oPage->addToHeader(new ui\PageTop(_('AdminZone')));
 
-switch (get_class($oUser)) {
-    case 'AdminZone\User': //Admin
-        $mainMenu->addMenuItem(
-            'images/redmine.png',
-            _('Redmine'),
-            'https://crm.spoje.net/'
-        );
-//$mainMenu->addMenuItem(
-//    'images/kasa.png', _('Kasa'), 'cash.php'
-//);
-        $mainMenu->addMenuItem(
-            'images/mapa.png',
-            _('Map'),
-            'https://hermes.spoje.net/mapa/'
-        );
+$icons = ['ipex' => 'fa-phone', 'subreg' => 'fa-globe', 'sltv' => 'fa-tv'];
 
-        if (empty(\Ease\Shared::cfg('PROD_CAT'))) {
-            $oPage->addStatusMessage(
-                _(' Key PROD_CAT is not defined in config file'),
-                'warning'
-            );
-        } else {
-            $mainMenu->addMenuItem(
-                'images/cennik.png',
-                _('Pricelist'),
-                'adminpricelist.php'
-            );
-        }
+$oPage->container->addItem(new \Ease\Html\H1Tag(_('External accounts'), ['class' => 'mt-4']));
+$oPage->container->addItem(new \Ease\Html\PTag(
+    _('Pair accounts of external services with AbraFlexi customers (EXT:id).'),
+    ['class' => 'dim'],
+));
 
-        $mainMenu->addMenuItem(
-            'images/ispconfig.png',
-            _('ISPConfig'),
-            'https://m.spoje.net/login/'
-        );
-        $mainMenu->addMenuItem(
-            'images/webmail.png',
-            _('WebMail'),
-            'https://www.spoje.net/roundcube/'
-        );
-        $mainMenu->addMenuItem(
-            'images/wiki.png',
-            _('Wiki'),
-            'http://wiki.spoje.net/doku.php'
-        );
-        $mainMenu->addMenuItem(
-            'images/abraflexi.png',
-            _('AbraFlexi'),
-            \Ease\Shared::cfg('ABRAFLEXI_URL') . '/c/' . \Ease\Shared::cfg('ABRAFLEXI_COMPANY')
-        );
+$row = new \Ease\Html\DivTag(null, ['class' => 'row g-3 mt-2']);
 
-        $mainMenu->addMenuItem(
-            'images/icinga.png',
-            _('Icinga'),
-            'http://nagios.spoje.net/icinga/'
-        );
-
-        $mainMenu->addMenuItem(
-            'images/librenms.png',
-            _('LibreNMS'),
-            'http://nagios.spoje.net/lnms/'
-        );
-
-        $labelOverview = new \Ease\TWB\Panel(_('Customers by reminder label'), 'info');
-        $addresser = new \AbraFlexi\Adresar();
-        $labelTable = new \Ease\Html\TableTag(null, ['class' => 'table']);
-        foreach (['UPOMINKA1', 'UPOMINKA2', 'UPOMINKA3', 'NEPLATIC', 'ODPOJENO'] as $label) {
-            $labelled = $addresser->getColumnsFromAbraFlexi(['kod'], ["stitky='code:" . $label . "'", 'limit' => 0]);
-            $labelTable->addRowColumns([$label, is_array($labelled) ? count($labelled) : '?']);
-        }
-        $labelOverview->addItem($labelTable);
-        $oPage->container->addItem($labelOverview);
-
-        break;
-    case 'Ease\Anonym': //Anonymous
-    default:
-        $mainMenu->addMenuItem(
-            'images/cennik.png',
-            _('Pricelist'),
-            'pricelist.php'
-        );
-        $mainMenu->addMenuItem(
-            'images/login.svg',
-            _('Sign In'),
-            'adminlogin.php'
-        );
-        break;
+foreach (ExtIdService::$services as $key => $class) {
+    $service = new $class();
+    $card = new \Ease\Html\DivTag(null, ['class' => 'card h-100']);
+    $body = $card->addItem(new \Ease\Html\DivTag(null, ['class' => 'card-body']));
+    $body->addItem(new \Ease\Html\H3Tag('<i class="fa ' . ($icons[$key] ?? 'fa-link') . '"></i> ' . $service->title(), ['class' => 'card-title h5']));
+    $body->addItem(new \Ease\Html\ATag('extids.php?service=' . $key, _('Open') . ' <span class="arrow">→</span>', ['class' => 'btn btn-glow mt-2']));
+    $row->addItem(new \Ease\Html\DivTag($card, ['class' => 'col-md-4']));
 }
+
+$oPage->container->addItem($row);
+$oPage->container->addItem(new \Ease\Html\DivTag([
+    new \Ease\Html\ATag('clients.php', '<i class="fa fa-users"></i> ' . _('Clients'), ['class' => 'btn btn-line me-2']),
+    new \Ease\Html\ATag(
+        \Ease\Shared::cfg('ABRAFLEXI_URL') . '/c/' . \Ease\Shared::cfg('ABRAFLEXI_COMPANY'),
+        '<i class="fa fa-arrow-up-right-from-square"></i> ' . _('AbraFlexi'),
+        ['class' => 'btn btn-line'],
+    ),
+], ['class' => 'mt-4']));
 
 $oPage->addItem(new ui\PageBottom());
 

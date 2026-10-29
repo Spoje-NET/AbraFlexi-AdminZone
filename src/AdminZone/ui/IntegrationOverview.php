@@ -13,7 +13,7 @@ namespace AdminZone\ui;
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
  */
-class IntegrationOverview extends \Ease\TWB\Panel
+class IntegrationOverview extends \Ease\TWB5\Panel
 {
     /**
      * Show Customer membership in 3rd party systems
@@ -26,7 +26,7 @@ class IntegrationOverview extends \Ease\TWB\Panel
             _('Integrations'),
             'info',
             null,
-            new \Ease\TWB\LinkButton(
+            new \Ease\TWB5\LinkButton(
                 'adr2subreg.php?adrid=' . $address->getMyKey(),
                 _('Register Contact On Subreg'),
                 'warning'
@@ -38,13 +38,13 @@ class IntegrationOverview extends \Ease\TWB\Panel
         $sledovaniTVID = $address->getExternalID('sltv');
 
         if (is_null($subregID)) {
-            $this->addItem(new \Ease\TWB\LinkButton(
+            $this->addItem(new \Ease\TWB5\LinkButton(
                 'extids.php?service=subreg',
                 'SubReg',
                 'default'
             ));
         } else {
-            $this->addItem(new \Ease\TWB\LinkButton(
+            $this->addItem(new \Ease\TWB5\LinkButton(
                 'https://subreg.cz/cz/users/search/?iduser=' . $subregID . '&submit=Odeslat',
                 'SubReg',
                 'success'
@@ -52,13 +52,13 @@ class IntegrationOverview extends \Ease\TWB\Panel
         }
 
         if (is_null($ipexID)) {
-            $this->addItem(new \Ease\TWB\LinkButton(
+            $this->addItem(new \Ease\TWB5\LinkButton(
                 'extids.php?service=ipex',
                 'Ipex',
                 'default'
             ));
         } else {
-            $this->addItem(new \Ease\TWB\LinkButton(
+            $this->addItem(new \Ease\TWB5\LinkButton(
                 'https://b2b.ipex.cz/customer/dashboard/' . $ipexID,
                 'Ipex',
                 'success'
@@ -66,13 +66,13 @@ class IntegrationOverview extends \Ease\TWB\Panel
         }
 
         if (is_null($sledovaniTVID)) {
-            $this->addItem(new \Ease\TWB\LinkButton(
+            $this->addItem(new \Ease\TWB5\LinkButton(
                 'sltvregister.php?id=' . $address,
                 'SledovaniTV',
                 'default'
             ));
         } else {
-            $this->addItem(new \Ease\TWB\LinkButton(
+            $this->addItem(new \Ease\TWB5\LinkButton(
                 'https://sledovanitv.cz/partner/user/edit/' . $sledovaniTVID,
                 'SledovaniTV',
                 'success'

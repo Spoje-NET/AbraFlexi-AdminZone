@@ -15,7 +15,7 @@ $oPage->onlyForLogged();
 
 $aid = $oPage->getRequestValue('id');
 
-$oPage->addItem(new ui\PageTop(_('SledovaniTV Registrator')));
+$oPage->addToHeader(new ui\PageTop(_('SledovaniTV Registrator')));
 
 $address = new Adresar($aid);
 
@@ -26,7 +26,7 @@ if (empty($sledovaniTVID)) {
 
     $response = $registrator->identifyUser($address->getRecordCode(), $address->getDataValue('email'), $address->getDataValue('email'), $address->getDataValue('nazev'), $address->getDataValue('ulice'), $address->getDataValue('mesto'), preg_replace('/\s+/', '', $address->getDataValue('psc')), null, null, $_SERVER['REMOTE_ADDR']);
 
-    $oPage->addItem(new \Ease\TWB\LinkButton(
+    $oPage->addItem(new \Ease\TWB5\LinkButton(
         $response['url'],
         $response['token'],
         $response['status'] == 1 ? 'success' : 'warning'

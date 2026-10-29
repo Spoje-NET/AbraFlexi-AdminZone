@@ -11,10 +11,12 @@ namespace AdminZone;
 
 require_once 'includes/Init.php';
 
+$oPage->onlyForLogged();
+
 $evidence = $oPage->getRequestValue('evidence');
 $query = $oPage->getRequestValue('search');
 
-$oPage->addItem(new ui\PageTop(_('Search results') . ': ' . $query));
+$oPage->addToHeader(new ui\PageTop(_('Search results') . ': ' . $query));
 
 if (strlen($query) > 1) {
     $searcher = new Searcher($evidence);
@@ -84,7 +86,7 @@ if (strlen($query) > 1) {
             }
             $resultTables[] = $resultTable;
         }
-        $oPage->container->addItem(new \Ease\TWB\Panel(
+        $oPage->container->addItem(new \Ease\TWB5\Panel(
             sprintf(
                 _('Search for %s results in %s'),
                 "<strong>$query</strong>",

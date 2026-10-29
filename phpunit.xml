@@ -2,14 +2,12 @@
 <phpunit colors="true" bootstrap="./tests/bootstrap.php">
     <testsuites>
         <testsuite name="all">
-            <directory>./tests</directory>
+            <directory>./tests/src</directory>
         </testsuite>
     </testsuites>
-
-    <filter>
-        <whitelist>
-            <directory suffix=".php">src/System</directory>
-        </whitelist>
-    </filter>
-
+    <source>
+        <include>
+            <directory suffix=".php">src/AdminZone</directory>
+        </include>
+    </source>
 </phpunit>

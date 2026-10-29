@@ -1,153 +1,44 @@
 <?php
 
+declare(strict_types=1);
+
 namespace AdminZone;
 
 /**
  * AdminZone - Stránka firmy/adresy.
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  2017-2018 Spoje.Net
+ * @copyright  2017-2026 Spoje.Net
  */
 
 require_once 'includes/Init.php';
 
-$oPage->onlyForUser();
+$oPage->onlyForLogged();
 
 $address_id = $oPage->getRequestValue('id');
-if (!strstr($address_id, 'code:')) {
-    $address_id = intval($address_id);
+
+if (!strstr((string) $address_id, 'code:')) {
+    $address_id = (int) $address_id;
 }
 
-$address = null;
-if (is_null($address)) {
-    $address = new Adresar(
-        $address_id,
-        ['defaultUrlParams' => ['relations' => 'kontakt']]
-    );
-}
-
-\AdminZone\FormHandler::handlePost($oPage, $address);
-
-
-if ($oPage->getGetValue('delete', 'bool') == 'true') {
-    if ($address->delete()) {
-        $oPage->redirect('addresar.php');
-        exit;
-    }
-}
-
-/**
- * Místní nabídka objektu.
- *
- * @return \\Ease\TWB\ButtonDropdown
- */
-function operationsMenu($address)
-{
-    $id = $address->getMyKey();
-    $menu[] = new \Ease\Html\ATag(
-        $address->getEvidence() . '.php?' . $address->keyColumn . '=' . $id,
-        \Ease\TWB\Part::glyphIcon('edit') . ' ' . _('Edit')
-    );
-
-    $menu[] = new \Ease\Html\ATag(
-        'loginas.php?' . $address->keyColumn . '=' . $id,
-        \Ease\TWB\Part::glyphIcon('transfer') . ' ' . _('Login as Customer')
-    );
-
-    return new \Ease\TWB\ButtonDropdown(
-        \Ease\TWB\Part::glyphIcon('cog'),
-        'warning',
-        '',
-        $menu
-    );
-}
-
-$oPage->addItem(new ui\PageTop(_('Address') . ': ' . $address->getDataValue('nazev')));
-
-$addressRow = new \Ease\TWB\Row();
-$infoColumn = $addressRow->addColumn(
-    4,
-    [new ui\ZewlScoreLabel($address),
-            new ui\InvoicesOfAddresButton($address),
-            new ui\HistoryOfAddresButton($address),
-            new ui\LabelSwitches($address),
-    ]
+$address = new Adresar(
+    $address_id,
+    ['defaultUrlParams' => ['relations' => 'kontakt']],
 );
 
-switch ($oPage->getRequestValue('action')) {
-    case 'delete':
-        $confirmBlock = new \Ease\TWB\Well();
+FormHandler::handlePost($oPage, $address);
 
-        $confirmBlock->addItem($address);
+$oPage->addToHeader(new ui\PageTop(_('Address') . ': ' . $address->getDataValue('nazev')));
 
-        $confirmator = $confirmBlock->addItem(
-            new \Ease\TWB\Panel(_('Delete ?')),
-            'danger'
-        );
-        $confirmator->addItem(new \Ease\TWB\LinkButton(
-            'addresar.php?id=' . $address->getId(),
-            _('No') . ' ' . \Ease\TWB\Part::glyphIcon('ok'),
-            'success'
-        ));
-        $confirmator->addItem(new \Ease\TWB\LinkButton(
-            '?delete=true&' . $address->keyColumn . '=' . $address->getID(),
-            _('Yes') . ' ' . \Ease\TWB\Part::glyphIcon('remove'),
-            'danger'
-        ));
+$oPage->container->addItem(new \Ease\Html\DivTag([
+    new \Ease\Html\H1Tag($address->getDataValue('kod') . ' - ' . $address->getDataValue('nazev'), ['class' => 'h3']),
+    new ui\LinkToAbraFlexiButton($address),
+], ['class' => 'd-flex justify-content-between align-items-center mt-4 mb-3']));
 
-        $headerRow = new \Ease\TWB\Row();
-        $headerRow->addColumn(
-            8,
-            '<strong>' . $address->getContactName() . '</strong>'
-        );
-        $headerRow->addColumn(
-            4,
-            new ui\LinkToAbraFlexiButton($address, ['style' => 'width: 20px'])
-        );
-        $addressRow->addColumn(
-            8,
-            new \Ease\TWB\Panel($headerRow, 'info', $confirmBlock)
-        );
-        break;
-    default:
-        $operationsMenu = operationsMenu($address);
-        $operationsMenu->setTagCss(['float' => 'right']);
-        $operationsMenu->dropdown->addTagClass('pull-right');
-
-
-        $headerRow = new \Ease\TWB\Row();
-        $headerRow->addColumn(
-            8,
-            '<strong>' . $address->getDataValue('kod') . ' - ' . $address->getDataValue('nazev') . '</strong>'
-        );
-        $headerRow->addColumn(
-            4,
-            new ui\LinkToAbraFlexiButton($address, ['style' => 'width: 20px'])
-        );
-
-        $addressRow->addColumn(
-            4,
-            new \Ease\TWB\Panel(
-                $headerRow,
-                'info',
-                new ui\AddressForm($address, 'adresar.php'),
-                [new ui\AddressContactsLinks($address), $operationsMenu]
-            )
-        );
-
-        break;
-}
-
-
-
-$addressRow->addItem(new ui\IntegrationOverview($address));
-
-$addressRow->addItem(new ui\ContractsDataTable(
-    new \AbraFlexi\Smlouva(),
-    ['filter' => ['firma' => $address->getRecordIdent()]]
-));
-
-$oPage->container->addItem($addressRow);
+$row = new \Ease\Html\DivTag(null, ['class' => 'row g-3']);
+$row->addItem(new \Ease\Html\DivTag(new \Ease\TWB5\Panel(_('Address'), 'info', new ui\AddressForm($address, 'adresar.php')), ['class' => 'col-lg-6']));
+$row->addItem(new \Ease\Html\DivTag(new ui\IntegrationOverview($address), ['class' => 'col-lg-6']));
+$oPage->container->addItem($row);
 
 $oPage->addItem(new ui\PageBottom());
 

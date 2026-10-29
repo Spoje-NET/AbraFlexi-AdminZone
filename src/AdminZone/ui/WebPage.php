@@ -1,136 +1,70 @@
 <?php
 
+declare(strict_types=1);
+
 /**
- * AdminZone - Uživatel.
+ * AdminZone - web page (look and feel shared with AbraFlexi ClientZone).
  *
  * @author     Vítězslav Dvořák <vitex@arachne.cz>
- * @copyright  2015 Spoje.Net
+ * @copyright  2015-2026 Spoje.Net
  */
 
 namespace AdminZone\ui;
 
-class WebPage extends \Ease\TWB\WebPage
+class WebPage extends \Ease\TWB5\WebPage
 {
-    /**
-     * Hlavní blok stránky.
-     *
-     * @var \Ease\Html\DivTag
-     */
-    public $container = null;
+    public const ASSET_VERSION = '1.1.1';
 
-    /**
-     * První sloupec.
-     *
-     * @var \Ease\Html\DivTag
-     */
-    public $columnI = null;
+    public string $bootstrapCSS = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
+    public string $jqueryJavaScript = 'https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js';
+    public string $bootstrapThemeCSS = '';
+    public \Ease\TWB5\Container $container;
 
-    /**
-     * Druhý sloupec.
-     *
-     * @var \Ease\Html\DivTag
-     */
-    public $columnII = null;
-
-    /**
-     * Třetí sloupec.
-     *
-     * @var \Ease\Html\DivTag
-     */
-    public $columnIII = null;
-
-    /**
-     * Základní objekt stránky.
-     *
-     * @param VSUser $userObject
-     */
-    public function __construct($pageTitle = null, &$userObject = null)
+    public function __construct(?string $pageTitle = null, mixed &$userObject = null)
     {
-        if (is_null($userObject)) {
+        if (null === $userObject) {
             $userObject = \Ease\Shared::user();
         }
-        parent::__construct($pageTitle);
-        $this->IncludeCss('css/default.css');
-        $this->head->addItem('<meta name="viewport" content="width=device-width, initial-scale=1.0">');
-        $this->head->addItem('<link rel="shortcut icon" type="image/svg+xml" href="images/logo.png">');
-        $this->head->addItem('<link rel="apple-touch-icon-precomposed"  type="image/svg+xml" href="images/logo.png">');
-        $this->head->addItem('<link rel="stylesheet" href="/javascript/font-awesome/css/font-awesome.min.css">');
 
-        $this->container = $this->addItem(new \Ease\TWB\Container());
-    }
-
-    /**
-     * Rozdělí stránku do třísloupcového layoutu
-     */
-    function addPageColumns()
-    {
-        $row = $this->container->addItem(new \Ease\Html\DivTag(
-            null,
-            ['class' => 'row']
-        ));
-
-        $this->columnI = $row->addItem(new \Ease\Html\DivTag(
-            null,
-            ['class' => 'col-md-4']
-        ));
-        $this->columnII = $row->addItem(new \Ease\Html\DivTag(
-            null,
-            ['class' => 'col-md-4']
-        ));
-        $this->columnIII = $row->addItem(new \Ease\Html\DivTag(
-            null,
-            ['class' => 'col-md-4']
-        ));
-    }
-
-    /**
-     * Pouze pro admina.
-     *
-     * @param string $loginPage
-     */
-    public function onlyForAdmin($loginPage = 'adminlogin.php')
-    {
-        $user = \Ease\Shared::user();
-        if (!$user->getSettingValue('admin')) {
-            $user->addStatusMessage(
-                _('Please sign in as admin first'),
-                'warning'
-            );
-            $this->redirect($loginPage);
-            exit;
+        if ($pageTitle === null || $pageTitle === '') {
+            $pageTitle = \Ease\Shared::appName() ?: _('AdminZone');
         }
+
+        parent::__construct((string) $pageTitle);
+        // remembered light / dark choice (js/vitex.js toggles it)
+        $this->head->addItem('<script>(function(){var t="dark";try{t=localStorage.getItem("vsTheme")||t}catch(e){}var d=document.documentElement;d.classList.add("js");d.setAttribute("data-theme",t);d.setAttribute("data-bs-theme",t)})()</script>');
+        $this->head->addItem('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>');
+        $this->includeCss('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=Caveat:wght@400;500&display=swap');
+        $this->includeCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
+        $this->includeCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/v4-shims.min.css');
+        $this->includeCss('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
+        $this->includeCss('css/default.css');
+        $this->includeCss('css/vitex.css?v=' . self::ASSET_VERSION);
+        $this->includeJavaScript('js/vitex.js?v=' . self::ASSET_VERSION);
+        $this->head->addItem('<link rel="icon" type="image/svg+xml" href="images/logo.svg">');
+        $this->head->addItem('<meta name="theme-color" content="#1d1440">');
+        $this->body->setTagID('page-top');
+        $this->container = $this->addItem(new \Ease\TWB5\Container());
+        $this->container->setTagClass('container-fluid page-content');
     }
 
     /**
-     * Pouze pro uživatele.
+     * Send anonymous visitor to the login page and stop the script.
      *
-     * @param string $loginPage
+     * @param string      $loginPage login page address
+     * @param null|string $message
      */
-    public function onlyForUser($loginPage = 'adminlogin.php')
+    public function onlyForLogged($loginPage = 'login.php', $message = null)
     {
-        $user = \Ease\Shared::user();
-        if (get_class($user) != 'AdminZone\User') {
-            \AdminZone\ui\WebPage::singleton()->addStatusMessage(
-                _('Please sign in as user first'),
-                'warning'
-            );
-            $this->redirect($loginPage);
-            exit;
+        if (
+            parent::onlyForLogged(
+                $loginPage . '?backurl=' . urlencode($_SERVER['REQUEST_URI']),
+                $message
+            )
+        ) {
+            exit; // never let a page continue for anonymous visitor
         }
-    }
 
-    /**
-     * Nepřihlášeného uživatele přesměruje na přihlašovací stránku.
-     *
-     * @param string $loginPage adresa přihlašovací stránky
-     */
-    public function onlyForLogged(
-        $loginPage = 'adminlogin.php',
-        $message = null
-    ) {
-        return parent::onlyForLogged(
-            $loginPage . '?backurl=' . urlencode($_SERVER['REQUEST_URI']),
-            $message
-        );
+        return false;
     }
 }

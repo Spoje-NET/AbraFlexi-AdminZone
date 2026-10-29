@@ -9,7 +9,7 @@
 
 namespace AdminZone\ui;
 
-class AddressForm extends \Ease\TWB\Form
+class AddressForm extends \Ease\TWB5\Form
 {
     /**
      * Otázky.
@@ -78,7 +78,7 @@ class AddressForm extends \Ease\TWB\Form
 
     public function finalize(): void
     {
-        $this->addItem(new \Ease\Html\DivTag(new \Ease\TWB\SubmitButton(
+        $this->addItem(new \Ease\Html\DivTag(new \Ease\TWB5\SubmitButton(
             _('Save'),
             'success'
         ), ['style' => 'text-align: right']));
