@@ -1,3 +1,10 @@
+abraflexi-adminzone (0.2.2) unstable; urgency=medium
+
+  * Sign-in: access to the configured company must be verified; any
+    AbraFlexi user may sign in unless ABRAFLEXI_ALLOWED_USERS is set
+
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Thu, 29 Oct 2026 14:59:54 +0100
+
 abraflexi-adminzone (0.2.1) unstable; urgency=medium
 
   * Fix: pages did not load jQuery, so the account grids stayed empty

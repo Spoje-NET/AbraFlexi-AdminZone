@@ -40,6 +40,15 @@
   </developer>
 
   <releases>
+    <release version="0.2.2" date="2026-10-29">
+      <description>
+        <p>Stricter check of the access to the configured company at sign-in.</p>
+        <ul>
+          <li>Sign-in is refused when the access of the AbraFlexi account to the company cannot be verified</li>
+          <li>Any AbraFlexi user may sign in unless ABRAFLEXI_ALLOWED_USERS restricts it</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.2.1" date="2026-10-29">
       <description>
         <p>Fixes the empty account lists and adds a service account option.</p>
