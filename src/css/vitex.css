@@ -709,3 +709,107 @@ html:not(.js) .reveal { opacity: 1; transform: none; }
 .showcase-img img { max-height: 140px; max-width: 100%; object-fit: contain; }
 .showcase-body { padding: 20px 22px; display: flex; flex-direction: column; gap: 10px; }
 .showcase-body h3 { font-size: 1.15rem; font-weight: 500; margin: 0; }
+
+/* AdminZone: compact two-line AbraFlexi server / company indicator in the navbar */
+.server-info {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  max-width: 240px;
+  margin: 0 .75rem;
+  padding: 0;
+  font-size: .72rem;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+.server-info .si-host,
+.server-info .si-company {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.server-info .si-company {
+  opacity: .8;
+}
+
+/* AdminZone: pairing grid (DataTables + Select2) in the ClientZone look */
+#extidgrid {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--text);
+  --bs-table-border-color: var(--border);
+  --bs-table-hover-bg: var(--glass-2);
+  --bs-table-hover-color: var(--text);
+  border-radius: 12px;
+  overflow: hidden;
+}
+#extidgrid thead th {
+  background: var(--glass-2);
+  color: var(--text);
+  border-bottom: 1px solid var(--border-strong);
+  font-weight: 600;
+  white-space: nowrap;
+}
+#extidgrid tbody tr > td { vertical-align: middle; border-color: var(--border); color: var(--text); }
+/* state of the pairing as a calm tint plus a coloured edge instead of solid Bootstrap colours */
+#extidgrid tbody tr.table-success > td { --bs-table-bg: rgba(63, 208, 140, .12); --bs-table-color: var(--text); background-color: var(--bs-table-bg); }
+#extidgrid tbody tr.table-warning > td { --bs-table-bg: rgba(255, 209, 102, .16); --bs-table-color: var(--text); background-color: var(--bs-table-bg); }
+#extidgrid tbody tr.table-danger  > td { --bs-table-bg: rgba(255, 111, 159, .14); --bs-table-color: var(--text); background-color: var(--bs-table-bg); }
+#extidgrid tbody tr.table-success > td:first-child { box-shadow: inset 3px 0 0 #3fd08c; }
+#extidgrid tbody tr.table-warning > td:first-child { box-shadow: inset 3px 0 0 var(--p4); }
+#extidgrid tbody tr.table-danger  > td:first-child { box-shadow: inset 3px 0 0 var(--p1); }
+#extidgrid tbody tr:hover > td { background-color: var(--glass-2); }
+#extidgrid a { color: var(--accent); text-decoration: none; }
+#extidgrid a:hover { text-decoration: underline; }
+
+body .dataTables_wrapper { color: var(--text); }
+body .dataTables_wrapper .dataTables_length label,
+body .dataTables_wrapper .dataTables_filter label,
+body .dataTables_wrapper .dataTables_info { color: var(--dim); }
+body .dataTables_wrapper .dataTables_filter input,
+body .dataTables_wrapper .dataTables_length select {
+  background-color: var(--glass);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+}
+body .dataTables_wrapper .page-link {
+  background: var(--glass);
+  color: var(--text);
+  border-color: var(--border);
+}
+body .dataTables_wrapper .page-item.active .page-link {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--btn-ink);
+}
+body .dataTables_wrapper .page-item.disabled .page-link { color: var(--dim); opacity: .6; }
+body table.dataTable thead .sorting::before, table.dataTable thead .sorting::after,
+table.dataTable thead .sorting_asc::before, table.dataTable thead .sorting_asc::after,
+table.dataTable thead .sorting_desc::before, table.dataTable thead .sorting_desc::after { color: var(--dim); }
+
+/* Select2 shares the form-control look */
+body .select2-container--bootstrap-5 .select2-selection {
+  background-color: var(--glass);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+}
+body .select2-container--bootstrap-5 .select2-selection--single .select2-selection__rendered { color: var(--text); }
+body .select2-container--bootstrap-5 .select2-selection__placeholder { color: var(--dim); }
+body .select2-container--bootstrap-5 .select2-dropdown {
+  background-color: var(--bg-2);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+}
+body .select2-container--bootstrap-5 .select2-dropdown .select2-results__option--highlighted { background-color: var(--accent); color: var(--btn-ink); }
+body .select2-container--bootstrap-5 .select2-search--dropdown .select2-search__field {
+  background-color: var(--glass);
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+}
+body .select2-container--bootstrap-5 .select2-results__option { color: var(--text); }
+
+/* chevron of the Select2 box readable on the dark theme */
+:root:not([data-theme="light"]) body .select2-container--bootstrap-5 .select2-selection--single {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23cdbbe0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}

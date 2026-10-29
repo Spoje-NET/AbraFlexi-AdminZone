@@ -33,8 +33,14 @@ $oUser = \Ease\Shared::user(null, 'AdminZone\User');
     'ABRAFLEXI_URL', 'ABRAFLEXI_COMPANY',
         ], __DIR__ . '/../../.env', true);
 
-// Web requests act as the signed-in operator (AbraFlexi authSessionId token)
-if (method_exists($oUser, 'getAuthSessionId') && $oUser->getAuthSessionId()) {
+// Data calls use the service account when ABRAFLEXI_LOGIN/ABRAFLEXI_PASSWORD are configured
+// (the operator's token then only proves who signed in); otherwise they act as the
+// signed-in operator through the AbraFlexi authSessionId token.
+if (
+    !User::hasServiceAccount()
+    && method_exists($oUser, 'getAuthSessionId')
+    && $oUser->getAuthSessionId()
+) {
     putenv('ABRAFLEXI_AUTHSESSID=' . $oUser->getAuthSessionId());
 }
 

@@ -1,3 +1,18 @@
+abraflexi-adminzone (0.2.1) unstable; urgency=medium
+
+  * Fix: pages did not load jQuery, so the account grids stayed empty
+  * Data calls can run under a service account
+    (ABRAFLEXI_LOGIN/PASSWORD) when the operator's AbraFlexi sessions
+    are unusable; optional allow list ABRAFLEXI_ALLOWED_USERS
+  * Sign-in refuses obsolete AbraFlexi sessions without a service
+    account, checks access to the configured company
+  * IPEX and SledovaniTV errors are shown instead of an empty list;
+    AbraFlexi server and company shown in the menu
+  * Grid look follows the ClientZone theme in dark and light mode;
+    open_basedir fix
+
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Thu, 29 Oct 2026 14:20:32 +0100
+
 abraflexi-adminzone (0.2.0) unstable; urgency=medium
 
   * Focus on pairing of IPEX, Subreg and SledovaniTV accounts with

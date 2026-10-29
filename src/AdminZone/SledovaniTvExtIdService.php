@@ -34,7 +34,13 @@ class SledovaniTvExtIdService extends ExtIdService
 
     protected function accounts(): array
     {
-        return (new SledovaniTV())->getUsers() ?: [];
+        $users = (new SledovaniTV())->getUsers();
+
+        if ($users === null) {
+            throw new \RuntimeException('SledovaniTV did not return the user list (check SLTV_LOGIN and SLTV_PASSWORD)');
+        }
+
+        return $users;
     }
 
     protected function notifyService(string $serviceId, string $addressCode): void

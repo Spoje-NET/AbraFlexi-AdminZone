@@ -43,6 +43,8 @@ class WebPage extends \Ease\TWB5\WebPage
         $this->includeJavaScript('js/vitex.js?v=' . self::ASSET_VERSION);
         $this->head->addItem('<link rel="icon" type="image/svg+xml" href="images/logo.svg">');
         $this->head->addItem('<meta name="theme-color" content="#1d1440">');
+        // jQuery is needed by the menu search box, DataTables and Select2 on every page
+        \Ease\Part::jQueryze();
         $this->body->setTagID('page-top');
         $this->container = $this->addItem(new \Ease\TWB5\Container());
         $this->container->setTagClass('container-fluid page-content');

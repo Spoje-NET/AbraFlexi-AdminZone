@@ -1,1 +1,0 @@
-{"version":2,"defects":[],"times":{"Test\\AdminZone\\ExtIdServiceTest::testItemsNeverExposeCredentialsOfTheService":0.001,"Test\\AdminZone\\ExtIdServiceTest::testItemsCarryAssignedAddress":0,"Test\\AdminZone\\ExtIdServiceTest::testFactoryKnowsAllServices":0.001,"Test\\AdminZone\\UserTest::testEmptyCredentialsAreRefusedWithoutAskingAbraFlexi":0.002}}

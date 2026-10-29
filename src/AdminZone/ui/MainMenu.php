@@ -36,6 +36,15 @@ class MainMenu extends \Ease\Html\DivTag
             return;
         }
 
+        $server = $user->getServerInfo();
+        $nav->addMenuItem(new \Ease\Html\SpanTag(
+            '<span class="si-host"><i class="fa fa-server"></i> ' . htmlspecialchars($server['host']) . '</span>'
+            . '<span class="si-company"><i class="fa fa-building"></i> ' . htmlspecialchars($server['companyName']) . '</span>',
+            [
+                'class' => 'navbar-text server-info',
+                'title' => htmlspecialchars(sprintf(_('AbraFlexi server %s, company %s (%s)'), $server['host'], $server['companyName'], $server['company']), \ENT_QUOTES),
+            ],
+        ));
         $nav->addMenuItem(new NavBarSearchBox('search', 'search.php'));
         $nav->addMenuItem(new \Ease\Html\ATag('clients.php', '<i class="fa fa-users"></i> ' . _('Clients')));
         $nav->addDropDownMenu(

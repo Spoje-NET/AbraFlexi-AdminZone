@@ -10,3 +10,4 @@
 /debian/tmp/
 /nbproject/
 /*.deb
+.phpunit.result.cache

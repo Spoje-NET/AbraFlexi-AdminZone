@@ -40,6 +40,16 @@
   </developer>
 
   <releases>
+    <release version="0.2.1" date="2026-10-29">
+      <description>
+        <p>Fixes the empty account lists and adds a service account option.</p>
+        <ul>
+          <li>Account grids work again (jQuery was missing on the pages)</li>
+          <li>Optional service account for data calls with an allow list of operators</li>
+          <li>AbraFlexi server and company shown in the menu; clearer errors from IPEX, Subreg and SledovaniTV</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.2.0" date="2026-10-29">
       <description>
         <p>The application now focuses on pairing external service accounts with AbraFlexi customers.</p>

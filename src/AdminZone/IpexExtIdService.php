@@ -34,10 +34,17 @@ class IpexExtIdService extends ExtIdService
 
     protected function accounts(): array
     {
+        $customers = new \IPEXB2B\Customers();
+        $list = $customers->requestData();
+
+        if ($customers->lastResponseCode !== 200) {
+            throw new \RuntimeException(sprintf('IPEX answered HTTP %d (check IPEX_URL, IPEX_LOGIN and IPEX_PASSWORD)', $customers->lastResponseCode));
+        }
+
         $rows = [];
 
-        foreach ((new \IPEXB2B\Customers())->requestData() ?: [] as $customer) {
-            $customer['_url'] = 'https://b2b.ipex.cz/customer/dashboard/'.$customer['id'].'&submit=Odeslat';
+        foreach (\is_array($list) ? $list : [] as $customer) {
+            $customer['_url'] = 'https://b2b.ipex.cz/customer/dashboard/' . $customer['id'] . '&submit=Odeslat';
             $rows[] = $customer;
         }
 

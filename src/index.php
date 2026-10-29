@@ -17,6 +17,14 @@ $oPage->onlyForLogged();
 
 $oPage->addToHeader(new ui\PageTop(_('AdminZone')));
 
+$server = $oUser->getServerInfo();
+$oPage->container->addItem(new \Ease\Html\DivTag(
+    '<i class="fa fa-server"></i> ' . htmlspecialchars($server['host'])
+    . ' &middot; <i class="fa fa-building"></i> <strong>' . htmlspecialchars($server['companyName']) . '</strong>'
+    . ($server['companyName'] !== $server['company'] ? ' <span class="dim">(' . htmlspecialchars($server['company']) . ')</span>' : ''),
+    ['class' => 'alert alert-info mt-3', 'role' => 'status'],
+));
+
 $icons = ['ipex' => 'fa-phone', 'subreg' => 'fa-globe', 'sltv' => 'fa-tv'];
 
 $oPage->container->addItem(new \Ease\Html\H1Tag(_('External accounts'), ['class' => 'mt-4']));
