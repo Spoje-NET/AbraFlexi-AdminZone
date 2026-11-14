@@ -14,7 +14,8 @@ class PageTop extends \Ease\Html\DivTag
         parent::__construct();
 
         if ($pageTitle !== null && $pageTitle !== '') {
-            \Ease\WebPage::singleton()->setPageTitle((string) $pageTitle);
+            // The title goes into <title> unescaped by the library and may hold data from AbraFlexi
+            \Ease\WebPage::singleton()->setPageTitle(htmlspecialchars((string) $pageTitle, \ENT_QUOTES | \ENT_SUBSTITUTE, 'UTF-8'));
         }
     }
 

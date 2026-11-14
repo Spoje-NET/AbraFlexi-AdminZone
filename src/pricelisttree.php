@@ -73,9 +73,9 @@ try {
             : '',
     ], ['class' => 'd-flex justify-content-between align-items-center mb-2']));
     $listing->addItem(new \Ease\Html\PTag(
-        $catalog === null
+        htmlspecialchars($catalog === null
             ? _('ClientZone sells from the whole pricelist.')
-            : sprintf(_('ClientZone sells the items labelled %s and %s placed below %s.'), PricelistChecker::LABEL_SHOP, PricelistChecker::LABEL_ACTIVE, $tree->path($catalog)),
+            : sprintf(_('ClientZone sells the items labelled %s and %s placed below %s.'), PricelistChecker::LABEL_SHOP, PricelistChecker::LABEL_ACTIVE, $tree->path($catalog)), \ENT_QUOTES | \ENT_SUBSTITUTE, 'UTF-8'),
         ['class' => 'dim small'],
     ));
     $listing->addItem(new ui\PricelistItemsTable($rows, $tree, $catalog));
