@@ -1,3 +1,15 @@
+abraflexi-adminzone (0.3.0) unstable; urgency=medium
+
+  * Pricelist check (pricelist.php, menu "Ceník"): finds pricelist items that
+    ClientZone cannot sell or would sell wrongly. Unsupported stock type, missing
+    name, price, VAT rate or unit, expired validity, half-set ESHOP/AKTIVNI
+    labels, duplicate codes, a credit with unit price other than 1, and (when
+    PRICELIST_EXPECTED_PRODUCTS is set) products the shop depends on that are
+    missing or not offered. Findings are sorted by severity and linked to the item.
+  * Czech catalog compiles again (obsolete duplicate entry removed).
+
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Sat, 14 Nov 2026 17:28:35 +0100
+
 abraflexi-adminzone (0.2.2) unstable; urgency=medium
 
   * Sign-in: access to the configured company must be verified; any

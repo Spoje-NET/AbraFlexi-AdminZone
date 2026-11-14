@@ -3177,9 +3177,99 @@ msgstr ""
 #~ msgid "změna hesla"
 #~ msgstr "změna hesla"
 
-#, fuzzy
-#~ msgid "AbraFlexi"
-#~ msgstr "AbraFlexi"
 
 #~ msgid "Order specific"
 #~ msgstr "Order specific"
+
+msgid "Pricelist check"
+msgstr "Kontrola ceníku"
+
+msgid "Checks that the pricelist items are entered so that ClientZone can sell them."
+msgstr "Kontroluje, zda jsou položky ceníku zadané tak, aby je ClientZone mohla prodávat."
+
+msgid "The pricelist could not be read from AbraFlexi."
+msgstr "Ceník se nepodařilo načíst z AbraFlexi."
+
+msgid "The code is used by %d items (ignoring case and spaces); ClientZone finds the item by its code"
+msgstr "Kód používá %d položek (bez ohledu na velikost písmen a mezery); ClientZone hledá položku podle kódu"
+
+msgid "The shop sells this product but the pricelist has no item with this code"
+msgstr "Obchod tento produkt prodává, ale v ceníku není položka s tímto kódem"
+
+msgid "The shop sells this product but the item lacks the labels %s and %s, so customers cannot order it"
+msgstr "Obchod tento produkt prodává, ale položce chybí štítky %s a %s, zákazníci ji proto nemohou objednat"
+
+msgid "The item has no name"
+msgstr "Položka nemá název"
+
+msgid "The price is negative"
+msgstr "Cena je záporná"
+
+msgid "The code has leading, trailing or repeated spaces"
+msgstr "Kód má mezery na začátku, na konci nebo opakované"
+
+msgid "Labelled %s without %s: customers do not see it"
+msgstr "Má štítek %s bez %s: zákazníci ji nevidí"
+
+msgid "Labelled %s without %s: the label has no effect"
+msgstr "Má štítek %s bez %s: štítek nemá účinek"
+
+msgid "The price of a credit is per one unit and must be 1, it is %s: the customer would be charged the amount multiplied by it"
+msgstr "Cena kreditu je za jednu jednotku a musí být 1, je %s: zákazníkovi by se účtovala částka vynásobená touto cenou"
+
+msgid "The stock type is not set: ClientZone cannot make a document of the item"
+msgstr "Typ zásoby není nastaven: ClientZone z položky nevytvoří doklad"
+
+msgid "The stock type %s is not handled by ClientZone (service, goods, material and fee are)"
+msgstr "Typ zásoby %s ClientZone nezpracuje (zpracuje službu, zboží, materiál a poplatek)"
+
+msgid "The offered item has no price: customers see it for free"
+msgstr "Nabízená položka nemá cenu: zákazníci ji vidí zdarma"
+
+msgid "The VAT rate is not set"
+msgstr "Sazba DPH není nastavena"
+
+msgid "The unit of measure is not set (for a service it also tells the billing period)"
+msgstr "Měrná jednotka není nastavena (u služby určuje i fakturační období)"
+
+msgid "The item has no description for customers"
+msgstr "Položka nemá popis pro zákazníky"
+
+msgid "The code contains a space; it works but it is easy to mistype"
+msgstr "Kód obsahuje mezeru; funguje, ale snadno se překlepne"
+
+msgid "The item is valid only until %d"
+msgstr "Položka platí pouze do roku %d"
+
+msgid "The item is valid only from %d"
+msgstr "Položka platí až od roku %d"
+
+msgid "Checked %d pricelist items, %d of them offered by ClientZone (labels %s and %s)."
+msgstr "Zkontrolováno %d položek ceníku, z toho %d nabízí ClientZone (štítky %s a %s)."
+
+msgid "Every pricelist item is entered correctly."
+msgstr "Všechny položky ceníku jsou zadané správně."
+
+msgid "Nothing of this severity."
+msgstr "Nic s touto závažností."
+
+msgid "Severity"
+msgstr "Závažnost"
+
+msgid "Item"
+msgstr "Položka"
+
+msgid "Problem"
+msgstr "Problém"
+
+msgid "Check"
+msgstr "Kontrola"
+
+msgid "Error"
+msgstr "Chyba"
+
+msgid "Warning"
+msgstr "Varování"
+
+msgid "Notice"
+msgstr "Upozornění"
