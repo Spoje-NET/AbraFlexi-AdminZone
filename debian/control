@@ -9,7 +9,7 @@ Package: abraflexi-adminzone
 Depends: ${misc:Depends},
  php-spojenet-abraflexi (>= 3.7),
  php-vitexsoftware-abraflexi-bricks,
- php-vitexsoftware-ease-twbootstrap5,
+ php-vitexsoftware-ease-bootstrap5,
  php-vitexsoftware-ease-bootstrap5-widgets,
  php-vitexsoftware-ease-bootstrap5-widgets-abraflexi,
  php-vitexsoftware-ease-html-widgets,

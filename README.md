@@ -48,6 +48,24 @@ existence nekontroluje):
 Kódy používají order pluginy ClientZone. `platiOd` a `platiDo` se berou jako roky; hodnoty `0`
 a `9999` znamenají bez omezení.
 
+### Editor ceníku a strom
+
+Stránka **Ceník → Strom a položky** (`pricelisttree.php`) ukazuje strom ceníku AbraFlexi
+(evidence `strom`, kořen `STR_CEN`) s počty položek a u vybrané větve tabulku položek: typ zásoby,
+štítky a zda je zákazníci ClientZone uvidí. **Editor** (`pricelistitem.php`) nabízí výběr místo
+ručního psaní kódů:
+
+- **typ zásoby** – ClientZone prodá službu (vznikne přijatá objednávka) a zboží, materiál nebo
+  poplatek (vznikne zálohová faktura); ostatní typy editor odmítne u položky, která se nabízí,
+- **štítky** z číselníku štítků ceníku, řídící `ESHOP` a `AKTIVNI` první,
+- **místo ve stromu** (`strom-cenik`) – ClientZone nabízí položky pod svou katalogovou větví,
+- měrná jednotka, skupina zboží, sazba DPH a platnost.
+
+Katalogová větev ClientZone (jeho nastavení `PROD_CAT`) se zadá i v `.env` AdminZone, aby editor
+poznal položky mimo nabídku (bez nastavení se bere celý strom):
+
+    PROD_CAT=1
+
 ## Licence
 
 MIT, viz `LICENSE`. Přibalené knihovny v `src/assets` a `src/js` mají vlastní licence.

@@ -47,7 +47,14 @@ class MainMenu extends \Ease\Html\DivTag
         ));
         $nav->addMenuItem(new NavBarSearchBox('search', 'search.php'));
         $nav->addMenuItem(new \Ease\Html\ATag('clients.php', '<i class="fa fa-users"></i> ' . _('Clients')));
-        $nav->addMenuItem(new \Ease\Html\ATag('pricelist.php', '<i class="fa fa-tags"></i> ' . _('Pricelist')));
+        $nav->addDropDownMenu(
+            '<i class="fa fa-tags"></i> ' . _('Pricelist'),
+            [
+                'pricelisttree.php' => '<i class="fa fa-sitemap"></i> ' . _('Tree and items'),
+                'pricelistitem.php' => '<i class="fa fa-plus"></i> ' . _('New item'),
+                'pricelist.php' => '<i class="fa fa-stethoscope"></i> ' . _('Pricelist check'),
+            ],
+        );
         $nav->addDropDownMenu(
             '<i class="fa fa-link"></i> ' . _('Integrations'),
             [

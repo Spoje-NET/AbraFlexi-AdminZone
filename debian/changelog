@@ -7,6 +7,14 @@ abraflexi-adminzone (0.3.0) unstable; urgency=medium
     PRICELIST_EXPECTED_PRODUCTS is set) products the shop depends on that are
     missing or not offered. Findings are sorted by severity and linked to the item.
   * Czech catalog compiles again (obsolete duplicate entry removed).
+  * Pricelist tree and item editor (pricelisttree.php, pricelistitem.php): browse
+    the pricelist tree with item counts and edit items by choosing the stock type
+    (what ClientZone makes of an order), the labels (ESHOP and AKTIVNI first), the
+    place in the tree, unit, goods group, VAT rate and validity. The editor shows
+    what customers will see and refuses items ClientZone could not sell. New
+    optional setting PROD_CAT: the catalog node ClientZone sells from.
+  * Bootstrap 5 only: the error page loads Bootstrap 5, the unused Bootstrap 3
+    assets are removed, the package depends on php-vitexsoftware-ease-bootstrap5.
 
  -- Vítězslav Dvořák <info@vitexsoftware.cz>  Sat, 14 Nov 2026 17:28:35 +0100
 

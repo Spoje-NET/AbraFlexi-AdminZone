@@ -91,7 +91,6 @@ class DataTable extends \Ease\Html\TableTag
 
 
 //        $this->includeJavaScript('assets/datatables.js');
-//        $this->includeCss('assets/datatables.css');
 
         $this->includeJavaScript('https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js');
         $this->includeJavaScript('https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js');
@@ -107,7 +106,6 @@ class DataTable extends \Ease\Html\TableTag
 //
 //        $this->includeJavaScript('js/selectize.min.js');
 //        $this->includeCss('css/slectize.css');
-//        $this->includeCss('css/selectize.bootstrap3.css');
 //
 //
         $this->setTagClass('table table-striped table-bordered');

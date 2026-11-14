@@ -72,12 +72,12 @@ if (PHP_SAPI !== 'cli') {
         $debug = filter_var(\Ease\Shared::cfg('APP_DEBUG', false), \FILTER_VALIDATE_BOOLEAN);
 
         echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>AdminZone</title>'
-            . '<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></head>'
+            . '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"></head>'
             . '<body><div class="container" style="margin-top: 40px"><div class="alert alert-danger"><strong>'
             . htmlspecialchars(_('The request failed')) . '</strong><br>'
             . htmlspecialchars(sprintf(_('Error reference: %s'), $reference))
             . ($debug ? '<br>' . htmlspecialchars($exc->getMessage()) : '')
-            . '</div><a class="btn btn-default" href="index.php">' . htmlspecialchars(_('Back')) . '</a> '
-            . '<a class="btn btn-default" href="logout.php">' . htmlspecialchars(_('Sign Out')) . '</a></div></body></html>';
+            . '</div><a class="btn btn-secondary" href="index.php">' . htmlspecialchars(_('Back')) . '</a> '
+            . '<a class="btn btn-secondary" href="logout.php">' . htmlspecialchars(_('Sign Out')) . '</a></div></body></html>';
     });
 }

@@ -3273,3 +3273,216 @@ msgstr "Varování"
 
 msgid "Notice"
 msgstr "Upozornění"
+
+msgid "standard rate"
+msgstr "základní sazba"
+
+msgid "reduced rate"
+msgstr "snížená sazba"
+
+msgid "2nd reduced rate"
+msgstr "2. snížená sazba"
+
+msgid "exempt"
+msgstr "osvobozeno"
+
+msgid "Service"
+msgstr "Služba"
+
+msgid "Fee"
+msgstr "Poplatek"
+
+msgid "Goods"
+msgstr "Zboží"
+
+msgid "Material"
+msgstr "Materiál"
+
+msgid "Product"
+msgstr "Výrobek"
+
+msgid "Semi-finished product"
+msgstr "Polotovar"
+
+msgid "Work in progress"
+msgstr "Nedokončená výroba"
+
+msgid "Animal"
+msgstr "Zvíře"
+
+msgid "ClientZone creates a received order that a salesman handles"
+msgstr "ClientZone vytvoří přijatou objednávku, kterou vyřídí obchodník"
+
+msgid "ClientZone creates a proforma invoice"
+msgstr "ClientZone vytvoří zálohovou fakturu"
+
+msgid "ClientZone cannot sell this type (not offered to customers)"
+msgstr "ClientZone tento typ neumí prodat (zákazníkům se nenabízí)"
+
+msgid "The code is required: ClientZone finds the item by it"
+msgstr "Kód je povinný: ClientZone podle něj položku najde"
+
+msgid "The code is longer than 30 characters"
+msgstr "Kód je delší než 30 znaků"
+
+msgid "The name is required"
+msgstr "Název je povinný"
+
+msgid "The price must be a number, not negative"
+msgstr "Cena musí být číslo, ne záporné"
+
+msgid "Choose the VAT rate"
+msgstr "Vyberte sazbu DPH"
+
+msgid "Choose the stock type"
+msgstr "Vyberte typ zásoby"
+
+msgid "Unknown unit of measure %s"
+msgstr "Neznámá měrná jednotka %s"
+
+msgid "Unknown goods group %s"
+msgstr "Neznámá skupina zboží %s"
+
+msgid "The validity is a year between 0 and 9999 (0 and 9999 mean no limit)"
+msgstr "Platnost je rok od 0 do 9999 (0 a 9999 znamená bez omezení)"
+
+msgid "The item would be offered by ClientZone but the stock type %s cannot be sold there: pick Service, Fee, Goods or Material, or drop the label %s or %s"
+msgstr "Položku by ClientZone nabízela, ale typ zásoby %s tam prodat nejde: vyberte Službu, Poplatek, Zboží nebo Materiál, nebo odeberte štítek %s či %s"
+
+msgid "The place in the pricelist tree is not valid"
+msgstr "Místo ve stromu ceníku není platné"
+
+msgid "Has the label %s"
+msgstr "Má štítek %s"
+
+msgid "Lacks the label %s"
+msgstr "Chybí štítek %s"
+
+msgid "ClientZone sells from the whole pricelist"
+msgstr "ClientZone prodává z celého ceníku"
+
+msgid "Placed below the catalog node (%s)"
+msgstr "Zařazeno pod katalogovou větví (%s)"
+
+msgid "Not placed below the catalog node (%s): ClientZone does not list it"
+msgstr "Není zařazeno pod katalogovou větví (%s): ClientZone ji nenabízí"
+
+msgid "The stock type is not set"
+msgstr "Typ zásoby není vyplněn"
+
+msgid "ClientZone finds the item by this code"
+msgstr "ClientZone podle tohoto kódu položku najde"
+
+msgid "Description for customers"
+msgstr "Popis pro zákazníky"
+
+msgid "VAT rate"
+msgstr "Sazba DPH"
+
+msgid "Unit of measure"
+msgstr "Měrná jednotka"
+
+msgid "(none)"
+msgstr "(žádná)"
+
+msgid "For a service it also tells the billing period, e.g. month"
+msgstr "U služby určuje i fakturační období, např. měsíc"
+
+msgid "Goods group"
+msgstr "Skupina zboží"
+
+msgid "from year"
+msgstr "od roku"
+
+msgid "to year"
+msgstr "do roku"
+
+msgid "Validity"
+msgstr "Platnost"
+
+msgid "0 and 9999 mean no limit"
+msgstr "0 a 9999 znamená bez omezení"
+
+msgid "Back to the tree"
+msgstr "Zpět na strom"
+
+msgid "Stock type"
+msgstr "Typ zásoby"
+
+msgid "Customers of ClientZone are offered the items labelled both %s and %s."
+msgstr "Zákazníkům ClientZone se nabízejí položky se štítky %s i %s."
+
+msgid "Place in the pricelist tree"
+msgstr "Místo ve stromu ceníku"
+
+msgid "(not placed)"
+msgstr "(nezařazeno)"
+
+msgid "ClientZone lists the items below its catalog node, so this decides which section of the shop the item is in"
+msgstr "ClientZone nabízí položky pod svou katalogovou větví, takže toto určuje, ve které sekci obchodu položka je"
+
+msgid "No items here."
+msgstr "Žádné položky."
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Customers see it"
+msgstr "Zákazníci ji vidí"
+
+msgid "yes"
+msgstr "ano"
+
+msgid "Outside the catalog node of ClientZone"
+msgstr "Mimo katalogovou větev ClientZone"
+
+msgid "outside the catalog"
+msgstr "mimo katalog"
+
+msgid "no"
+msgstr "ne"
+
+msgid "ClientZone sells from here"
+msgstr "ClientZone prodává odtud"
+
+msgid "Not in the tree"
+msgstr "Mimo strom"
+
+msgid "New item"
+msgstr "Nová položka"
+
+msgid "Items that are not placed in the tree"
+msgstr "Položky, které nejsou zařazeny ve stromu"
+
+msgid "New item here"
+msgstr "Nová položka zde"
+
+msgid "ClientZone sells from the whole pricelist."
+msgstr "ClientZone prodává z celého ceníku."
+
+msgid "ClientZone sells the items labelled %s and %s placed below %s."
+msgstr "ClientZone prodává položky se štítky %s a %s zařazené pod %s."
+
+msgid "The pricelist item was not found."
+msgstr "Položka ceníku nebyla nalezena."
+
+msgid "The form expired, please send it again"
+msgstr "Platnost formuláře vypršela, odešlete ho prosím znovu"
+
+msgid "AbraFlexi did not accept the item, it was not saved"
+msgstr "AbraFlexi položku nepřijal, nebyla uložena"
+
+msgid "New pricelist item"
+msgstr "Nová položka ceníku"
+
+msgid "The item was saved"
+msgstr "Položka byla uložena"
+
+msgid "What customers see"
+msgstr "Co uvidí zákazníci"
+
+msgid "As saved in AbraFlexi: the labels, the placement and the validity take effect after saving."
+msgstr "Podle stavu v AbraFlexi: štítky, zařazení i platnost se projeví po uložení."
+
+msgid "Tree and items"
+msgstr "Strom a položky"
