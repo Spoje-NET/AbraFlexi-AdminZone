@@ -14,6 +14,8 @@ String[] distributions = [
 ]
 
 String vendor = 'vitexsoftware'
+// Production images carry the production repository (repo.multiflexi.eu)
+String imagePrefix = 'multiflexi-'
 //String distroFamily = ''
 
 properties([
@@ -61,7 +63,7 @@ distributions.each { distro ->
                     // the shared checkout workspace has read-only .git packs unstash cannot overwrite.
                     sh 'find . -mindepth 1 -delete 2>/dev/null || true'
                     unstash 'src'
-                    buildImage = docker.image(vendor + '/' + distro)
+                    buildImage = docker.image(vendor + '/' + imagePrefix + distroFamily + ':' + distroCode)
                 }
                 stage('Build ' + distroName) {
                     buildImage.inside {
@@ -192,8 +194,15 @@ distributions.each { distro ->
 
 parallel branches
 
-node('aptly') {
-    stage('Publish to Aptly') {
-	publishDebToAptly()
-    }
+if (!currentBuild.result || currentBuild.result == 'SUCCESS') {
+    build job: 'MultiFlexi-publish',
+      wait: false,
+      parameters: [
+        string(name: 'UPSTREAM_JOB', value: env.JOB_NAME),
+        string(name: 'UPSTREAM_BUILD', value: env.BUILD_NUMBER),
+        string(name: 'REMOTE_SSH', value: 'multirepo@repo.multiflexi.eu'),
+        string(name: 'REMOTE_REPO_DIR', value: '/var/lib/multirepo/public/multiflexi'),
+        string(name: 'COMPONENT', value: 'main'),
+        string(name: 'DEB_DIST', value: '')
+      ]
 }
