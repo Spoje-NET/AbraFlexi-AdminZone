@@ -103,11 +103,21 @@ try {
         new \Ease\TWB5\Panel(_('Item'), 'info', new ui\PricelistItemForm($values, $choices, $tree, $node, $itemId)),
         ['class' => 'col-lg-9'],
     ));
-    $row->addItem(new \Ease\Html\DivTag(
+    $side = new \Ease\Html\DivTag(
         new \Ease\TWB5\Panel(_('What customers see'), 'info', '<ul class="list-unstyled mb-2">'.$status.'</ul>'
             .'<div class="form-text">'.htmlspecialchars(_('As saved in AbraFlexi: the labels, the placement and the validity take effect after saving.')).'</div>'),
         ['class' => 'col-lg-3'],
-    ));
+    );
+
+    // A picture is an attachment of a stored item, so a new item gets it after the first save
+    if ($itemId !== null) {
+        $side->addItem(new \Ease\Html\DivTag(
+            new \Ease\TWB5\Panel(_('Picture'), 'info', new ui\ProductImageEditor($itemId)),
+            ['class' => 'mt-3'],
+        ));
+    }
+
+    $row->addItem($side);
     $oPage->container->addItem($row);
 } catch (\AbraFlexi\Exception $exc) {
     error_log('AdminZone pricelist item failed: '.$exc->getMessage());

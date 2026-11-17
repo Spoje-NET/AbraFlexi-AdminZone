@@ -3486,3 +3486,111 @@ msgstr "Podle stavu v AbraFlexi: štítky, zařazení i platnost se projeví po 
 
 msgid "Tree and items"
 msgstr "Strom a položky"
+
+msgid "Sign in first"
+msgstr "Nejdříve se přihlaste"
+
+msgid "Wrong request"
+msgstr "Neplatný požadavek"
+
+msgid "The picture could not be read from AbraFlexi"
+msgstr "Obrázek se nepodařilo načíst z AbraFlexi"
+
+msgid "The item has no picture"
+msgstr "Položka nemá obrázek"
+
+msgid "The form expired, reload the page"
+msgstr "Platnost formuláře vypršela, načtěte stránku znovu"
+
+msgid "No picture was uploaded"
+msgstr "Nebyl nahrán žádný obrázek"
+
+msgid "The picture is bigger than 10 MB"
+msgstr "Obrázek je větší než 10 MB"
+
+msgid "Only JPEG, PNG, GIF and WebP pictures are accepted"
+msgstr "Přijímány jsou pouze obrázky JPEG, PNG, GIF a WebP"
+
+msgid "AbraFlexi did not accept the picture"
+msgstr "AbraFlexi obrázek nepřijalo"
+
+msgid "The picture could not be saved to AbraFlexi"
+msgstr "Obrázek se nepodařilo uložit do AbraFlexi"
+
+msgid "Only JPEG, PNG, GIF and WebP pictures can be edited"
+msgstr "Upravovat lze pouze obrázky JPEG, PNG, GIF a WebP"
+
+msgid "The picture can be turned by right angles only"
+msgstr "Obrázek lze otáčet jen o pravé úhly"
+
+msgid "The picture could not be turned"
+msgstr "Obrázek se nepodařilo otočit"
+
+msgid "The crop area is not valid"
+msgstr "Oblast ořezu není platná"
+
+msgid "The crop area is outside of the picture"
+msgstr "Oblast ořezu leží mimo obrázek"
+
+msgid "The crop area is too small"
+msgstr "Oblast ořezu je příliš malá"
+
+msgid "The picture could not be cropped"
+msgstr "Obrázek se nepodařilo ořezat"
+
+msgid "The thumbnail could not be made"
+msgstr "Náhled se nepodařilo vytvořit"
+
+msgid "The picture could not be read"
+msgstr "Obrázek se nepodařilo přečíst"
+
+msgid "The picture could not be saved"
+msgstr "Obrázek se nepodařilo zakódovat"
+
+msgid "Picture"
+msgstr "Obrázek"
+
+msgid "Working…"
+msgstr "Pracuji…"
+
+msgid "Saved"
+msgstr "Uloženo"
+
+msgid "Free"
+msgstr "Volný"
+
+msgid "The item has no picture yet."
+msgstr "Položka zatím nemá obrázek."
+
+msgid "Picture of the item"
+msgstr "Obrázek položky"
+
+msgid "Turn"
+msgstr "Otočit"
+
+msgid "Turn left"
+msgstr "Otočit doleva"
+
+msgid "Turn right"
+msgstr "Otočit doprava"
+
+msgid "Turn upside down"
+msgstr "Otočit o 180°"
+
+msgid "Crop ratio"
+msgstr "Poměr stran ořezu"
+
+msgid "Crop"
+msgstr "Oříznout"
+
+msgid "Clear selection"
+msgstr "Zrušit výběr"
+
+msgid "Drag over the picture to select the area to keep, then press Crop."
+msgstr "Tažením myši přes obrázek vyberte oblast, která zůstane, a stiskněte Oříznout."
+
+msgid "Replace the picture"
+msgstr "Nahradit obrázek"
+
+msgid "JPEG, PNG, GIF or WebP up to 10 MB. The thumbnail for the shop list is made from the picture."
+msgstr "JPEG, PNG, GIF nebo WebP do 10 MB. Náhled pro výpis v obchodě se vytvoří z obrázku."
