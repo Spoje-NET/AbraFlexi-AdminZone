@@ -15,6 +15,14 @@ abraflexi-adminzone (0.3.0) unstable; urgency=medium
     optional setting PROD_CAT: the catalog node ClientZone sells from.
   * Bootstrap 5 only: the error page loads Bootstrap 5, the unused Bootstrap 3
     assets are removed, the package depends on php-vitexsoftware-ease-bootstrap5.
+  * Product pictures (pricelistitem.php): turn (left, right, 180 degrees), crop
+    by dragging with a choice of aspect ratio and replace the picture of a stored
+    pricelist item. Stored in AbraFlexi as attachments "image" and "thumbnail"
+    (the thumbnail is made automatically), the way ClientZone reads them.
+  * Client card (clientcard.php): what AbraFlexi knows about a customer on one
+    page - unpaid and overdue receivables, 12-month turnover, latest invoices,
+    contracts, contacts and the IPEX, Subreg and SledovaniTV pairing - with
+    warnings for the operator. The clients list links to it.
 
  -- Vítězslav Dvořák <info@vitexsoftware.cz>  Sat, 14 Nov 2026 17:28:35 +0100
 

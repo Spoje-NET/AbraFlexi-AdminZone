@@ -19,6 +19,8 @@
       <li>Data grids of IPEX, Subreg and SledovaniTV accounts with suggestions of the customer to pair</li>
       <li>Pairing is stored in AbraFlexi and reported back to the external service</li>
       <li>Customer list and address card with an overview of connected services</li>
+      <li>Client card: receivables, invoices, contracts, contacts and connected services on one page</li>
+      <li>Pricelist check, tree and item editor for ClientZone, with rotation, cropping and replacing of product pictures</li>
     </ul>
   </description>
 
