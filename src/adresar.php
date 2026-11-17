@@ -32,7 +32,10 @@ $oPage->addToHeader(new ui\PageTop(_('Address') . ': ' . $address->getDataValue(
 
 $oPage->container->addItem(new \Ease\Html\DivTag([
     new \Ease\Html\H1Tag($address->getDataValue('kod') . ' - ' . $address->getDataValue('nazev'), ['class' => 'h3']),
-    new ui\LinkToAbraFlexiButton($address),
+    new \Ease\Html\DivTag([
+        new \Ease\Html\ATag('clientcard.php?id=' . $address->getMyKey(), '<i class="fa fa-id-card"></i> ' . _('Client card'), ['class' => 'btn btn-outline-primary btn-sm']),
+        new ui\LinkToAbraFlexiButton($address),
+    ], ['class' => 'd-flex gap-2']),
 ], ['class' => 'd-flex justify-content-between align-items-center mt-4 mb-3']));
 
 $row = new \Ease\Html\DivTag(null, ['class' => 'row g-3']);

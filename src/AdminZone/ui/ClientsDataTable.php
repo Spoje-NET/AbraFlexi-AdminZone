@@ -41,7 +41,7 @@ class ClientsDataTable extends DataTable
 "columnDefs": [
             {
                 "render": function ( data, type, row ) {
-                    return  "<a href=\"adresar.php?id=" + row["id"] +"\">" + data;
+                    return  "<a href=\"clientcard.php?id=" + row["id"] +"\">" + data;
                 },
                 "targets": [1,2]
             },

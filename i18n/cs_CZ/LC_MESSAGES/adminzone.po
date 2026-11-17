@@ -3594,3 +3594,129 @@ msgstr "Nahradit obrázek"
 
 msgid "JPEG, PNG, GIF or WebP up to 10 MB. The thumbnail for the shop list is made from the picture."
 msgstr "JPEG, PNG, GIF nebo WebP do 10 MB. Náhled pro výpis v obchodě se vytvoří z obrázku."
+
+msgid "%d ended"
+msgstr "%d ukončených"
+
+msgid "%d invoices"
+msgstr "%d faktur"
+
+msgid "%d invoices are overdue, %s in total; the oldest by %d days."
+msgstr "Po splatnosti je %d faktur v celkové výši %s, nejstarší o %d dní."
+
+msgid "%d invoices, the oldest by %d days"
+msgstr "%d faktur, nejstarší o %d dní"
+
+msgid "%d of %d invoices of the last 12 months"
+msgstr "%d z %d faktur za posledních 12 měsíců"
+
+msgid "Active contracts"
+msgstr "Aktivní smlouvy"
+
+msgid "All the contracts of the client have ended."
+msgstr "Všechny smlouvy klienta skončily."
+
+msgid "Back to the clients"
+msgstr "Zpět na klienty"
+
+msgid "Client"
+msgstr "Klient"
+
+msgid "Client card"
+msgstr "Karta klienta"
+
+msgid "Company ID"
+msgstr "IČO"
+
+msgid "Contacts"
+msgstr "Kontakty"
+
+msgid "Contract %s ends in %d days."
+msgstr "Smlouva %s končí za %d dní."
+
+msgid "Contracts"
+msgstr "Smlouvy"
+
+msgid "Due"
+msgstr "Splatnost"
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "Edit the address"
+msgstr "Upravit adresu"
+
+msgid "Everything is paid, nothing to take care of."
+msgstr "Vše je zaplaceno, není co řešit."
+
+msgid "From"
+msgstr "Od"
+
+msgid "Invoiced in 12 months"
+msgstr "Fakturováno za 12 měsíců"
+
+msgid "Issued"
+msgstr "Vystaveno"
+
+msgid "Latest invoices"
+msgstr "Poslední faktury"
+
+msgid "No contacts."
+msgstr "Žádné kontakty."
+
+msgid "No contracts."
+msgstr "Žádné smlouvy."
+
+msgid "Not paired yet"
+msgstr "Zatím nespárováno"
+
+msgid "Nothing is overdue; %d invoices wait for the payment."
+msgstr "Nic není po splatnosti; na úhradu čeká %d faktur."
+
+msgid "Nothing was invoiced in the last 12 months."
+msgstr "Za posledních 12 měsíců nebylo nic fakturováno."
+
+msgid "Overdue"
+msgstr "Po splatnosti"
+
+msgid "Paired"
+msgstr "Spárováno"
+
+msgid "The client could not be read from AbraFlexi."
+msgstr "Klienta se nepodařilo načíst z AbraFlexi."
+
+msgid "The client was not found."
+msgstr "Klient nebyl nalezen."
+
+msgid "There is no e-mail address to send invoices and reminders to."
+msgstr "Chybí e-mailová adresa pro zasílání faktur a upomínek."
+
+msgid "To"
+msgstr "Do"
+
+msgid "To pay"
+msgstr "K úhradě"
+
+msgid "Total"
+msgstr "Celkem"
+
+msgid "Unpaid"
+msgstr "Neuhrazeno"
+
+msgid "VAT ID"
+msgstr "DIČ"
+
+msgid "active"
+msgstr "aktivní"
+
+msgid "ended"
+msgstr "ukončená"
+
+msgid "ends soon"
+msgstr "brzy končí"
+
+msgid "nothing overdue"
+msgstr "nic po splatnosti"
+
+msgid "open-ended"
+msgstr "na dobu neurčitou"
