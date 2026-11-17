@@ -139,18 +139,21 @@ class ClientCardView extends \Ease\Html\DivTag
      */
     private function profileTable(array $profile): string
     {
+        $email = $profile['email'];
+        $phone = $profile['phone'];
+        // [caption, text, ready HTML or null]: plain text is always escaped, HTML is built here only
         $rows = [
-            _('Company ID') => $profile['ic'],
-            _('VAT ID') => $profile['dic'],
-            _('Address') => $profile['address'],
-            _('E-mail') => $profile['email'] !== '' ? '<a href="mailto:'.self::e($profile['email']).'">'.self::e($profile['email']).'</a>' : '',
-            _('Phone') => $profile['phone'] !== '' ? '<a href="tel:'.self::e(preg_replace('/\s+/', '', $profile['phone']) ?? '').'">'.self::e($profile['phone']).'</a>' : '',
+            [_('Company ID'), $profile['ic'], null],
+            [_('VAT ID'), $profile['dic'], null],
+            [_('Address'), $profile['address'], null],
+            [_('E-mail'), $email, $email !== '' ? '<a href="mailto:'.self::e($email).'">'.self::e($email).'</a>' : null],
+            [_('Phone'), $phone, $phone !== '' ? '<a href="tel:'.self::e(preg_replace('/\s+/', '', $phone) ?? '').'">'.self::e($phone).'</a>' : null],
         ];
         $html = '<table class="table table-sm mb-0"><tbody>';
 
-        foreach ($rows as $caption => $value) {
+        foreach ($rows as [$caption, $text, $link]) {
             $html .= '<tr><th class="fw-normal text-muted w-25">'.self::e($caption).'</th><td>'
-                .($value === '' ? '<span class="text-muted">—</span>' : (str_starts_with($value, '<a ') ? $value : self::e($value))).'</td></tr>';
+                .($text === '' ? '<span class="text-muted">—</span>' : ($link ?? self::e($text))).'</td></tr>';
         }
 
         return $html.'</tbody></table>';

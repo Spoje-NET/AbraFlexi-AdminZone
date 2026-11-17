@@ -55,6 +55,26 @@ class ClientCardViewTest extends TestCase
         $this->assertStringContainsString('sltvregister.php?id=code:ACME', $html);
     }
 
+    public function testValuesLookingLikeLinksAreEscaped(): void
+    {
+        $card = ClientCard::build(
+            ['id' => '7', 'kod' => 'X', 'nazev' => 'X', 'ic' => '<a href="javascript:alert(1)">1</a>', 'ulice' => '<a onmouseover=alert(2)>', 'email' => 'a@b.example'],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            new \DateTimeImmutable('2026-11-17'),
+        );
+        $html = self::html($card);
+
+        $this->assertStringNotContainsString('<a href="javascript:', $html);
+        $this->assertStringNotContainsString('<a onmouseover', $html);
+        $this->assertStringContainsString('&lt;a onmouseover=alert(2)&gt;', $html);
+        $this->assertStringContainsString('<a href="mailto:a@b.example">', $html);
+    }
+
     public function testEmptyCardStillRenders(): void
     {
         $card = ClientCard::build(['id' => '7', 'kod' => 'NEW', 'nazev' => 'New', 'email' => 'a@b.example'], [], [], [], [], [], [], new \DateTimeImmutable('2026-11-17'));
