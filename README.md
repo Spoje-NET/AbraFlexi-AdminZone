@@ -1,123 +1,128 @@
 # AbraFlexi AdminZone
 
-Administrátorská zóna pro [AbraFlexi](https://www.abraflexi.eu/): správa zákazníků a přiřazení
-jejich účtů ve službách IPEX, Subreg a SledovaniTV (EXT:id). Párování plateb, upomínky, zpracování webhooků a digesty
-jsou samostatné projekty (`abraflexi-matcher`, `abraflexi-reminder`, `abraflexi-webhook-acceptor`, `DigestModules`).
+**English** | [Česky](README.cs.md)
 
-Vznikla vyčleněním administrátorské části z projektu `system.spoje.net`; zákaznická část žije v
-[AbraFlexi-ClientZone](https://github.com/VitexSoftware/AbraFlexi-ClientZone).
+Administration portal for [AbraFlexi](https://www.abraflexi.eu/) operators – the counterpart of
+[AbraFlexi-ClientZone](https://github.com/VitexSoftware/AbraFlexi-ClientZone): customer management
+and pairing of customer accounts with the IPEX, Subreg and SledovaniTV services (EXT:id). Payment
+matching, reminders, webhook processing and digests are separate projects (`abraflexi-matcher`,
+`abraflexi-reminder`, `abraflexi-webhook-acceptor`, `DigestModules`).
 
-*Administration portal for AbraFlexi operators – counterpart of ClientZone.*
+It was split off the administration part of the `system.spoje.net` project.
 
-## Co umí
+## Features
 
-- **Klienti** – seznam klientů, úprava adresy a kontaktů, **karta klienta** (viz níže)
-- **Služby** – párování účtů IPEX, Subreg a SledovaniTV se zákazníky AbraFlexi, registrace kontaktu v Subreg a SledovaniTV
-- **Ceník a nabídka pro ClientZone** – kontrola ceníku, strom a editor položek, **obrázky produktů** (otočení, ořez, nahrazení)
-- **Vyhledávání** napříč evidencemi AbraFlexi
+- **Clients** – client list, editing of the address and contacts, the **client card** (see below)
+- **Services** – pairing of IPEX, Subreg and SledovaniTV accounts with AbraFlexi customers, registration of a contact at Subreg and SledovaniTV
+- **Pricelist and the offer for ClientZone** – pricelist check, tree and item editor, **product pictures** (turn, crop, replace)
+- **Search** across AbraFlexi evidences
 
-## Instalace
+## Installation
 
     composer install
-    cp .env.example .env     # doplňte přístupové údaje
+    cp .env.example .env     # fill in the credentials
     php -S localhost:8080 -t src
 
-Přihlášení: `login.php` – přihlašovací údaje a token ověřuje AbraFlexi (`/login-logout/login`). Aplikace nepoužívá žádnou vlastní databázi.
+Sign-in: `login.php` – the credentials and the token are verified by AbraFlexi (`/login-logout/login`).
+The application uses no database of its own.
 
-Debian balíček: `abraflexi-adminzone` (`debuild -i -us -uc -b`), konfigurace v `/etc/abraflexi-admin-zone/.env`.
+Debian package: `abraflexi-adminzone` (`debuild -i -us -uc -b`), configuration in `/etc/abraflexi-admin-zone/.env`.
 
-## Kontrola ceníku
+Tests: `vendor/bin/phpunit`.
 
-Stránka `pricelist.php` (menu *Ceník*) zkontroluje položky ceníku, zda je
-[ClientZone](https://github.com/VitexSoftware/AbraFlexi-ClientZone) umí správně prodávat.
-ClientZone nabízí položky se štítky `ESHOP` a `AKTIVNI`; z objednané položky vznikne
-objednávka (typ zásoby *služba*) nebo záloha (*zboží*, *materiál*, *poplatek*), jiné typy odmítne.
+## Pricelist check
 
-| Závažnost | Kontrola | Význam |
+The page `pricelist.php` (menu *Pricelist*) checks that [ClientZone](https://github.com/VitexSoftware/AbraFlexi-ClientZone)
+can sell the pricelist items correctly. ClientZone offers the items labelled `ESHOP` and `AKTIVNI`;
+an ordered item becomes an order (stock type *service*) or an advance invoice (*goods*, *material*,
+*fee*); other types are refused.
+
+| Severity | Check | Meaning |
 |---|---|---|
-| chyba | `unsupported-type` | nabízená položka má typ zásoby, který ClientZone nezpracuje |
-| chyba | `no-name`, `negative-price` | chybí název, záporná cena |
-| chyba | `expired`, `not-yet-valid` | nabízená položka platí jen do/od jiného roku (`platiDo`, `platiOd`) |
-| chyba | `credit-unit-price` | kredit (`KREDIT_DOMENA`) má jednotkovou cenu jinou než 1 |
-| chyba | `missing-product`, `product-not-offered` | produkt, na kterém obchod stojí, v ceníku chybí nebo ho zákazník neuvidí |
-| varování | `zero-price`, `no-vat`, `no-unit` | nabízená položka je zdarma, nemá sazbu DPH nebo měrnou jednotku (u služby určuje fakturační období) |
-| varování | `duplicate-code`, `code-spaces` | stejný kód u více položek (bez ohledu na velikost písmen a mezery), mezery kolem kódu |
-| upozornění | `half-labelled`, `no-description`, `code-with-space` | jen jeden ze štítků, chybí popis, mezera v kódu |
+| error | `unsupported-type` | the offered item has a stock type ClientZone does not process |
+| error | `no-name`, `negative-price` | missing name, negative price |
+| error | `expired`, `not-yet-valid` | the offered item is valid only until/from another year (`platiDo`, `platiOd`) |
+| error | `credit-unit-price` | a credit (`KREDIT_DOMENA`) has a unit price other than 1 |
+| error | `missing-product`, `product-not-offered` | a product the shop depends on is missing in the pricelist or customers cannot see it |
+| warning | `zero-price`, `no-vat`, `no-unit` | the offered item is free, has no VAT rate or no unit (for a service the unit gives the billing period) |
+| warning | `duplicate-code`, `code-spaces` | the same code on more items (regardless of case and spaces), spaces around the code |
+| notice | `half-labelled`, `no-description`, `code-with-space` | only one of the labels, no description, a space in the code |
 
-Položky bez štítků `ESHOP` a `AKTIVNI` se posuzují jen z hlediska chyb dat (název, záporná cena,
-duplicity); pravidla obchodu na ně neplatí. Výpis jde filtrovat podle závažnosti.
+Items without the labels `ESHOP` and `AKTIVNI` are judged only for data errors (name, negative
+price, duplicates); the shop rules do not apply to them. The report can be filtered by severity.
 
-Produkty, které obchod musí mít, se zadávají v `.env` (nepovinné, bez nastavení se jejich
-existence nekontroluje):
+The products the shop must have are set in `.env` (optional; when not set, their existence is not checked):
 
     PRICELIST_EXPECTED_PRODUCTS="MULTIFLEXI,HOSTING_WEB,HOSTING_MAIL,KREDIT_DOMENA,KREDIT_VOIP"
 
-Kódy používají order pluginy ClientZone. `platiOd` a `platiDo` se berou jako roky; hodnoty `0`
-a `9999` znamenají bez omezení.
+The codes are used by the order plugins of ClientZone. `platiOd` and `platiDo` are taken as years;
+the values `0` and `9999` mean no limit.
 
-### Editor ceníku a strom
+### Pricelist editor and tree
 
-Stránka **Ceník → Strom a položky** (`pricelisttree.php`) ukazuje strom ceníku AbraFlexi
-(evidence `strom`, kořen `STR_CEN`) s počty položek a u vybrané větve tabulku položek: typ zásoby,
-štítky a zda je zákazníci ClientZone uvidí. **Editor** (`pricelistitem.php`) nabízí výběr místo
-ručního psaní kódů:
+The page **Pricelist → Tree and items** (`pricelisttree.php`) shows the pricelist tree of AbraFlexi
+(evidence `strom`, root `STR_CEN`) with item counts and, for the selected branch, a table of items:
+stock type, labels and whether ClientZone customers see them. The **editor** (`pricelistitem.php`)
+offers choices instead of typing codes by hand:
 
-- **typ zásoby** – ClientZone prodá službu (vznikne přijatá objednávka) a zboží, materiál nebo
-  poplatek (vznikne zálohová faktura); ostatní typy editor odmítne u položky, která se nabízí,
-- **štítky** z číselníku štítků ceníku, řídící `ESHOP` a `AKTIVNI` první,
-- **místo ve stromu** (`strom-cenik`) – ClientZone nabízí položky pod svou katalogovou větví,
-- měrná jednotka, skupina zboží, sazba DPH a platnost.
+- **stock type** – ClientZone sells a service (a received order is created) and goods, material or a
+  fee (an advance invoice is created); the editor refuses other types for an item that is offered,
+- **labels** from the list of pricelist labels, the steering `ESHOP` and `AKTIVNI` first,
+- **place in the tree** (`strom-cenik`) – ClientZone offers the items below its catalog branch,
+- unit of measure, goods group, VAT rate and validity.
 
-Katalogová větev ClientZone (jeho nastavení `PROD_CAT`) se zadá i v `.env` AdminZone, aby editor
-poznal položky mimo nabídku (bez nastavení se bere celý strom):
+The catalog branch of ClientZone (its setting `PROD_CAT`) is set in the `.env` of AdminZone too, so
+the editor can tell the items that are not offered (when not set, the whole tree is taken):
 
     PROD_CAT=1
 
-### Obrázky produktů
+### Product pictures
 
-U uložené položky (`pricelistitem.php?id=…`) je panel **Obrázek**:
+A stored item (`pricelistitem.php?id=…`) has the panel **Picture**:
 
-- **otočení** doleva, doprava a o 180°,
-- **ořez** – tažením myší přes obrázek se vybere oblast, lze zvolit poměr stran (volný, 1:1, 4:3, 3:2, 16:9),
-- **nahrazení** souborem JPEG, PNG, GIF nebo WebP do 10 MB.
+- **turn** left, right and by 180°,
+- **crop** – drag over the picture to select the area; the aspect ratio can be chosen (free, 1:1, 4:3, 3:2, 16:9),
+- **replace** with a JPEG, PNG, GIF or WebP file up to 10 MB.
 
-Obrázek se ukládá do AbraFlexi jako příloha ceníkové položky s poznámkou `image`, z něj se vyrobí
-náhled `thumbnail` (nejdéle 150 px) – stejně je čte ClientZone. Nová příloha se přidá dřív, než se
-odstraní stará, takže při chybě zůstane původní obrázek. Úpravy (otočení, ořez) dělá PHP rozšíření
-GD v `AdminZone\ImageEditor`; SVG se neupravuje. Endpoint `productimage.php` vyžaduje přihlášení
-a CSRF token. Nová, ještě neuložená položka obrázek mít nemůže.
+The picture is stored in AbraFlexi as an attachment of the pricelist item with the note `image`, and
+the thumbnail `thumbnail` (at most 150 px) is made from it – ClientZone reads them the same way.
+The new attachment is added before the old one is removed, so a failure leaves the original picture.
+Turning and cropping is done by the PHP GD extension in `AdminZone\ImageEditor`; SVG is not edited.
+The endpoint `productimage.php` requires sign-in and a CSRF token. A new item that is not stored yet
+cannot have a picture.
 
-## Karta klienta
+## Client card
 
-Stránka `clientcard.php?id=<id adresy nebo code:KÓD>` (odkaz ze seznamu klientů, z adresy je tlačítko
-*Karta klienta*) shrnuje vše, co AbraFlexi ví o vztahu s jedním zákazníkem. Je jen pro čtení;
-úpravy adresy vedou na `adresar.php`.
+The page `clientcard.php?id=<address id or code:CODE>` (linked from the client list; the address page
+has the button *Client card*) sums up all AbraFlexi knows about the relation with one customer. It is
+read-only; editing the address leads to `adresar.php`.
 
-- **upozornění** – faktury po splatnosti (kolik, na kolik a o kolik dní), smlouvy končící do 60 dnů,
-  chybějící e-mail pro faktury a upomínky, jinak zelené „vše zaplaceno“
-- **čtyři čísla** – neuhrazeno, po splatnosti, fakturováno za 12 měsíců, aktivní smlouvy
-- **klient a kontakty** – IČO, DIČ, adresa, e-mail, telefon, štítky; kontakty (`kontakt`)
-- **služby** – stav párování IPEX, Subreg a SledovaniTV s odkazem do účtu u služby
-- **faktury a smlouvy** – posledních 10 vydaných faktur (po splatnosti zvýrazněné) a smlouvy
-  (`smlouva`) aktivní, brzy končící a ukončené (včetně vypovězených)
+- **warnings** – overdue invoices (how many, how much and by how many days), contracts ending within
+  60 days, a missing e-mail for invoices and reminders, otherwise a green "everything is paid"
+- **four numbers** – unpaid, overdue, invoiced in 12 months, active contracts
+- **client and contacts** – company ID, VAT ID, address, e-mail, phone, labels; contacts (`kontakt`)
+- **services** – pairing state of IPEX, Subreg and SledovaniTV with a link to the account at the service
+- **invoices and contracts** – the latest 10 issued invoices (overdue ones highlighted) and contracts
+  (`smlouva`) active, ending soon and ended (including terminated ones)
 
-Částky se počítají v Kč (`zbyvaUhradit`, `sumCelkem`); cizí měny se nepřepočítávají. Data se čtou
-z evidencí `adresar`, `kontakt`, `faktura-vydana`, `smlouva` a `adresar-bankovni-ucet`; sestavení
-karty (`AdminZone\ClientCard::build()`) nepotřebuje spojení s AbraFlexi a je pokryto testy.
+Amounts are counted in CZK (`zbyvaUhradit`, `sumCelkem`); foreign currencies are not converted. The
+data is read from the evidences `adresar`, `kontakt`, `faktura-vydana`, `smlouva` and
+`adresar-bankovni-ucet`; putting the card together (`AdminZone\ClientCard::build()`) needs no
+connection to AbraFlexi and is covered by tests.
 
-## Licence
+## License
 
-MIT, viz `LICENSE`. Přibalené knihovny v `src/assets` a `src/js` mají vlastní licence.
+MIT, see `LICENSE`. The bundled libraries in `src/assets` and `src/js` have their own licenses.
 
-## Struktura
+## Structure
 
-- `src/extids.php` – přiřazení účtů IPEX / Subreg / SledovaniTV k zákazníkům AbraFlexi (EXT:id)
-- `src/AdminZone/` – třídy (`AdminZone\`): `ExtIdService` a služby, `User` (přihlášení tokenem AbraFlexi)
-- `src/clients.php`, `src/adresar.php` – seznam klientů a úprava adresy
-- `src/clientcard.php` – karta klienta (`ClientCard`, `ui\ClientCardView`)
-- `src/pricelist.php` – kontrola ceníku (`PricelistChecker`, `ui\PricelistReport`)
-- `src/pricelisttree.php`, `src/pricelistitem.php` – strom a editor ceníku (`PricelistTree`, `PricelistItem`)
-- `src/productimage.php` – obrázky produktů (`ProductImages`, `ImageEditor`, `ui\ProductImageEditor`, `src/js/productimage.js`)
+- `src/extids.php` – pairing of IPEX / Subreg / SledovaniTV accounts with AbraFlexi customers (EXT:id)
+- `src/AdminZone/` – classes (`AdminZone\`): `ExtIdService` and the services, `User` (sign-in by an AbraFlexi token)
+- `src/clients.php`, `src/adresar.php` – client list and address editing
+- `src/clientcard.php` – client card (`ClientCard`, `ui\ClientCardView`)
+- `src/pricelist.php` – pricelist check (`PricelistChecker`, `ui\PricelistReport`)
+- `src/pricelisttree.php`, `src/pricelistitem.php` – pricelist tree and editor (`PricelistTree`, `PricelistItem`)
+- `src/productimage.php` – product pictures (`ProductImages`, `ImageEditor`, `ui\ProductImageEditor`, `src/js/productimage.js`)
 - `tests/` – PHPUnit (`vendor/bin/phpunit`)
-- `i18n/` – gettext doména `adminzone`
-- `debian/` – balíčkování
+- `i18n/` – gettext domain `adminzone`
+- `debian/` – packaging

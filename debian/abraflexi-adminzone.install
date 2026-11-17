@@ -13,5 +13,6 @@ debian/conf/abraflexi-adminzone.conf	etc/apache2/conf-available
 debian/conf/adminzone.env	usr/share/abraflexi-adminzone/conf
 debian/autoload.php		usr/share/abraflexi-adminzone
 README.md			usr/share/doc/abraflexi-adminzone
+README.cs.md		usr/share/doc/abraflexi-adminzone
 i18n/cs_CZ/LC_MESSAGES/*.mo	usr/share/locale/cs_CZ/LC_MESSAGES
 i18n/en_US/LC_MESSAGES/*.mo	usr/share/locale/en_US/LC_MESSAGES
