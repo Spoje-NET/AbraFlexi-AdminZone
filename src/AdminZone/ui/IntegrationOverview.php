@@ -22,61 +22,32 @@ class IntegrationOverview extends \Ease\TWB5\Panel
      */
     public function __construct($address)
     {
-        parent::__construct(
-            _('Integrations'),
-            'info',
-            null,
-            new \Ease\TWB5\LinkButton(
-                'adr2subreg.php?adrid=' . $address->getMyKey(),
-                _('Register Contact On Subreg'),
-                'warning'
-            )
-        );
+        parent::__construct(_('Integrations'), 'info');
 
-        $subregID = $address->getExternalID('subreg');
-        $ipexID = $address->getExternalID('ipex');
-        $sledovaniTVID = $address->getExternalID('sltv');
+        $addressCode = \AbraFlexi\Functions::uncode((string) $address->getRecordCode());
 
-        if (is_null($subregID)) {
-            $this->addItem(new \Ease\TWB5\LinkButton(
-                'extids.php?service=subreg',
-                'SubReg',
-                'default'
-            ));
-        } else {
-            $this->addItem(new \Ease\TWB5\LinkButton(
-                'https://subreg.cz/cz/users/search/?iduser=' . $subregID . '&submit=Odeslat',
-                'SubReg',
-                'success'
-            ));
-        }
+        foreach (\AdminZone\ExtIdRegistry::all() as $key => $service) {
+            $serviceID = $address->getExternalID($key);
 
-        if (is_null($ipexID)) {
-            $this->addItem(new \Ease\TWB5\LinkButton(
-                'extids.php?service=ipex',
-                'Ipex',
-                'default'
-            ));
-        } else {
-            $this->addItem(new \Ease\TWB5\LinkButton(
-                'https://b2b.ipex.cz/customer/dashboard/' . $ipexID,
-                'Ipex',
-                'success'
-            ));
-        }
+            if (empty($serviceID)) {
+                $this->addItem(new \Ease\TWB5\LinkButton(
+                    $service->pairingUrl($addressCode),
+                    $service->label(),
+                    'default'
+                ));
 
-        if (is_null($sledovaniTVID)) {
-            $this->addItem(new \Ease\TWB5\LinkButton(
-                'sltvregister.php?id=' . $address,
-                'SledovaniTV',
-                'default'
-            ));
-        } else {
-            $this->addItem(new \Ease\TWB5\LinkButton(
-                'https://sledovanitv.cz/partner/user/edit/' . $sledovaniTVID,
-                'SledovaniTV',
-                'success'
-            ));
+                $register = $service->registerLink((string) $address->getMyKey());
+
+                if ($register !== null) {
+                    $this->addItem(new \Ease\TWB5\LinkButton($register[0], $register[1], 'warning'));
+                }
+            } else {
+                $this->addItem(new \Ease\TWB5\LinkButton(
+                    $service->accountUrl((string) $serviceID) ?? $service->pairingUrl($addressCode),
+                    $service->label(),
+                    'success'
+                ));
+            }
         }
     }
 }

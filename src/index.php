@@ -25,8 +25,6 @@ $oPage->container->addItem(new \Ease\Html\DivTag(
     ['class' => 'alert alert-info mt-3', 'role' => 'status'],
 ));
 
-$icons = ['ipex' => 'fa-phone', 'subreg' => 'fa-globe', 'sltv' => 'fa-tv'];
-
 $oPage->container->addItem(new \Ease\Html\H1Tag(_('External accounts'), ['class' => 'mt-4']));
 $oPage->container->addItem(new \Ease\Html\PTag(
     _('Pair accounts of external services with AbraFlexi customers (EXT:id).'),
@@ -35,11 +33,10 @@ $oPage->container->addItem(new \Ease\Html\PTag(
 
 $row = new \Ease\Html\DivTag(null, ['class' => 'row g-3 mt-2']);
 
-foreach (ExtIdService::$services as $key => $class) {
-    $service = new $class();
+foreach (ExtIdRegistry::all() as $key => $service) {
     $card = new \Ease\Html\DivTag(null, ['class' => 'card h-100']);
     $body = $card->addItem(new \Ease\Html\DivTag(null, ['class' => 'card-body']));
-    $body->addItem(new \Ease\Html\H3Tag('<i class="fa ' . ($icons[$key] ?? 'fa-link') . '"></i> ' . $service->title(), ['class' => 'card-title h5']));
+    $body->addItem(new \Ease\Html\H3Tag('<i class="fa ' . $service->icon() . '"></i> ' . $service->title(), ['class' => 'card-title h5']));
     $body->addItem(new \Ease\Html\ATag('extids.php?service=' . $key, _('Open') . ' <span class="arrow">→</span>', ['class' => 'btn btn-glow mt-2']));
     $row->addItem(new \Ease\Html\DivTag($card, ['class' => 'col-md-4']));
 }

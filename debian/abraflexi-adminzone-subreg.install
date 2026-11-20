@@ -1,0 +1,5 @@
+src/AdminZone/extid/SubregExtIdService.php	usr/share/abraflexi-adminzone/AdminZone/extid
+src/AdminZone/extid/SubregAPI.php	usr/share/abraflexi-adminzone/AdminZone/extid
+src/subreg.php	usr/share/abraflexi-adminzone
+src/adr2subreg.php	usr/share/abraflexi-adminzone
+debian/autoload-subreg.php	usr/share/abraflexi-adminzone/extensions

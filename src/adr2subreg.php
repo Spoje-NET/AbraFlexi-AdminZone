@@ -25,7 +25,7 @@ $address = new \AbraFlexi\Adresar(
 
 $subregContactId = $address->getExternalID('subreg');
 
-$subreger = new SubregAPI();
+$subreger = new extid\SubregAPI();
 
 $userListRaw = $subreger->call('Contacts_List');
 $found = false;

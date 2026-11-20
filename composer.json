@@ -21,8 +21,6 @@
     "vitexsoftware/ease-bootstrap5-widgets-abraflexi": "^1.4",
     "vitexsoftware/ease-html-widgets": "dev-main",
     "vitexsoftware/datatables-abraflexi": "^1.2",
-    "spojenet/subreg": "dev-main",
-    "spojenet/ipexb2b": "dev-main",
     "mpdf/mpdf": "*",
     "mhujer/fio-api-php": "^2.4",
     "vitexsoftware/ease-twbootstrap5": ">=1.2.0"
@@ -41,5 +39,9 @@
   "require-dev": {
     "phpunit/phpunit": "*",
     "phpstan/phpstan": "*"
+  },
+  "suggest": {
+    "spojenet/subreg": "Subreg extension (abraflexi-adminzone-subreg)",
+    "spojenet/ipexb2b": "IPEX extension (abraflexi-adminzone-ipex)"
   }
 }

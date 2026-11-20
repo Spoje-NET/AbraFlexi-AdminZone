@@ -55,14 +55,15 @@ class MainMenu extends \Ease\Html\DivTag
                 'pricelist.php' => '<i class="fa fa-stethoscope"></i> ' . _('Pricelist check'),
             ],
         );
-        $nav->addDropDownMenu(
-            '<i class="fa fa-link"></i> ' . _('Integrations'),
-            [
-                'extids.php?service=ipex' => '<i class="fa fa-phone"></i> ' . _('IPEX'),
-                'extids.php?service=subreg' => '<i class="fa fa-globe"></i> ' . _('Subreg'),
-                'extids.php?service=sltv' => '<i class="fa fa-tv"></i> ' . _('SledovaniTV'),
-            ],
-        );
+        $integrations = [];
+
+        foreach (\AdminZone\ExtIdRegistry::all() as $key => $service) {
+            $integrations['extids.php?service=' . $key] = '<i class="fa ' . $service->icon() . '"></i> ' . $service->label();
+        }
+
+        if ($integrations !== []) {
+            $nav->addDropDownMenu('<i class="fa fa-link"></i> ' . _('Integrations'), $integrations);
+        }
         $nav->addDropDownMenu(
             '<i class="fa fa-user"></i> ' . $user->getUserLogin(),
             [

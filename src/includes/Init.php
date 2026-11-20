@@ -33,6 +33,11 @@ $oUser = \Ease\Shared::user(null, 'AdminZone\User');
     'ABRAFLEXI_URL', 'ABRAFLEXI_COMPANY',
         ], __DIR__ . '/../../.env', true);
 
+// Drop-in configuration shipped by extension packages (abraflexi-adminzone-ipex, -subreg, -sledovanitv)
+foreach (glob(__DIR__ . '/../../conf.d/*.env') ?: [] as $extensionEnv) {
+    \Ease\Shared::singleton()->loadConfig($extensionEnv, true);
+}
+
 // Data calls use the service account when ABRAFLEXI_LOGIN/ABRAFLEXI_PASSWORD are configured
 // (the operator's token then only proves who signed in); otherwise they act as the
 // signed-in operator through the AbraFlexi authSessionId token.

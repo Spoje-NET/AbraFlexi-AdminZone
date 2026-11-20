@@ -8,13 +8,33 @@ declare(strict_types=1);
  * @copyright  2018-2026 Spoje.Net
  */
 
-namespace AdminZone;
+namespace AdminZone\extid;
 
-class SledovaniTvExtIdService extends ExtIdService
+class SledovaniTvExtIdService extends \AdminZone\ExtIdService
 {
     public function key(): string
     {
         return 'sltv';
+    }
+
+    public function label(): string
+    {
+        return 'SledovaniTV';
+    }
+
+    public function icon(): string
+    {
+        return 'fa-tv';
+    }
+
+    public function accountUrl(string $serviceId): ?string
+    {
+        return 'https://sledovanitv.cz/partner/user/edit/' . rawurlencode($serviceId);
+    }
+
+    public function pairingUrl(string $addressCode): string
+    {
+        return 'sltvregister.php?id=code:' . rawurlencode($addressCode);
     }
 
     public function title(): string

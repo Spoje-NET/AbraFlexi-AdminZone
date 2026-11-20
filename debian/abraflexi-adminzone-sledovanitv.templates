@@ -1,0 +1,10 @@
+Template: adminzone/SLTV_LOGIN
+Type: string
+Default: 
+Description: SledovaniTV partner login
+ Username for the SledovaniTV partner API.
+
+Template: adminzone/SLTV_PASSWORD
+Type: password
+Description: SledovaniTV partner password
+ Password for the SledovaniTV partner API.

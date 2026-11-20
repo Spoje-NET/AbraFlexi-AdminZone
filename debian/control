@@ -14,8 +14,6 @@ Depends: ${misc:Depends},
  php-vitexsoftware-ease-bootstrap5-widgets-abraflexi,
  php-vitexsoftware-ease-html-widgets,
  php-vitexsoftware-abraflexi-datatables (>= 1.3.0),
- php-spojenet-ipex-b2b,
- php-spojenet-subreg,
  php-curl,
  php-cli,
  locales-all,
@@ -26,5 +24,45 @@ Section: web
 Priority: optional
 Description: Administration zone for AbraFlexi
  Web-based administration portal for AbraFlexi operators: sign in with an
- AbraFlexi account and pair customers with their IPEX, Subreg and SledovaniTV
- accounts. Counterpart of abraflexi-clientzone.
+ AbraFlexi account and pair customers with the accounts of external services
+ (IPEX, Subreg and SledovaniTV are provided by the abraflexi-adminzone-*
+ extension packages). Counterpart of abraflexi-clientzone.
+
+Package: abraflexi-adminzone-ipex
+Architecture: all
+Depends: ${misc:Depends},
+ debconf (>= 0.5) | debconf-2.0,
+ abraflexi-adminzone (= ${binary:Version}),
+ php-spojenet-ipex-b2b
+Breaks: abraflexi-adminzone (<< 0.4.0)
+Replaces: abraflexi-adminzone (<< 0.4.0)
+Section: web
+Priority: optional
+Description: IPEX extension for AbraFlexi AdminZone
+ Pairing of IPEX B2B customers with AbraFlexi addresses. Asks for the API credentials on installation.
+
+Package: abraflexi-adminzone-subreg
+Architecture: all
+Depends: ${misc:Depends},
+ debconf (>= 0.5) | debconf-2.0,
+ abraflexi-adminzone (= ${binary:Version}),
+ php-spojenet-subreg
+Breaks: abraflexi-adminzone (<< 0.4.0)
+Replaces: abraflexi-adminzone (<< 0.4.0)
+Section: web
+Priority: optional
+Description: Subreg extension for AbraFlexi AdminZone
+ Pairing of Subreg users with AbraFlexi addresses and creating Subreg contacts from them. Asks for the API credentials on installation.
+
+Package: abraflexi-adminzone-sledovanitv
+Architecture: all
+Depends: ${misc:Depends},
+ debconf (>= 0.5) | debconf-2.0,
+ abraflexi-adminzone (= ${binary:Version}),
+ php-curl
+Breaks: abraflexi-adminzone (<< 0.4.0)
+Replaces: abraflexi-adminzone (<< 0.4.0)
+Section: web
+Priority: optional
+Description: SledovaniTV extension for AbraFlexi AdminZone
+ Pairing of SledovaniTV users with AbraFlexi addresses and their registration. Asks for the API credentials on installation.

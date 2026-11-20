@@ -25,24 +25,6 @@ use AdminZone\ClientCard;
 class ClientCardView extends \Ease\Html\DivTag
 {
     /**
-     * Where the account of a client at the service can be seen.
-     */
-    private const SERVICE_URL = [
-        'ipex' => 'https://b2b.ipex.cz/customer/dashboard/',
-        'subreg' => 'https://subreg.cz/cz/users/search/?submit=Odeslat&iduser=',
-        'sltv' => 'https://sledovanitv.cz/partner/user/edit/',
-    ];
-
-    /**
-     * Where to pair the client with the service when it is not.
-     */
-    private const PAIRING = [
-        'ipex' => 'extids.php?service=ipex',
-        'subreg' => 'extids.php?service=subreg',
-        'sltv' => 'sltvregister.php?id=code:',
-    ];
-
-    /**
      * @param array<string, mixed> $card result of ClientCard::fetch()
      */
     public function __construct(array $card)
@@ -190,9 +172,10 @@ class ClientCardView extends \Ease\Html\DivTag
 
         foreach ($integrations as $key => $integration) {
             if ($integration['id'] !== null) {
-                $html .= '<a class="btn btn-success btn-sm" href="'.self::e(self::SERVICE_URL[$key].rawurlencode($integration['id'])).'" target="_blank" rel="noopener" title="'.self::e(_('Paired').': '.$integration['id']).'"><i class="fa fa-check"></i> '.self::e($integration['title']).'</a>';
+                $url = \AdminZone\ExtIdRegistry::get($key)?->accountUrl($integration['id']);
+                $html .= '<a class="btn btn-success btn-sm"'.($url !== null ? ' href="'.self::e($url).'" target="_blank" rel="noopener"' : '').' title="'.self::e(_('Paired').': '.$integration['id']).'"><i class="fa fa-check"></i> '.self::e($integration['title']).'</a>';
             } else {
-                $href = self::PAIRING[$key].($key === 'sltv' ? rawurlencode($code) : '');
+                $href = \AdminZone\ExtIdRegistry::get($key)?->pairingUrl($code) ?? 'extids.php?service='.$key;
                 $html .= '<a class="btn btn-outline-secondary btn-sm" href="'.self::e($href).'" title="'.self::e(_('Not paired yet')).'"><i class="fa fa-link"></i> '.self::e($integration['title']).'</a>';
             }
         }

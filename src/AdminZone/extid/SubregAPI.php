@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace AdminZone;
+namespace AdminZone\extid;
 
 /**
  * Description of SubregClient

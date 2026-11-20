@@ -1,0 +1,5 @@
+src/AdminZone/extid/SledovaniTvExtIdService.php	usr/share/abraflexi-adminzone/AdminZone/extid
+src/AdminZone/extid/SledovaniTV.php	usr/share/abraflexi-adminzone/AdminZone/extid
+src/sledovanitv.php	usr/share/abraflexi-adminzone
+src/sltvregister.php	usr/share/abraflexi-adminzone
+debian/autoload-sledovanitv.php	usr/share/abraflexi-adminzone/extensions

@@ -47,15 +47,29 @@ class PricelistChecker
     ];
 
     /**
-     * Pricelist codes the order plugins of ClientZone sell.
+     * Pricelist codes the generic order plugins of ClientZone sell; the installed
+     * extensions (ExtIdRegistry) add their own.
      */
-    public const PLUGIN_PRODUCTS = ['HOSTING_WEB', 'HOSTING_MAIL', 'KREDIT_DOMENA', 'KREDIT_VOIP', 'MULTIFLEXI'];
+    public const PLUGIN_PRODUCTS = ['HOSTING_WEB', 'HOSTING_MAIL', 'MULTIFLEXI'];
 
     /**
      * Products whose price is per one unit of credit: the plugin multiplies it by the amount the
-     * customer asks for, so anything else than 1 charges a wrong sum.
+     * customer asks for, so anything else than 1 charges a wrong sum. Given by the installed extensions.
+     *
+     * @return array<int, string>
      */
-    public const CREDIT_PRODUCTS = ['KREDIT_DOMENA'];
+    public static function creditProducts(): array
+    {
+        return ExtIdRegistry::creditProducts();
+    }
+
+    /**
+     * @return array<int, string> codes of the products sold by the order plugins
+     */
+    public static function pluginProducts(): array
+    {
+        return array_values(array_unique(array_merge(self::PLUGIN_PRODUCTS, ExtIdRegistry::expectedProducts())));
+    }
 
     /**
      * Columns read from AbraFlexi.
@@ -68,7 +82,7 @@ class PricelistChecker
     private array $expectedProducts;
 
     /**
-     * @param array<int, string> $expectedProducts pricelist codes the shop depends on (see PLUGIN_PRODUCTS)
+     * @param array<int, string> $expectedProducts pricelist codes the shop depends on (see pluginProducts())
      * @param null|int           $year             current year, to judge the validity of items (defaults to this year)
      */
     public function __construct(array $expectedProducts = [], private ?int $year = null)
@@ -261,7 +275,7 @@ class PricelistChecker
 
         $this->checkValidity($item, $offered, $add);
 
-        if (\in_array(mb_strtoupper($code), self::CREDIT_PRODUCTS, true) && $price !== '' && is_numeric($price)
+        if (\in_array(mb_strtoupper($code), self::creditProducts(), true) && $price !== '' && is_numeric($price)
             && (float) $price !== 0.0 && (float) $price !== 1.0) {
             $add(PricelistFinding::ERROR, 'credit-unit-price', sprintf(
                 _('The price of a credit is per one unit and must be 1, it is %s: the customer would be charged the amount multiplied by it'),
@@ -282,7 +296,7 @@ class PricelistChecker
         }
 
         if ($price === '' || !is_numeric($price) || (float) $price === 0.0) {
-            if (!\in_array(mb_strtoupper($code), self::CREDIT_PRODUCTS, true)) {
+            if (!\in_array(mb_strtoupper($code), self::creditProducts(), true)) {
                 $add(PricelistFinding::WARNING, 'zero-price', _('The offered item has no price: customers see it for free'));
             }
         }

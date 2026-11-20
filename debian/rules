@@ -10,7 +10,11 @@ override_dh_auto_test:
 	    debian/io.github.spoje_net.abraflexi-adminzone.metainfo.xml
 
 override_dh_install:
-	dh_install
+	# core without the service extensions, they have their own packages
+	dh_install -pabraflexi-adminzone \
+	    -Xsrc/ipex.php -Xsrc/subreg.php -Xsrc/adr2subreg.php \
+	    -Xsrc/sledovanitv.php -Xsrc/sltvregister.php
+	dh_install -pabraflexi-adminzone-ipex -pabraflexi-adminzone-subreg -pabraflexi-adminzone-sledovanitv
 	# stock icon referenced by the AppStream metadata
 	install -D -m 0644 src/images/logo.svg \
 	    debian/abraflexi-adminzone/usr/share/icons/hicolor/scalable/apps/abraflexi-adminzone.svg
@@ -19,6 +23,7 @@ override_dh_install:
 	    -e "s|__DIR__ . '/../../vendor/autoload.php'|'/usr/share/abraflexi-adminzone/autoload.php'|" \
 	    -e "s|__DIR__ . '/../../i18n'|'/usr/share/locale'|" \
 	    -e "s|__DIR__ . '/../../.env'|'/etc/abraflexi-admin-zone/.env'|" \
+	    -e "s|__DIR__ . '/../../conf.d|'/etc/abraflexi-admin-zone/conf.d|" \
 	    $(PKG_ROOT)/includes/Init.php
 	find $(PKG_ROOT) -name '*.php' -print0 | xargs -0 sed -i \
 	    -e "s|require_once __DIR__ *\. *'/../vendor/autoload.php';|require_once '/usr/share/abraflexi-adminzone/autoload.php';|g" \

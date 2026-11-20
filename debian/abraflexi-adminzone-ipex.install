@@ -1,0 +1,3 @@
+src/AdminZone/extid/IpexExtIdService.php	usr/share/abraflexi-adminzone/AdminZone/extid
+src/ipex.php	usr/share/abraflexi-adminzone
+debian/autoload-ipex.php	usr/share/abraflexi-adminzone/extensions

@@ -12,25 +12,19 @@ declare(strict_types=1);
 namespace AdminZone;
 
 /**
- * Service (IPEX, Subreg, SledovaniTV) accounts paired to AbraFlexi customers
- * by external ID ext:<key>:<service account id>.
+ * Service accounts paired to AbraFlexi customers by external ID ext:<key>:<service account id>.
+ *
+ * Services are shipped by extension packages (abraflexi-adminzone-ipex, -subreg,
+ * -sledovanitv, ...) as classes AdminZone\extid\*ExtIdService, found by ExtIdRegistry.
  */
 abstract class ExtIdService
 {
     /**
-     * Known services.
-     *
-     * @var array<string,class-string<ExtIdService>>
+     * Service by key, among the installed extensions (see ExtIdRegistry).
      */
-    public static array $services = [
-        'ipex' => IpexExtIdService::class,
-        'subreg' => SubregExtIdService::class,
-        'sltv' => SledovaniTvExtIdService::class,
-    ];
-
     public static function create(string $key): ?self
     {
-        return \array_key_exists($key, self::$services) ? new self::$services[$key]() : null;
+        return ExtIdRegistry::get($key);
     }
 
     /**
@@ -59,6 +53,68 @@ abstract class ExtIdService
      */
     protected function notifyService(string $serviceId, string $addressCode): void
     {
+    }
+
+    /**
+     * Short name of the service (menu, client card).
+     */
+    public function label(): string
+    {
+        return $this->title();
+    }
+
+    /**
+     * Font Awesome icon of the service.
+     */
+    public function icon(): string
+    {
+        return 'fa-link';
+    }
+
+    /**
+     * Where the account can be seen at the service (null when there is no such page).
+     */
+    public function accountUrl(string $serviceId): ?string
+    {
+        return null;
+    }
+
+    /**
+     * Where to pair a customer (AbraFlexi address code) with the service when he is not paired yet.
+     */
+    public function pairingUrl(string $addressCode): string
+    {
+        return 'extids.php?service=' . $this->key();
+    }
+
+    /**
+     * Optional action creating the account at the service from the AbraFlexi address.
+     *
+     * @return null|array{0:string,1:string} url and caption
+     */
+    public function registerLink(string $addressId): ?array
+    {
+        return null;
+    }
+
+    /**
+     * Pricelist codes the ClientZone plugin of the service sells (checked by the pricelist check).
+     *
+     * @return array<int,string>
+     */
+    public function expectedProducts(): array
+    {
+        return [];
+    }
+
+    /**
+     * Pricelist codes priced per one unit of credit.
+     *
+     * @return array<int,string>
+     */
+    public function creditProducts(): array
+    {
+        return [];
     }
 
     /**

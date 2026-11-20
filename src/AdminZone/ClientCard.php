@@ -30,7 +30,15 @@ final class ClientCard
     /**
      * Services a client can be paired with (the keys of ExtIdService).
      */
-    public const SERVICES = ['ipex' => 'IPEX', 'subreg' => 'Subreg', 'sltv' => 'SledovaniTV'];
+    /**
+     * External services of the installed extensions.
+     *
+     * @return array<string,string> key => label
+     */
+    public static function services(): array
+    {
+        return array_map(static fn (ExtIdService $service): string => $service->label(), ExtIdRegistry::all());
+    }
 
     /**
      * Contracts ending within this many days are pointed out.
@@ -77,7 +85,7 @@ final class ClientCard
 
         $externalIds = [];
 
-        foreach (array_keys(self::SERVICES) as $service) {
+        foreach (array_keys(self::services()) as $service) {
             $externalIds[$service] = $address->getExternalID($service);
         }
 
@@ -142,7 +150,7 @@ final class ClientCard
             ];
         }
 
-        foreach (self::SERVICES as $key => $title) {
+        foreach (self::services() as $key => $title) {
             $id = $externalIds[$key] ?? null;
             $card['integrations'][$key] = ['title' => $title, 'id' => $id !== null && $id !== '' ? (string) $id : null];
         }

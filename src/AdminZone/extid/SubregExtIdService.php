@@ -8,13 +8,43 @@ declare(strict_types=1);
  * @copyright  2018-2026 Spoje.Net
  */
 
-namespace AdminZone;
+namespace AdminZone\extid;
 
-class SubregExtIdService extends ExtIdService
+class SubregExtIdService extends \AdminZone\ExtIdService
 {
     public function key(): string
     {
         return 'subreg';
+    }
+
+    public function label(): string
+    {
+        return 'Subreg';
+    }
+
+    public function icon(): string
+    {
+        return 'fa-globe';
+    }
+
+    public function accountUrl(string $serviceId): ?string
+    {
+        return 'https://subreg.cz/cz/users/search/?submit=Odeslat&iduser=' . rawurlencode($serviceId);
+    }
+
+    public function registerLink(string $addressId): ?array
+    {
+        return ['adr2subreg.php?adrid=' . rawurlencode($addressId), _('Register Contact On Subreg')];
+    }
+
+    public function expectedProducts(): array
+    {
+        return ['KREDIT_DOMENA'];
+    }
+
+    public function creditProducts(): array
+    {
+        return ['KREDIT_DOMENA'];
     }
 
     public function title(): string

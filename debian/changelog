@@ -1,3 +1,17 @@
+abraflexi-adminzone (0.4.0) unstable; urgency=medium
+
+  * IPEX, Subreg and SledovaniTV moved to the extension packages
+    abraflexi-adminzone-ipex, -subreg and -sledovanitv. The core finds the
+    installed services itself (ExtIdRegistry, classes AdminZone\extid\*ExtIdService):
+    menu, dashboard, client card, pricing check and pairing pages are built from them.
+  * The core no longer depends on php-spojenet-ipex-b2b and php-spojenet-subreg;
+    the extension packages ask for the API credentials and write
+    /etc/abraflexi-admin-zone/conf.d/<service>.env.
+  * Pricelist check: KREDIT_DOMENA / KREDIT_VOIP are expected only when the
+    matching extension is installed.
+
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Wed, 18 Nov 2026 21:00:00 +0100
+
 abraflexi-adminzone (0.3.0) unstable; urgency=medium
 
   * Pricelist check (pricelist.php, menu "Ceník"): finds pricelist items that

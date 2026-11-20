@@ -18,7 +18,8 @@ $oPage->onlyForLogged();
 $service = ExtIdService::create((string) $oPage->getRequestValue('service'));
 
 if ($service === null) {
-    $oPage->redirect('extids.php?service=ipex');
+    $first = array_key_first(ExtIdRegistry::all());
+    $oPage->redirect($first !== null ? 'extids.php?service=' . $first : 'index.php');
 
     exit;
 }
@@ -27,11 +28,11 @@ $oPage->addToHeader(new ui\PageTop($service->title()));
 
 $tabs = new \Ease\Html\UlTag(null, ['class' => 'nav nav-tabs mt-4']);
 
-foreach (ExtIdService::$services as $key => $class) {
+foreach (ExtIdRegistry::all() as $key => $tabService) {
     $tabs->addItem(new \Ease\Html\LiTag(
         new \Ease\Html\ATag(
             'extids.php?service=' . $key,
-            (new $class())->title(),
+            $tabService->title(),
             ['class' => 'nav-link' . ($key === $service->key() ? ' active' : '')],
         ),
         ['class' => 'nav-item'],

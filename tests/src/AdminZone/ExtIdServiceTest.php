@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Test\AdminZone;
 
+use AdminZone\ExtIdRegistry;
 use AdminZone\ExtIdService;
 use PHPUnit\Framework\TestCase;
 
@@ -76,5 +77,25 @@ class ExtIdServiceTest extends TestCase
         }
 
         $this->assertNull(ExtIdService::create('unknown'));
+    }
+
+    public function testCoreWithoutExtensionsKnowsNoService(): void
+    {
+        $empty = sys_get_temp_dir() . '/adminzone-noext-' . uniqid();
+        mkdir($empty);
+
+        try {
+            $this->assertSame([], ExtIdRegistry::discover($empty));
+        } finally {
+            rmdir($empty);
+        }
+    }
+
+    public function testInstalledExtensionsContributeProductsAndLinks(): void
+    {
+        $this->assertContains('KREDIT_DOMENA', ExtIdRegistry::creditProducts());
+        $this->assertContains('KREDIT_VOIP', ExtIdRegistry::expectedProducts());
+        $this->assertSame('sltvregister.php?id=code:ACME', ExtIdService::create('sltv')->pairingUrl('ACME'));
+        $this->assertSame('extids.php?service=ipex', ExtIdService::create('ipex')->pairingUrl('ACME'));
     }
 }

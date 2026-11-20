@@ -22,7 +22,7 @@ $address = new Adresar($aid);
 $sledovaniTVID = $address->getExternalID('sltv');
 
 if (empty($sledovaniTVID)) {
-    $registrator = new SledovaniTV();
+    $registrator = new extid\SledovaniTV();
 
     $response = $registrator->identifyUser($address->getRecordCode(), $address->getDataValue('email'), $address->getDataValue('email'), $address->getDataValue('nazev'), $address->getDataValue('ulice'), $address->getDataValue('mesto'), preg_replace('/\s+/', '', $address->getDataValue('psc')), null, null, $_SERVER['REMOTE_ADDR']);
 

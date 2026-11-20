@@ -8,13 +8,33 @@ declare(strict_types=1);
  * @copyright  2018-2026 Spoje.Net
  */
 
-namespace AdminZone;
+namespace AdminZone\extid;
 
-class IpexExtIdService extends ExtIdService
+class IpexExtIdService extends \AdminZone\ExtIdService
 {
     public function key(): string
     {
         return 'ipex';
+    }
+
+    public function label(): string
+    {
+        return 'IPEX';
+    }
+
+    public function icon(): string
+    {
+        return 'fa-phone';
+    }
+
+    public function accountUrl(string $serviceId): ?string
+    {
+        return 'https://b2b.ipex.cz/customer/dashboard/' . rawurlencode($serviceId);
+    }
+
+    public function expectedProducts(): array
+    {
+        return ['KREDIT_VOIP'];
     }
 
     public function title(): string
